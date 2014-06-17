@@ -2,4 +2,7 @@ import Foundation
 
 println("Whatever")
 
-Taylor().sing()
+while true {
+
+	Taylor().sing()
+}
