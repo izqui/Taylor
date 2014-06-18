@@ -13,9 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let taylor = Taylor(port: 3003)
-        taylor.startListening()
-        
+        start()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -24,6 +22,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func start(){
+        
+        let taylor = Taylor(port: 8080)
+        taylor.startListening()
 
+    }
 }
 
