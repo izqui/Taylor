@@ -8,7 +8,7 @@
 
 import Foundation
 
-let taylor = Taylor(port: 8080)
+let taylor = Taylor(port: 8081)
 
 //What is going on
 let router = Router()
@@ -35,3 +35,8 @@ taylor.get("/irene") {
 }
 
 taylor.startListening()
+
+while true {
+    
+    NSRunLoop.mainRunLoop().run()
+}
