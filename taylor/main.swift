@@ -1,7 +1,15 @@
+//
+//  main.swift
+//  Taylor
+//
+//  Created by Jorge Izquierdo on 21/06/14.
+//  Copyright (c) 2014 Jorge Izquierdo. All rights reserved.
+//
+
 import Foundation
 
 let taylor = Taylor(port: 8080)
-        
+
 //What is going on
 let router = Router()
 let route = Route(m: .GET, path: "/") {
