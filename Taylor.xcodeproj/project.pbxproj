@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E19349C019564CA2001E92EE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349BF19564CA2001E92EE /* main.swift */; };
-		E19349CF19564CD4001E92EE /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E19349C919564CD4001E92EE /* GCDAsyncSocket.m */; };
-		E19349D019564CD4001E92EE /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349CA19564CD4001E92EE /* request.swift */; };
-		E19349D119564CD4001E92EE /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349CB19564CD4001E92EE /* response.swift */; };
-		E19349D219564CD4001E92EE /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349CC19564CD4001E92EE /* route.swift */; };
-		E19349D319564CD4001E92EE /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349CD19564CD4001E92EE /* router.swift */; };
-		E19349D419564CD4001E92EE /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19349CE19564CD4001E92EE /* taylor.swift */; };
+		E1247F081956540E007B7D5C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F071956540E007B7D5C /* main.swift */; };
+		E1247F1219565431007B7D5C /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0919565431007B7D5C /* request.swift */; };
+		E1247F1319565431007B7D5C /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0A19565431007B7D5C /* response.swift */; };
+		E1247F1419565431007B7D5C /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0B19565431007B7D5C /* route.swift */; };
+		E1247F1519565431007B7D5C /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0C19565431007B7D5C /* router.swift */; };
+		E1247F1619565431007B7D5C /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0D19565431007B7D5C /* taylor.swift */; };
+		E1247F1719565431007B7D5C /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1247F1019565431007B7D5C /* GCDAsyncSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,16 +29,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1247F071956540E007B7D5C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = SOURCE_ROOT; };
+		E1247F0919565431007B7D5C /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = request.swift; path = taylor/request.swift; sourceTree = SOURCE_ROOT; };
+		E1247F0A19565431007B7D5C /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = response.swift; path = taylor/response.swift; sourceTree = SOURCE_ROOT; };
+		E1247F0B19565431007B7D5C /* route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = route.swift; path = taylor/route.swift; sourceTree = SOURCE_ROOT; };
+		E1247F0C19565431007B7D5C /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = router.swift; path = taylor/router.swift; sourceTree = SOURCE_ROOT; };
+		E1247F0D19565431007B7D5C /* taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = taylor.swift; path = taylor/taylor.swift; sourceTree = SOURCE_ROOT; };
+		E1247F0F19565431007B7D5C /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		E1247F1019565431007B7D5C /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		E1247F1119565431007B7D5C /* Taylor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Taylor-Bridging-Header.h"; sourceTree = "<group>"; };
 		E19349BC19564CA2001E92EE /* Taylor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Taylor; sourceTree = BUILT_PRODUCTS_DIR; };
-		E19349BF19564CA2001E92EE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E19349C819564CD4001E92EE /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		E19349C919564CD4001E92EE /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		E19349CA19564CD4001E92EE /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
-		E19349CB19564CD4001E92EE /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = response.swift; sourceTree = "<group>"; };
-		E19349CC19564CD4001E92EE /* route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = route.swift; sourceTree = "<group>"; };
-		E19349CD19564CD4001E92EE /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
-		E19349CE19564CD4001E92EE /* taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taylor.swift; sourceTree = "<group>"; };
-		E19349D719564E9B001E92EE /* Taylor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Taylor-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +52,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1247F0E19565431007B7D5C /* TCP */ = {
+			isa = PBXGroup;
+			children = (
+				E1247F0F19565431007B7D5C /* GCDAsyncSocket.h */,
+				E1247F1019565431007B7D5C /* GCDAsyncSocket.m */,
+				E1247F1119565431007B7D5C /* Taylor-Bridging-Header.h */,
+			);
+			name = TCP;
+			path = taylor/TCP;
+			sourceTree = SOURCE_ROOT;
+		};
 		E19349B319564CA2001E92EE = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +82,7 @@
 		E19349BE19564CA2001E92EE /* Taylor */ = {
 			isa = PBXGroup;
 			children = (
-				E19349BF19564CA2001E92EE /* main.swift */,
+				E1247F071956540E007B7D5C /* main.swift */,
 				E19349D519564CF0001E92EE /* Taylor */,
 			);
 			path = Taylor;
@@ -80,24 +91,14 @@
 		E19349D519564CF0001E92EE /* Taylor */ = {
 			isa = PBXGroup;
 			children = (
-				E19349D619564CF9001E92EE /* TCP */,
-				E19349CA19564CD4001E92EE /* request.swift */,
-				E19349CB19564CD4001E92EE /* response.swift */,
-				E19349CC19564CD4001E92EE /* route.swift */,
-				E19349CD19564CD4001E92EE /* router.swift */,
-				E19349CE19564CD4001E92EE /* taylor.swift */,
+				E1247F0919565431007B7D5C /* request.swift */,
+				E1247F0A19565431007B7D5C /* response.swift */,
+				E1247F0B19565431007B7D5C /* route.swift */,
+				E1247F0C19565431007B7D5C /* router.swift */,
+				E1247F0D19565431007B7D5C /* taylor.swift */,
+				E1247F0E19565431007B7D5C /* TCP */,
 			);
 			path = Taylor;
-			sourceTree = "<group>";
-		};
-		E19349D619564CF9001E92EE /* TCP */ = {
-			isa = PBXGroup;
-			children = (
-				E19349C819564CD4001E92EE /* GCDAsyncSocket.h */,
-				E19349C919564CD4001E92EE /* GCDAsyncSocket.m */,
-				E19349D719564E9B001E92EE /* Taylor-Bridging-Header.h */,
-			);
-			path = TCP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,13 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E19349D119564CD4001E92EE /* response.swift in Sources */,
-				E19349CF19564CD4001E92EE /* GCDAsyncSocket.m in Sources */,
-				E19349D319564CD4001E92EE /* router.swift in Sources */,
-				E19349D219564CD4001E92EE /* route.swift in Sources */,
-				E19349C019564CA2001E92EE /* main.swift in Sources */,
-				E19349D019564CD4001E92EE /* request.swift in Sources */,
-				E19349D419564CD4001E92EE /* taylor.swift in Sources */,
+				E1247F1319565431007B7D5C /* response.swift in Sources */,
+				E1247F1419565431007B7D5C /* route.swift in Sources */,
+				E1247F1619565431007B7D5C /* taylor.swift in Sources */,
+				E1247F081956540E007B7D5C /* main.swift in Sources */,
+				E1247F1519565431007B7D5C /* router.swift in Sources */,
+				E1247F1719565431007B7D5C /* GCDAsyncSocket.m in Sources */,
+				E1247F1219565431007B7D5C /* request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +251,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/Taylor/TCP/Taylor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/TCP/Taylor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -261,7 +262,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/Taylor/TCP/Taylor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/TCP/Taylor-Bridging-Header.h";
 			};
 			name = Release;
 		};

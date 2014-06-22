@@ -8,7 +8,17 @@
 
 import Foundation
 
-let taylor = Taylor(port: 8081)
+var port = 8080
+
+if C_ARGC > 1 {
+    
+    var string = String.fromCString(C_ARGV[1])
+    if let i = string.toInt() {
+        port = i
+    }
+}
+
+let taylor = Taylor(port: port)
 
 //What is going on
 let router = Router()

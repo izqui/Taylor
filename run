@@ -1,0 +1,3 @@
+echo "Building..."
+xcodebuild
+./build/Release/Taylor "$@"
