@@ -9,7 +9,7 @@
 import Foundation
 
 //Check if port is being set from the command line
-var port = 8080"
+var port = 8080
 if C_ARGC > 1 {
     
     var string = String.fromCString(C_ARGV[1])
