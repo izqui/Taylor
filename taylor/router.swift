@@ -38,7 +38,10 @@ class Router {
     
     func 😕(request: Request, response: Response) -> Bool {
         
-        println("404 bro")
+        let resp = Response(socket: response._socket)
+        resp.statusCode = 404
+        resp.send()
+        
         return true
     }
 }

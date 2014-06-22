@@ -89,7 +89,6 @@ class Request {
             }
             
         }
-        
-        println("REQUEST: method \(self.method) path \(self.path) header \(self.headers) arguments \(self.arguments)")
+        //println("REQUEST: method \(self.method) path \(self.path) header \(self.headers) arguments \(self.arguments)")
     }
 }

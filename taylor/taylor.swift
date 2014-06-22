@@ -13,7 +13,16 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     let _port: Int
     var _socket: GCDAsyncSocket?
     
-    var router: Router
+    var router: Router {
+    
+    willSet (newOne){
+        
+        // When setting a new router, set the routes of the old one
+        for r in router._routes {
+            newOne.addRoute(r)
+        }
+    }
+    }
     
     init(port p: Int){
         
@@ -29,7 +38,7 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         _socket = GCDAsyncSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
     }
     
-    func startListening(){
+    func startListening(forever awake: Bool){
         
         var err: NSError?
         
@@ -45,6 +54,15 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         else {
             
             println("wtf")
+        }
+        
+        if awake {
+            
+            // So the program doesn't end
+            while true {
+                
+                NSRunLoop.mainRunLoop().run()
+            }
         }
     }
     

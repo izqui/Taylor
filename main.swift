@@ -8,8 +8,8 @@
 
 import Foundation
 
-var port = 8080
-
+//Check if port is being set from the command line
+var port = 8080"
 if C_ARGC > 1 {
     
     var string = String.fromCString(C_ARGV[1])
@@ -20,13 +20,31 @@ if C_ARGC > 1 {
 
 let taylor = Taylor(port: port)
 
-//What is going on
-let router = Router()
-let route = Route(m: .GET, path: "/") {
+//"Cool" way
+taylor.get("/") {
     (request: Request, response: Response) in
     
-    response.stringBody = "<h1>TAYLOR, SWIFT</h1>"
+    response.stringBody = "<h1>Hello World</h1>"
     response.headers["Content-type"] = "text/html"
+    response.send()
+    
+    return true
+}
+
+//"What is going" on way
+let router = Router()
+let route = Route(m: .GET, path: "/hello") {
+    (request: Request, response: Response) in
+    
+    if let name = request.arguments["name"] {
+        
+        response.stringBody = "Hello \(name)"
+    }
+    else {
+        
+        response.stringBody = "Hello stranger"
+    }
+    
     response.send()
     
     return true
@@ -34,19 +52,5 @@ let route = Route(m: .GET, path: "/") {
 router.addRoute(route)
 taylor.router = router
 
-//Cool way
-taylor.get("/irene") {
-    (request: Request, response: Response) in
-    
-    response.stringBody = "Te quiero peque"
-    response.send()
-    
-    return true
-}
-
-taylor.startListening()
-
-while true {
-    
-    NSRunLoop.mainRunLoop().run()
-}
+// Run forever
+taylor.startListening(forever: true)

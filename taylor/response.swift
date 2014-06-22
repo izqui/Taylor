@@ -89,8 +89,9 @@ class Response {
         }
         
         headersStr += "\n"
+        var finalStr = String(startLine+headersStr)
         
-        var data: NSMutableData = NSMutableData(data: String(startLine+headersStr).dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+        var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
         data.appendData(bodyData)
         
         return data as NSData
