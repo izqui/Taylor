@@ -23,7 +23,8 @@ let taylor = Taylor(port: port)
 var count = 0
 //"Cool" way
 taylor.get("/") {
-    (request: Request, response: Response) in
+    
+    request, response in
     
     response.stringBody = "<h1>Hello World</h1>"
     response.headers["Content-type"] = "text/html"
@@ -37,7 +38,8 @@ taylor.get("/") {
 //"What is going" on way
 let router = Router()
 let route = Route(m: .GET, path: "/hello") {
-    (request: Request, response: Response) in
+    
+    request, response in
     
     if let name = request.arguments["name"] {
         

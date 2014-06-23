@@ -15,8 +15,6 @@ class Request {
         case GET = "GET"
         case POST = "POST"
         case UNDEFINED = ""
-        
-        static let allMethods = [GET, POST]
     }
     
     var path: String = String()
@@ -46,13 +44,15 @@ class Request {
             
             if startLineArr.count > 0 {
                 
-                self.method = .UNDEFINED
-                for method in HTTPMethod.allMethods {
+                if let m = HTTPMethod.fromRaw(startLineArr[0]) {
                     
-                    if method.toRaw() == startLineArr[1] {
-                        self.method = method
-                    }
+                    self.method = m
                 }
+                else {
+        
+                    self.method = .UNDEFINED
+                }
+                
             }
             
             //Parse URL
