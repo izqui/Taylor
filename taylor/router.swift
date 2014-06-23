@@ -30,12 +30,19 @@ class Router {
                 
                 println("\(request.method.toRaw()) -> \(request.path)")
                 
-                if let t = route.callback(request: request, response: response) {
-                    // Continue
-                }
-                else {
+                var t: TaylorTuple = (request: request, response: response)
+                
+                //Execute all handlers
+                for handler in route.handlers {
                     
-                    return true
+                    if let tuple = handler(request: t.request, response: t.response) {
+                        // Continue
+                        t = tuple
+                    }
+                    else {
+                        
+                        return true
+                    }
                 }
                 
             default:

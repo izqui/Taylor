@@ -94,14 +94,14 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     }
 
     //Convenience methods
-    func get(p: String, callback c: TaylorHandler) {
+    func get(p: String, callback c: TaylorHandler...) {
         
-        self.router.addRoute(Route(m: .GET, path: p, callback: c))
+        self.router.addRoute(Route(m: .GET, path: p, handlers: c))
     }
     
-    func post(p: String, callback c: TaylorHandler) {
+    func post(p: String, callback c: TaylorHandler...) {
         
-        self.router.addRoute(Route(m: .POST, path: p, callback: c))
+        self.router.addRoute(Route(m: .POST, path: p, handlers: c))
     }
     
 }

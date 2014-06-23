@@ -39,14 +39,13 @@ taylor.post("/") {
     response.headers["Content-type"] = "text/html"
     response.send()
     
-    
     return nil
 }
 
 //"What is going" on way
 let router = Router()
 
-let callback: TaylorHandler = {
+let handler: TaylorHandler = {
     
     (request: Request, response: Response) in
     
@@ -64,7 +63,7 @@ let callback: TaylorHandler = {
     return nil
 }
 
-let route = Route(m: .GET, path: "/hello", callback: callback)
+let route = Route(m: Request.HTTPMethod.GET, path: "/hello", handlers: [handler])
 
 router.addRoute(route)
 taylor.router = router
