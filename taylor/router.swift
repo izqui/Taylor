@@ -23,17 +23,21 @@ class Router {
     func handleRequest(request: Request, response: Response) -> Bool {
         
         //TODO: Make this shit asyncronous
-        
-        for r in _routes {
+        for route in _routes {
             
-            if r.path == request.path && r.method == request.method {
+            switch (route.path, route.method) {
+            case (request.path, request.method):
                 
-                return r.callback(request: request, response: response)
+                println("\(request.method.toRaw()) -> \(request.path)")
+                return route.callback(request: request, response: response)
+                
+            default:
+                continue
             }
         }
         
+        println("\(request.method.toRaw()) \(request.path) not implemented")
         return self.😕(request, response: response)
-        
     }
     
     func 😕(request: Request, response: Response) -> Bool {

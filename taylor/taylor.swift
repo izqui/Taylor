@@ -45,7 +45,6 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         if _socket!.acceptOnInterface(nil, port: UInt16(_port), error: &err) {
             
             println("Server running on port \(_socket!.localPort())")
-        
         }
         else if err {
             
@@ -69,7 +68,6 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
         
         newSocket.readDataWithTimeout(10, tag: 1)
-        
     }
     
     func socket(sock: GCDAsyncSocket, didReadData data: NSData, withTag tag: Double){
@@ -92,14 +90,18 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     //- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
     func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
         
-        println("disconnection happened")
+        //println("disconnection happened")
     }
-    
-    
+
     //Convenience methods
     func get(p: String, callback c: (request: Request, response: Response) -> (ok: Bool)) {
         
         self.router.addRoute(Route(m: .GET, path: p, callback: c))
+    }
+    
+    func post(p: String, callback c: (request: Request, response: Response) -> (ok: Bool)) {
+        
+        self.router.addRoute(Route(m: .POST, path: p, callback: c))
     }
     
 }

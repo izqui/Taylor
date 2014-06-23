@@ -10,10 +10,13 @@ import Foundation
 
 class Request {
     
-    enum HTTPMethod{
+    enum HTTPMethod: String {
         
-        case GET
-        case UNDEFINED
+        case GET = "GET"
+        case POST = "POST"
+        case UNDEFINED = ""
+        
+        static let allMethods = [GET, POST]
     }
     
     var path: String = String()
@@ -27,6 +30,11 @@ class Request {
     init(data d: NSData){
         
         //Parsing data from socket to build a HTTP request
+        self.parseRequest(d)
+    }
+    
+    func parseRequest(d: NSData){
+        
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
         
         var http: String[] = string.componentsSeparatedByString("\n") as String[]
@@ -38,11 +46,12 @@ class Request {
             
             if startLineArr.count > 0 {
                 
-                switch startLineArr[0]{
-                case "GET":
-                    self.method = .GET
-                default:
-                    self.method = .UNDEFINED
+                self.method = .UNDEFINED
+                for method in HTTPMethod.allMethods {
+                    
+                    if method.toRaw() == startLineArr[1] {
+                        self.method = method
+                    }
                 }
             }
             
@@ -87,7 +96,6 @@ class Request {
                 
                 self.headers.updateValue(header[1], forKey: header[0])
             }
-            
         }
         //println("REQUEST: method \(self.method) path \(self.path) header \(self.headers) arguments \(self.arguments)")
     }

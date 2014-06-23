@@ -20,6 +20,7 @@ if C_ARGC > 1 {
 
 let taylor = Taylor(port: port)
 
+var count = 0
 //"Cool" way
 taylor.get("/") {
     (request: Request, response: Response) in
@@ -27,6 +28,8 @@ taylor.get("/") {
     response.stringBody = "<h1>Hello World</h1>"
     response.headers["Content-type"] = "text/html"
     response.send()
+    
+    println(++count)
     
     return true
 }
