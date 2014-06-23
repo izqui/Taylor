@@ -20,7 +20,6 @@ if C_ARGC > 1 {
 
 let taylor = Taylor(port: port)
 
-
 //"Cool" way
 taylor.get("/") {
     
@@ -31,7 +30,7 @@ taylor.get("/") {
     return nil
 }
 
-taylor.post("/") {
+taylor.post("/", Middleware.bodyParser()) {
     
     request, response in
     

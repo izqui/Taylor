@@ -14,6 +14,7 @@
 		E1247F1519565431007B7D5C /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0C19565431007B7D5C /* router.swift */; };
 		E1247F1619565431007B7D5C /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0D19565431007B7D5C /* taylor.swift */; };
 		E1D4CE211958BAE8008BB3FF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */; };
+		E1D4CE231958BDC5008BB3FF /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4CE221958BDC5008BB3FF /* middleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		E1D4CE1E1958BAE8008BB3FF /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = taylor/dependencies/GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = taylor/dependencies/GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		E1D4CE201958BAE8008BB3FF /* Taylor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Taylor-Bridging-Header.h"; path = "taylor/dependencies/Taylor-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		E1D4CE221958BDC5008BB3FF /* middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = middleware.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				E1247F0B19565431007B7D5C /* route.swift */,
 				E1247F0919565431007B7D5C /* request.swift */,
 				E1247F0A19565431007B7D5C /* response.swift */,
+				E1D4CE221958BDC5008BB3FF /* middleware.swift */,
 				E1247F0E19565431007B7D5C /* TCP */,
 			);
 			path = Taylor;
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1247F1319565431007B7D5C /* response.swift in Sources */,
+				E1D4CE231958BDC5008BB3FF /* middleware.swift in Sources */,
 				E1247F1419565431007B7D5C /* route.swift in Sources */,
 				E1247F1619565431007B7D5C /* taylor.swift in Sources */,
 				E1247F081956540E007B7D5C /* main.swift in Sources */,
