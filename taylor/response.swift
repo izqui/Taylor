@@ -52,8 +52,11 @@ class Response {
         _socket = s
     }
     
-    func redirect() {
+    func redirect(url u: String) {
         
+        self.statusCode = 303
+        self.headers["Location"] = u
+        self.send()
     }
     
     func send() {
@@ -80,15 +83,15 @@ class Response {
             headers["Content-length"] = String(bodyData.length)
         }
         
-        var startLine = "\(self._protocol) \(String(self.statusCode)) \(self.statusLine)\n"
+        var startLine = "\(self._protocol) \(String(self.statusCode)) \(self.statusLine)\r\n"
         
         var headersStr = ""
         for (k, v) in self.headers {
             
-            headersStr += "\(k): \(v)\n"
+            headersStr += "\(k): \(v)\r\n"
         }
         
-        headersStr += "\n"
+        headersStr += "\r\n"
         var finalStr = String(startLine+headersStr)
         
         var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))

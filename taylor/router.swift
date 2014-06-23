@@ -29,7 +29,14 @@ class Router {
             case (request.path, request.method):
                 
                 println("\(request.method.toRaw()) -> \(request.path)")
-                return route.callback(request: request, response: response)
+                
+                if let t = route.callback(request: request, response: response) {
+                    // Continue
+                }
+                else {
+                    
+                    return true
+                }
                 
             default:
                 continue

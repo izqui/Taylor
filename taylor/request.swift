@@ -14,7 +14,7 @@ class Request {
         
         case GET = "GET"
         case POST = "POST"
-        case UNDEFINED = ""
+        case UNDEFINED = "UNDEFINED" // it will never match
     }
     
     var path: String = String()
@@ -22,6 +22,9 @@ class Request {
     
     var method: HTTPMethod = .UNDEFINED
     var headers: Dictionary<String, String> = Dictionary<String, String>()
+    
+    //var bodyData: NSData?
+    var bodyString: NSString?
     
     var _protocol: String?
     
@@ -33,9 +36,12 @@ class Request {
     
     func parseRequest(d: NSData){
         
-        var string = NSString(data: d, encoding: NSUTF8StringEncoding)
         
-        var http: String[] = string.componentsSeparatedByString("\n") as String[]
+        //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
+        var string = NSString(data: d, encoding: NSUTF8StringEncoding)
+        println(string)
+        
+        var http: String[] = string.componentsSeparatedByString("\r\n") as String[]
         
         //Parse method
         if http.count > 0 {
@@ -48,11 +54,6 @@ class Request {
                     
                     self.method = m
                 }
-                else {
-        
-                    self.method = .UNDEFINED
-                }
-                
             }
             
             //Parse URL
@@ -76,7 +77,8 @@ class Request {
                             value = arg[1]
                         }
                         
-                        self.arguments.updateValue(value, forKey: arg[0])
+                        // Adding the values removing the %20 bullshit and stuff
+                        self.arguments.updateValue(value.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding), forKey: arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding))
                     }
                 }
             }
@@ -89,14 +91,39 @@ class Request {
         }
         
         //Parse Headers
-        for i in 1..http.count {
+        var i = 1
+        
+        while ++i < http.count {
             
-            var header = http[i].componentsSeparatedByString(": ") as String[]
+            var content = http[i]
+            
+            if content == "" {
+                
+                // Means headers have ended and body started (New line already got parsed ("\r\n"))
+                break
+            }
+            var header = content.componentsSeparatedByString(": ") as String[]
             if header.count == 2 {
                 
                 self.headers.updateValue(header[1], forKey: header[0])
             }
         }
+        
+        if i < http.count && (self.method == .POST || false) { // Add other methods that support body data
+            
+            println("We have body data")
+            var str = NSMutableString()
+            while ++i < http.count {
+                
+                str.appendString("\(str)\n")
+    
+            }
+            
+            self.bodyString = str
+        }
+        
+        
+        
         //println("REQUEST: method \(self.method) path \(self.path) header \(self.headers) arguments \(self.arguments)")
     }
 }

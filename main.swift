@@ -20,26 +20,35 @@ if C_ARGC > 1 {
 
 let taylor = Taylor(port: port)
 
-var count = 0
+
 //"Cool" way
 taylor.get("/") {
     
     request, response in
     
-    response.stringBody = "<h1>Hello World</h1>"
+    response.redirect(url: "/")
+    
+    return nil
+}
+
+taylor.post("/") {
+    
+    request, response in
+    
+    response.stringBody = "<h1>Hello World, POST</h1>"
     response.headers["Content-type"] = "text/html"
     response.send()
     
-    println(++count)
     
-    return true
+    return nil
 }
 
 //"What is going" on way
 let router = Router()
-let route = Route(m: .GET, path: "/hello") {
+
+let callback: TaylorHandler = {
     
-    request, response in
+    (request: Request, response: Response) in
     
     if let name = request.arguments["name"] {
         
@@ -52,8 +61,11 @@ let route = Route(m: .GET, path: "/hello") {
     
     response.send()
     
-    return true
+    return nil
 }
+
+let route = Route(m: .GET, path: "/hello", callback: callback)
+
 router.addRoute(route)
 taylor.router = router
 

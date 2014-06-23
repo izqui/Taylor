@@ -8,15 +8,20 @@
 
 import Foundation
 
+//Makes the compiler crash
+//typealias TaylorHandler = (inout request: Request, inout response: Response) -> (ok: Bool)
+
+typealias TaylorHandler = (request: Request, response: Response) -> (Request, Response)?
+
 class Route {
     
     let method: Request.HTTPMethod
     let path: String
     
     //inout causing swift to crash with error 254
-    let callback: (request: Request, response: Response) -> (ok: Bool)
+    let callback: TaylorHandler
   
-    init(m: Request.HTTPMethod, path p: String, callback c: (request: Request, response: Response) -> (ok: Bool)){
+    init(m: Request.HTTPMethod, path p: String, callback c: TaylorHandler){
         
         method = m
         path = p
