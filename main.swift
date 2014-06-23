@@ -20,12 +20,14 @@ if C_ARGC > 1 {
 
 let taylor = Taylor(port: port)
 
+taylor.use(Middleware.requestLogger())
+
 //"Cool" way
 taylor.get("/") {
     
     request, response in
     
-    response.redirect(url: "/")
+    response.redirect(url: "/hello?name=Irene")
     
     return nil
 }

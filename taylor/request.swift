@@ -39,7 +39,6 @@ class Request {
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
-        println(string)
         
         var http: String[] = string.componentsSeparatedByString("\r\n") as String[]
         
@@ -98,8 +97,7 @@ class Request {
             var content = http[i]
             
             if content == "" {
-                
-                // Means headers have ended and body started (New line already got parsed ("\r\n"))
+                // This newline means headers have ended and body started (New line already got parsed ("\r\n"))
                 break
             }
             var header = content.componentsSeparatedByString(": ") as String[]
@@ -121,9 +119,6 @@ class Request {
             
             self.bodyString = str
         }
-        
-        
-        
         //println("REQUEST: method \(self.method) path \(self.path) header \(self.headers) arguments \(self.arguments)")
     }
 }

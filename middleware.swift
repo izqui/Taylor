@@ -16,6 +16,22 @@ class Middleware {
             
             request, response in
             
+            if request.bodyString {
+                
+                println("parsing body \(request.bodyString!)")
+            }
+            
+            return (request: request, response: response)
+        }
+    }
+    
+    class func requestLogger() -> TaylorHandler {
+        
+        return {
+            
+            request, response in
+            
+            println("[Taylor] \(request.method.toRaw()) \(request.path)")
             
             return (request: request, response: response)
         }

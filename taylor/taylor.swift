@@ -21,6 +21,9 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         for r in router._routes {
             newOne.addRoute(r)
         }
+        for m in router._middleware {
+            newOne.addMiddleware(m)
+        }
     }
     }
     
@@ -64,6 +67,13 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
             }
         }
     }
+    
+    func use(middleware: TaylorHandler){
+        
+        self.router.addMiddleware(middleware)
+    }
+    
+    // GCDAsyncSocket delegate methods
     
     func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
         

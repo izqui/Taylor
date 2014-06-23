@@ -11,13 +11,25 @@ import Foundation
 class Router {
     
     var _routes: Route[] = Route[]()
+    var _middleware: TaylorHandler[] = TaylorHandler[]()
     
     func addRoute(route: Route) -> Bool {
         
-        //TODO: Should check for conflicts before adding it
-        _routes += route
+        // Check for conflicts before adding it
+        for r in _routes {
+            
+            if r.path == route.path && r.method == route.method {
+                return false
+            }
+        }
         
+        self._routes += route
         return true
+    }
+    
+    func addMiddleware(middleware: TaylorHandler) {
+        
+        self._middleware += middleware
     }
     
     func handleRequest(request: Request, response: Response) -> Bool {
@@ -28,10 +40,19 @@ class Router {
             switch (route.path, route.method) {
             case (request.path, request.method):
                 
-                println("\(request.method.toRaw()) -> \(request.path)")
-                
                 var t: TaylorTuple = (request: request, response: response)
                 
+                for mid in self._middleware {
+                    
+                    if let tuple = mid(request: t.request, response: t.response) {
+                        // Continue
+                        t = tuple
+                    }
+                    else {
+                        
+                        return true
+                    }
+                }
                 //Execute all handlers
                 for handler in route.handlers {
                     
