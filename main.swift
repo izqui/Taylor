@@ -9,7 +9,7 @@
 import Foundation
 
 //Check if port is being set from the command line
-var port = 8080
+var port = 8000
 if C_ARGC > 1 {
     
     var string = String.fromCString(C_ARGV[1])
@@ -28,7 +28,9 @@ taylor.get("/") {
     
     request, response in
     
-    response.redirect(url: "/hello?name=Irene")
+    response.stringBody = "<h1>Hello World, GET</h1>"
+    response.headers["Content-type"] = "text/html"
+    response.send()
     
     return nil
 }
@@ -65,7 +67,7 @@ let handler: TaylorHandler = {
     return nil
 }
 
-let route = Route(m: Request.HTTPMethod.GET, path: "/hello", handlers: [handler])
+let route = Route(m: Request.HTTPMethod.GET, path: "/hello/:world", handlers: [handler])
 
 router.addRoute(route)
 taylor.router = router

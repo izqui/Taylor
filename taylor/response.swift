@@ -54,7 +54,7 @@ class Response {
     
     func redirect(url u: String) {
         
-        self.statusCode = 303
+        self.statusCode = 302
         self.headers["Location"] = u
         self.send()
     }

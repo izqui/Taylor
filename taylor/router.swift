@@ -16,12 +16,12 @@ class Router {
     func addRoute(route: Route) -> Bool {
         
         // Check for conflicts before adding it
-        for r in _routes {
+        /*for r in _routes {
             
             if r.path == route.path && r.method == route.method {
                 return false
             }
-        }
+        }*/
         
         self._routes += route
         return true
@@ -35,44 +35,63 @@ class Router {
     func handleRequest(request: Request, response: Response) -> Bool {
         
         //TODO: Make this shit asyncronous
-        for route in _routes {
+        if let route = self.detectRouteForRequest(request){
             
-            switch (route.path, route.method) {
-            case (request.path, request.method):
+            var t: TaylorHandlerTuple = (request: request, response: response)
+            
+            for mid in self._middleware {
                 
-                var t: TaylorTuple = (request: request, response: response)
-                
-                for mid in self._middleware {
-                    
-                    if let tuple = mid(request: t.request, response: t.response) {
-                        // Continue
-                        t = tuple
-                    }
-                    else {
-                        
-                        return true
-                    }
+                if let tuple = mid(request: t.request, response: t.response) {
+                    // Continue
+                    t = tuple
                 }
-                //Execute all handlers
-                for handler in route.handlers {
+                else {
                     
-                    if let tuple = handler(request: t.request, response: t.response) {
-                        // Continue
-                        t = tuple
-                    }
-                    else {
-                        
-                        return true
-                    }
+                    return true
                 }
-                
-            default:
-                continue
             }
+            //Execute all handlers
+            for handler in route.handlers {
+                
+                if let tuple = handler(request: t.request, response: t.response) {
+                    // Continue
+                    t = tuple
+                }
+                else {
+                    
+                    return true
+                }
+            }
+            
         }
         
         println("\(request.method.toRaw()) \(request.path) not implemented")
         return self.😕(request, response: response)
+        
+    }
+    
+    func detectRouteForRequest(request: Request) -> Route? {
+        
+        for route in self._routes {
+            
+            let compCount = route.pathComponents.count
+            if route.method == request.method && compCount == request.pathComponents.count{
+                
+                for i in 0..compCount {
+                    
+                    if !(route.pathComponents[i].isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
+                        
+                        break
+                    }
+                    
+                    if i == compCount - 1 {
+                        return route
+                    }
+                }
+            }
+        }
+        
+        return nil
     }
     
     func 😕(request: Request, response: Response) -> Bool {

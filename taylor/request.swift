@@ -21,12 +21,14 @@ class Request {
     var pathComponents: String[] = String[]()
     
     var arguments: Dictionary<String, String> = Dictionary<String, String>()
+    var parameters: Dictionary<String, String> = Dictionary<String, String>()
     
     var method: HTTPMethod = .UNDEFINED
     var headers: Dictionary<String, String> = Dictionary<String, String>()
     
     //var bodyData: NSData?
     var bodyString: NSString?
+    var body: Dictionary<String, String> = Dictionary<String, String>()
     
     var _protocol: String?
     
@@ -37,7 +39,6 @@ class Request {
     }
     
     func parseRequest(d: NSData){
-        
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
@@ -64,6 +65,14 @@ class Request {
                 var urlElements: String[] = url.componentsSeparatedByString("?") as String[]
                 
                 self.path = urlElements[0]
+                var comps = self.path.componentsSeparatedByString("/")
+                
+                //We don't care about the first element, which will always be nil since paths are like this: "/something"
+                for i in 1..comps.count {
+                    
+                    self.pathComponents += comps[i]
+                }
+            
                 if urlElements.count == 2 {
                     
                     var args = urlElements[1].componentsSeparatedByString("&") as String[]
@@ -121,6 +130,5 @@ class Request {
             
             self.bodyString = str
         }
-        //println("REQUEST: method \(self.method) path \(self.path) header \(self.headers) arguments \(self.arguments)")
     }
 }
