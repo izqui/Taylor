@@ -25,6 +25,16 @@ class Middleware {
         }
     }
     
+    class func staticDirectory(path: String, directory: String) -> TaylorHandler {
+        
+        return {
+            
+            request, response in
+            
+            return (request: request, response: response)
+        }
+    }
+    
     class func requestLogger() -> TaylorHandler {
         
         return {

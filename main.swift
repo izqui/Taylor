@@ -21,6 +21,7 @@ if C_ARGC > 1 {
 let taylor = Taylor(port: port)
 
 taylor.use(Middleware.requestLogger())
+//taylor.use(Middleware.staticDirectory("/public", directory: "files"))
 
 //"Cool" way
 taylor.get("/") {

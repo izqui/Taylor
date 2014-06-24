@@ -94,10 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				E1247F0D19565431007B7D5C /* taylor.swift */,
-				E1247F0C19565431007B7D5C /* router.swift */,
-				E1247F0B19565431007B7D5C /* route.swift */,
 				E1247F0919565431007B7D5C /* request.swift */,
 				E1247F0A19565431007B7D5C /* response.swift */,
+				E1247F0C19565431007B7D5C /* router.swift */,
+				E1247F0B19565431007B7D5C /* route.swift */,
 				E1D4CE221958BDC5008BB3FF /* middleware.swift */,
 				E1247F0E19565431007B7D5C /* TCP */,
 			);

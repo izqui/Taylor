@@ -18,6 +18,8 @@ class Request {
     }
     
     var path: String = String()
+    var pathComponents: String[] = String[]()
+    
     var arguments: Dictionary<String, String> = Dictionary<String, String>()
     
     var method: HTTPMethod = .UNDEFINED
