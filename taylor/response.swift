@@ -20,8 +20,8 @@ class Response {
     var body: NSData?
     var stringBody: NSString? {
     didSet {
-        if !headers["Content-type"]{
-            headers["Content-type"] = "text/plain"
+        if !headers["Content-Type"]{
+            headers["Content-Type"] = "text/plain"
         }
     }
     }

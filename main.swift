@@ -21,6 +21,7 @@ if C_ARGC > 1 {
 let taylor = Taylor(port: port)
 
 taylor.use(Middleware.requestLogger())
+
 //taylor.use(Middleware.staticDirectory("/public", directory: "files"))
 
 //"Cool" way
@@ -39,7 +40,14 @@ taylor.post("/", Middleware.bodyParser()) {
     
     request, response in
     
-    response.stringBody = "<h1>Hello World, POST</h1>"
+    var str = "<h1>Hello World, POST</h1>\n"
+    
+    for (k, v) in request.body {
+        
+        str += "\(k) -> \(v)"
+    }
+    
+    response.stringBody = str
     response.headers["Content-type"] = "text/html"
     response.send()
     

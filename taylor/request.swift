@@ -120,12 +120,10 @@ class Request {
         
         if i < http.count && (self.method == .POST || false) { // Add other methods that support body data
             
-            println("We have body data")
             var str = NSMutableString()
             while ++i < http.count {
                 
-                str.appendString("\(str)\n")
-    
+                str.appendString("\(http[i])\n")
             }
             
             self.bodyString = str
