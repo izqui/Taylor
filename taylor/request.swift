@@ -20,8 +20,8 @@ class Request {
     var path: String = String()
     var pathComponents: String[] = String[]()
     
-    var arguments: Dictionary<String, String> = Dictionary<String, String>()
-    var parameters: Dictionary<String, String> = Dictionary<String, String>()
+    var arguments: Dictionary<String, String> = Dictionary<String, String>() // ?hello=world -> arguments["hello"]
+    var parameters: Dictionary<String, String> = Dictionary<String, String>() // /:something -> parameters["something"]
     
     var method: HTTPMethod = .UNDEFINED
     var headers: Dictionary<String, String> = Dictionary<String, String>()

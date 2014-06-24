@@ -74,16 +74,23 @@ class Router {
         
         for route in self._routes {
             
+            request.parameters = Dictionary<String, String>()
             let compCount = route.pathComponents.count
             if route.method == request.method && compCount == request.pathComponents.count{
                 
                 for i in 0..compCount {
                     
-                    if !(route.pathComponents[i].isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
+                    var isParameter = route.pathComponents[i].isParameter
+                    if !(isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
                         
                         break
                     }
                     
+                    if isParameter {
+                        
+                        request.parameters[route.pathComponents[i].value] = request.pathComponents[i]
+                    }
+
                     if i == compCount - 1 {
                         return route
                     }

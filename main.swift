@@ -53,13 +53,14 @@ let handler: TaylorHandler = {
     
     (request: Request, response: Response) in
     
+    let parameterName = "world"
     if let name = request.arguments["name"] {
         
-        response.stringBody = "Hello \(name)"
+        response.stringBody = "Hello \(request.parameters[parameterName]!) \(name)"
     }
     else {
         
-        response.stringBody = "Hello stranger"
+        response.stringBody = "Hello \(request.parameters[parameterName]!) stranger"
     }
     
     response.send()
