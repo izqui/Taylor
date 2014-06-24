@@ -18,7 +18,7 @@ class Middleware {
             
             if request.bodyString {
                 
-                if request.headers["Content-Type"] == "multipart/form-data" || request.headers["Content-Type"] == "application/x-www-form-urlencoded" {
+                if request.headers["Content-Type"] == "application/x-www-form-urlencoded" {
                     
                     var args = request.bodyString!.componentsSeparatedByString("&") as String[]
                     
@@ -27,12 +27,15 @@ class Middleware {
                         var arg = a.componentsSeparatedByString("=") as String[]
                         
                         //Would be nicer changing it to something that checks if element in array exists
-                        var value = ""
+                        var val = ""
                         if arg.count > 1 {
-                            value = arg[1]
+                            val = arg[1]
                         }
                         
-                        request.body.updateValue(value.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding), forKey: arg[0].stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding))
+                        let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                        let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                        
+                        request.body.updateValue(value, forKey: key)
                     }
                 }
             }
