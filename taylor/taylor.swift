@@ -13,6 +13,8 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     let _port: Int
     var _socket: GCDAsyncSocket?
     
+    var _sockets: GCDAsyncSocket[] = GCDAsyncSocket[]()
+    
     var router: Router {
     
     willSet (newOne){
@@ -87,7 +89,7 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         
         if self.router.handleRequest(request, response: response) {
             
-            sock.disconnectAfterWriting()
+            //sock.disconnectAfterWriting()
         }
     }
     

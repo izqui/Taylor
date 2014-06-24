@@ -30,7 +30,7 @@ taylor.get("/") {
     request, response in
     
     response.stringBody = "<h1>Hello World, GET</h1>"
-    response.headers["Content-type"] = "text/html"
+    response.headers["Content-Type"] = "text/html"
     response.send()
     
     return nil
@@ -48,7 +48,7 @@ taylor.post("/", Middleware.bodyParser()) {
     }
     
     response.stringBody = str
-    response.headers["Content-type"] = "text/html"
+    response.headers["Content-Type"] = "text/html"
     response.send()
     
     return nil
