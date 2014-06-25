@@ -94,7 +94,7 @@ class Middleware {
                             
                             //TODO: Make it asyncronous
                             var fileData = NSData(contentsOfFile: filePath)
-                            response.sendFile(fileData, fileType: "text/html")
+                            response.sendFile(fileData, fileType: FileTypes.get(filePath.pathExtension))
                         }
                         
                         // In case we didn't send any files, 404 it.
@@ -120,4 +120,6 @@ class Middleware {
             return (request: request, response: response)
         }
     }
+    
+    
 }
