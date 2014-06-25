@@ -80,8 +80,6 @@ class Middleware {
                     filePath = filePath.stringByAppendingPathComponent(request.pathComponents[k])
                 }
                 
-                println(filePath)
-                
                 let fileManager = NSFileManager.defaultManager()
                 
                 var isDir:ObjCBool = false
