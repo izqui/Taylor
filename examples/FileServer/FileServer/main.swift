@@ -19,6 +19,7 @@ if C_ARGC > 1 {
 
 let taylor = Taylor(port: port)
 
+taylor.use(Middleware.requestLogger())
 taylor.use(Middleware.staticDirectory("", directory: "~/Dropbox/HackerSchool/Taylor/examples/FileServer/static"))
 
 // Run forever

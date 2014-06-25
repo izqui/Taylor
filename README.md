@@ -8,6 +8,26 @@ Taylor is a library which allows you to create web server applications in [Swift
 At this moment, Taylor only supports GET and POST HTTP requests.
 It relies on `xcodebuild` to compile the binary, that's the reason of the existance of the `Taylor.xcodeproj` file
 
+## Demo
+
+```.swift
+
+let taylor = Taylor(port: 5000)
+
+taylor.get("/") {
+
+   request, response in
+
+    response.stringBody = "Hello World"
+    response.send()
+
+    return nil
+}
+
+taylor.startListening(forever: true)
+
+```
+
 ## Setup
 
 You need to be running xCode 6 beta 2 or latest
