@@ -8,24 +8,29 @@
 
 import Foundation
 
+//Makes the compiler crash
+//typealias TaylorHandler = (inout request: Request, inout response: Response) -> (ok: Bool)
+typealias TaylorHandlerTuple = (request: Request, response: Response)
+typealias TaylorPathComponent = (value: String, isParameter: Bool)
+typealias TaylorHandler = TaylorHandlerTuple -> TaylorHandlerTuple?
+
 class Taylor: NSObject, GCDAsyncSocketDelegate {
     
     let _port: Int
     var _socket: GCDAsyncSocket?
     
     var _sockets: GCDAsyncSocket[] = GCDAsyncSocket[]()
+    var _handlers: TaylorHandler[] = TaylorHandler[]()
     
     var router: Router {
     
+   
     willSet (newOne){
         
         // When setting a new router, set the routes of the old one
         for r in router._routes {
             newOne.addRoute(r)
-        }
-        for m in router._middleware {
-            newOne.addMiddleware(m)
-        }
+    }
     }
     }
     
@@ -50,6 +55,9 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         if _socket!.acceptOnInterface(nil, port: UInt16(_port), error: &err) {
             
             println("Server running on port \(_socket!.localPort())")
+            
+            //Should find a better location for this
+            self.use(self.router.handler())
         }
         else if err {
             
@@ -72,9 +80,33 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     
     func use(middleware: TaylorHandler){
         
-        self.router.addMiddleware(middleware)
+        //Should check if middleare has already been added, but it's difficult since it is a clousure and not an object
+        self._handlers += middleware
     }
     
+    func handleRequest(request: Request, response: Response) -> Bool {
+        
+        var t: TaylorHandlerTuple = (request: request, response: response)
+        
+        for han in self._handlers {
+            
+            if let tuple = han(request: t.request, response: t.response) {
+                // Continue
+                t = tuple
+            }
+        }
+        
+        if t.response.sent == false {
+            
+            println("Response not sent, sending 404 bro")
+            t.response.sendError(404)
+            return true
+            
+        } else {
+            
+            return true
+        }
+    }
     // GCDAsyncSocket delegate methods
     
     func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
@@ -87,7 +119,7 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         var request = Request(data: data)
         var response = Response(socket: sock)
         
-        if self.router.handleRequest(request, response: response) {
+        if self.handleRequest(request, response: response) {
             
             sock.disconnectAfterWriting()
             

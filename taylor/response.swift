@@ -18,6 +18,9 @@ class Response {
     var headers: Dictionary<String, String> = Dictionary<String, String>()
     
     var body: NSData?
+    
+    var sent: Bool = false
+    
     var stringBody: NSString? {
     didSet {
         if !headers["Content-Type"]{
@@ -82,6 +85,7 @@ class Response {
     }
     func send() {
         
+        self.sent = true
         _socket.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
     }
     

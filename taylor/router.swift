@@ -11,7 +11,6 @@ import Foundation
 class Router {
     
     var _routes: Route[] = Route[]()
-    var _middleware: TaylorHandler[] = TaylorHandler[]()
     
     func addRoute(route: Route) -> Bool {
         
@@ -19,47 +18,29 @@ class Router {
         return true
     }
     
-    func addMiddleware(middleware: TaylorHandler) {
+    func handler() -> TaylorHandler {
         
-        self._middleware += middleware
-    }
-    
-    func handleRequest(request: Request, response: Response) -> Bool {
-        
-        //TODO: Make this shit asyncronous
-        var t: TaylorHandlerTuple = (request: request, response: response)
-        
-        for mid in self._middleware {
+        return {
             
-            if let tuple = mid(request: t.request, response: t.response) {
-                // Continue
-                t = tuple
-            }
-            else {
-                
-                return true
-            }
-        }
-        
-        if let route = self.detectRouteForRequest(request){
+            request, response in
             
-            //Execute all handlers
-            for handler in route.handlers {
+            var t: TaylorHandlerTuple = (request: request, response: response)
+            
+            if let route = self.detectRouteForRequest(t.request){
                 
-                if let tuple = handler(request: t.request, response: t.response) {
-                    // Continue
-                    t = tuple
-                }
-                else {
+                //Execute all handlers
+                for handler in route.handlers {
                     
-                    return true
+                    if let tuple = handler(request: t.request, response: t.response) {
+                        // Continue
+                        t = tuple
+                    }
                 }
+                
             }
             
+            return t
         }
-        
-        return self.😕(request, response: response)
-        
     }
     
     func detectRouteForRequest(request: Request) -> Route? {

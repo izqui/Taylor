@@ -8,14 +8,6 @@
 
 import Foundation
 
-//Makes the compiler crash
-//typealias TaylorHandler = (inout request: Request, inout response: Response) -> (ok: Bool)
-
-typealias TaylorHandlerTuple = (request: Request, response: Response)
-typealias TaylorPathComponent = (value: String, isParameter: Bool)
-
-typealias TaylorHandler = TaylorHandlerTuple -> TaylorHandlerTuple?
-
 class Route {
     
     let method: Request.HTTPMethod
