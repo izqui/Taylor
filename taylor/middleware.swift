@@ -60,6 +60,7 @@ class Middleware {
             
             if request.pathComponents.count >= components.count && request.method == Request.HTTPMethod.GET{
                 
+                var j = -1
                 // Check if the request matches the path of the static file handler
                 for i in 0..components.count {
                     
@@ -69,39 +70,38 @@ class Middleware {
                         return (request: request, response: response)
                     }
                     // Means it matched the request
-                    else if i == components.count - 1 {
-                        
-                        var filePath = directory.stringByExpandingTildeInPath
-                        
-                        for j in (i+1)..request.pathComponents.count {
-                            
-                            filePath = filePath.stringByAppendingPathComponent(request.pathComponents[j])
-                        }
-                        
-                        println(filePath)
-                        
-                        let fileManager = NSFileManager.defaultManager()
-                        
-                        var isDir:ObjCBool = false
-                        
-                        if fileManager.fileExistsAtPath(filePath, isDirectory: &isDir){
-                            
-                            // In case it is a directory, we look for a index.html file inside
-                            if Bool(isDir) && fileManager.fileExistsAtPath(filePath.stringByAppendingPathComponent("index.html")) {
-                            
-                                filePath = filePath.stringByAppendingPathComponent("index.html")
-                            }
-                            
-                            //TODO: Make it asyncronous
-                            var fileData = NSData(contentsOfFile: filePath)
-                            response.sendFile(fileData, fileType: FileTypes.get(filePath.pathExtension))
-                        }
-                        
-                        // In case we didn't send any files, 404 it.
-                        response.sendError(404)
-                    }
+                    j = i
                 }
-
+                
+                var filePath = directory.stringByExpandingTildeInPath
+                
+                for k in j+1..request.pathComponents.count {
+                    
+                    filePath = filePath.stringByAppendingPathComponent(request.pathComponents[k])
+                }
+                
+                println(filePath)
+                
+                let fileManager = NSFileManager.defaultManager()
+                
+                var isDir:ObjCBool = false
+                
+                if fileManager.fileExistsAtPath(filePath, isDirectory: &isDir){
+                    
+                    // In case it is a directory, we look for a index.html file inside
+                    if Bool(isDir) && fileManager.fileExistsAtPath(filePath.stringByAppendingPathComponent("index.html")) {
+                        
+                        filePath = filePath.stringByAppendingPathComponent("index.html")
+                    }
+                    
+                    //TODO: Make it asyncronous
+                    var fileData = NSData(contentsOfFile: filePath)
+                    response.sendFile(fileData, fileType: FileTypes.get(filePath.pathExtension))
+                }
+                
+                // In case we didn't send any files, 404 it.
+                response.sendError(404)
+                
             }
             
             // By default, countinue

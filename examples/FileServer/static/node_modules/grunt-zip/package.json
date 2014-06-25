@@ -1,0 +1,65 @@
+{
+  "name": "grunt-zip",
+  "description": "Zip and unzip files via a grunt plugin",
+  "version": "0.7.0",
+  "homepage": "https://github.com/twolfson/grunt-zip",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twolfson/grunt-zip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twolfson/grunt-zip/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/twolfson/grunt-zip/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": {
+    "grunt-zip": "bin/grunt-zip"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "cd test && grunt"
+  },
+  "dependencies": {
+    "node-zip": "0.0.2",
+    "grunt-retro": "~0.5.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17",
+    "underscore.string": "~2.3.1",
+    "grunt-contrib-clean": "~0.3.2"
+  },
+  "_devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "underscore.string": "~2.3.1",
+    "grunt-contrib-clean": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "zip",
+    "unzip",
+    "compress",
+    "decompress"
+  ],
+  "readme": "# grunt-zip\n\nZip and unzip files via a grunt plugin\n\n## Getting Started\nInstall this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-zip`\n\nThen add this line to your project's `grunt.js` gruntfile:\n\n```javascript\ngrunt.loadNpmTasks('grunt-zip');\n```\n\n[grunt]: http://gruntjs.com/\n[getting_started]: https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md\n\n## Documentation\n`grunt-zip` introduces two grunt tasks: zip and unzip.\n\n### zip\n```js\ngrunt.initConfig({\n  zip: {\n    // We accept short syntax\n    // 'destinationZip': ['firstFileToZip', 'secondFileToZip', ...]\n    'acme.zip': ['index.html', 'rocket.js'],\n\n    // As well as standard grunt sytax\n    widgets: {\n      // Files to zip together\n      src: ['corkscrew.js', 'sillyStraw.js'],\n\n      // Destination of zip file\n      dest: 'widgets.zip'\n    },\n\n    // Specify working directory to zip from via `cwd`\n    'more-widgets': {\n      cwd: 'nested/'\n      // Files will zip to 'corkscrew.js' and 'sillyStraw.js'\n      src: ['nested/corkscrew.js', 'nested/sillyStraw.js'],\n      dest: 'moreWidgets.zip'\n    },\n\n    // Adjust file paths via `router` for complex cases\n    site: {\n      // `router` receives the path from grunt (e.g. js/main.js)\n      // The path it returns is what the file contents are saved as (e.g. all/main.js)\n      router: function (filepath) {\n        // Route each file to all/{{filename}}\n        var filename = path.basename(filepath);\n        return 'all/' + filename;\n      }\n\n      // Files will zip to 'main.js' and 'main.css'\n      src: ['js/main.js', 'css/main.css'],\n      dest: 'site.zip'\n    },\n\n    // If you want to use the 'DEFLATE' compression algorithm, encode data in base64, or include dotfiles, you must opt-in to it\n    'even-more-widgets': {\n      src: ['corkscrew.js', 'sillyStraw.js'],\n      dest: 'evenMoreWidgets.zip',\n\n      // Setting for DEFLATE compression\n      compression: 'DEFLATE',\n\n      // Setting for base64 encoding\n      base64: true,\n\n      // Setting to include dotfiles (e.g. .travis.yml)\n      dot: true\n    }\n  }\n});\n```\n\n### unzip\n```js\ngrunt.initConfig({\n  'unzip': {\n    // Short syntax\n    // 'folderToExtractFilesTo': 'zipFileToExtract'\n    gallery: 'photos.zip',\n\n    // Long syntax\n    catalog: {\n      src: 'electronics.zip',\n      dest: 'catalog'\n    }\n\n    // Note: If you provide multiple src files, they will all be extracted to the same folder.\n    // This is not well-tested behavior so use at your own risk.\n\n    // Adjust file paths of zipped files via `router`\n    site: {\n      // `router` receives the path that was used during zipping (e.g. css/bootstrap.css)\n      // The path it returns is where the file contents will be written to (e.g. dist/bootstrap.css)\n      router: function (filepath) {\n        // Route each file to dist/{{filename}}\n        var filename = path.basename(filepath);\n        return 'dist/' + filename;\n      }\n\n      // Collects all nested files in same directory\n      // css/bootstrap.css -> bootstrap.css, js/bootstrap.js -> bootstrap.js\n      src: 'bootstrap.zip',\n      dest: 'bootstrap/'\n    },\n\n    // If you want to disable the CRC32 check or decode data from base64, you must opt-in to it\n    'unzip-more': {\n      src: 'bootstrap.zip',\n      dest: 'public',\n\n      // Setting for disabling the CRC32 check\n      checkCRC32: false,\n\n      // Setting for decoding from base64\n      base64: true\n    }\n\n  }\n});\n```\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using [grunt][grunt] and test via `npm test`.\n\n## License\nCopyright (c) 2013 Todd Wolfson\nLicensed under the MIT license.\n",
+  "readmeFilename": "README.md",
+  "_id": "grunt-zip@0.7.0",
+  "dist": {
+    "shasum": "985b7f06534e88da20c3cc9eb7055ed78b1f8d07"
+  },
+  "_from": "grunt-zip@~0.7.0",
+  "_resolved": "https://registry.npmjs.org/grunt-zip/-/grunt-zip-0.7.0.tgz"
+}
