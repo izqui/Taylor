@@ -46,10 +46,46 @@ class Middleware {
     
     class func staticDirectory(path: String, directory: String) -> TaylorHandler {
         
+        let tempComponents = path.componentsSeparatedByString("/")
+        var components = String[]()
+        
+        //We don't care about the first element, which will always be nil since paths are like this: "/something"
+        for i in 1..tempComponents.count {
+            
+            components += tempComponents[i]
+        }
         return {
             
             request, response in
             
+            if request.pathComponents.count >= components.count && request.method == Request.HTTPMethod.GET{
+                
+                // Check if the request matches the path of the static file handler
+                for i in 0..components.count {
+                    
+                    if components[i] != request.pathComponents[i] {
+                        
+                        // If at some point it doesn't match, just go on with the request handling
+                        return (request: request, response: response)
+                    }
+                    // Means it matched the request
+                    else if i == components.count - 1 {
+                        
+                        var filePath = directory
+                        
+                        for j in (i+1)..request.pathComponents.count {
+                            
+                            filePath += "/\(request.pathComponents[j])"
+                        }
+                        
+                        println(filePath)
+                        return nil
+                    }
+                }
+
+            }
+            
+            // By default, countinue
             return (request: request, response: response)
         }
     }

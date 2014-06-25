@@ -15,14 +15,6 @@ class Router {
     
     func addRoute(route: Route) -> Bool {
         
-        // Check for conflicts before adding it
-        /*for r in _routes {
-            
-            if r.path == route.path && r.method == route.method {
-                return false
-            }
-        }*/
-        
         self._routes += route
         return true
     }
@@ -35,21 +27,22 @@ class Router {
     func handleRequest(request: Request, response: Response) -> Bool {
         
         //TODO: Make this shit asyncronous
+        var t: TaylorHandlerTuple = (request: request, response: response)
+        
+        for mid in self._middleware {
+            
+            if let tuple = mid(request: t.request, response: t.response) {
+                // Continue
+                t = tuple
+            }
+            else {
+                
+                return true
+            }
+        }
+        
         if let route = self.detectRouteForRequest(request){
             
-            var t: TaylorHandlerTuple = (request: request, response: response)
-            
-            for mid in self._middleware {
-                
-                if let tuple = mid(request: t.request, response: t.response) {
-                    // Continue
-                    t = tuple
-                }
-                else {
-                    
-                    return true
-                }
-            }
             //Execute all handlers
             for handler in route.handlers {
                 
@@ -65,7 +58,6 @@ class Router {
             
         }
         
-        println("\(request.method.toRaw()) \(request.path) not implemented")
         return self.😕(request, response: response)
         
     }
@@ -76,7 +68,7 @@ class Router {
             
             request.parameters = Dictionary<String, String>()
             let compCount = route.pathComponents.count
-            if route.method == request.method && compCount == request.pathComponents.count{
+            if route.method == request.method && compCount == request.pathComponents.count {
                 
                 for i in 0..compCount {
                     

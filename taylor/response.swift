@@ -64,6 +64,11 @@ class Response {
         _socket.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
     }
     
+    func sendFile(data: NSData, fileType: NSString) {
+        
+        
+    }
+    
     func generateResponse() -> NSData {
         
         if let a = self._codes[self.statusCode]{

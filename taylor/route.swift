@@ -16,7 +16,6 @@ typealias TaylorPathComponent = (value: String, isParameter: Bool)
 
 typealias TaylorHandler = TaylorHandlerTuple -> TaylorHandlerTuple?
 
-
 class Route {
     
     let method: Request.HTTPMethod

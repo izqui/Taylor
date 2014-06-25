@@ -89,7 +89,11 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         
         if self.router.handleRequest(request, response: response) {
             
-            //sock.disconnectAfterWriting()
+            sock.disconnectAfterWriting()
+            
+        } else {
+            
+            sock.disconnect()
         }
     }
     

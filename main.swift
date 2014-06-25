@@ -21,8 +21,7 @@ if C_ARGC > 1 {
 let taylor = Taylor(port: port)
 
 taylor.use(Middleware.requestLogger())
-
-//taylor.use(Middleware.staticDirectory("/public", directory: "files"))
+taylor.use(Middleware.staticDirectory("/public", directory: "files"))
 
 //"Cool" way
 taylor.get("/") {
@@ -31,6 +30,7 @@ taylor.get("/") {
     
     response.stringBody = "<h1>Hello World, GET</h1>"
     response.headers["Content-Type"] = "text/html"
+    
     response.send()
     
     return nil
