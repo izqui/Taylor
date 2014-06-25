@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Internet</title>
+		<title>Taylor</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -31,11 +31,77 @@
 
 		<div class="reveal">
 			<div class="slides">
-				<section data-markdown>
-					# Lo que no nos cuentan en la tele sobre Internet
-				
-					##### [Jorge Izquierdo](http://twitter.com/izqui9)
+				<section>
+					</br>
+					</br>
+					</br>
+
+					</br>
+					</br>
+					<h1>Taylor</h1>
+					</br>
+					</br>
+					</br>
+					<h4>Jorge Izquierdo</h4>
+					<h5>@izqui9</h5>
 				</section>
+				<section>
+					</br>
+					</br>
+					</br>
+					</br>
+					</br>
+					<h2>Library for building <b>HTTP servers</b> in <b>Swift</b></h2>
+				</section>
+				<section>
+
+					<h2>Features</h2>
+					</br>
+					</br>
+					</br>
+					<ul>
+						<li>GET and POST requests</li>
+						<li>Extensible middleware</li>
+						<li>Static file server</li>
+						<li>Body parser</li>
+					</ul>
+				</section>
+				<section>
+				<h3>Code</h3>
+					 <pre><code data-trim>
+
+let taylor = Taylor(port: 5000)
+
+taylor.get("/") {
+
+   request, response in
+
+    response.stringBody = "Hello World"
+    response.send()
+
+    return nil
+}
+
+taylor.startListening(forever: true)
+					  </code></pre>
+					  <h3>Execute</h3>
+					 <pre><code data-trim>
+
+$ ./run
+Server running on port 5000
+					  </code></pre>
+				</section>
+				<section>
+					</br>
+					</br>
+					</br>
+					<h1>Thanks!</h1>
+					</br>
+					</br>
+					</br>
+					<h3>github.com/izqui/Taylor</h3>
+				</section>
+
 			</div>
 		</div>
 
