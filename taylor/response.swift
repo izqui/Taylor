@@ -24,7 +24,7 @@ class Response {
     var stringBody: NSString? {
     didSet {
         if !headers["Content-Type"]{
-            headers["Content-Type"] = "text/plain"
+            headers["Content-Type"] = FileTypes.get("txt")
         }
     }
     }
