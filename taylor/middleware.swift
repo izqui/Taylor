@@ -71,15 +71,34 @@ class Middleware {
                     // Means it matched the request
                     else if i == components.count - 1 {
                         
-                        var filePath = directory
+                        var filePath = directory.stringByExpandingTildeInPath
                         
                         for j in (i+1)..request.pathComponents.count {
                             
-                            filePath += "/\(request.pathComponents[j])"
+                            filePath = filePath.stringByAppendingPathComponent(request.pathComponents[j])
                         }
                         
                         println(filePath)
-                        return nil
+                        
+                        let fileManager = NSFileManager.defaultManager()
+                        
+                        var isDir:ObjCBool = false
+                        
+                        if fileManager.fileExistsAtPath(filePath, isDirectory: &isDir){
+                            
+                            // In case it is a directory, we look for a index.html file inside
+                            if Bool(isDir) && fileManager.fileExistsAtPath(filePath.stringByAppendingPathComponent("index.html")) {
+                            
+                                filePath = filePath.stringByAppendingPathComponent("index.html")
+                            }
+                            
+                            //TODO: Make it asyncronous
+                            var fileData = NSData(contentsOfFile: filePath)
+                            response.sendFile(fileData, fileType: "text/html")
+                        }
+                        
+                        // In case we didn't send any files, 404 it.
+                        response.sendError(404)
                     }
                 }
 

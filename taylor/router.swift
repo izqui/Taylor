@@ -95,10 +95,7 @@ class Router {
     
     func 😕(request: Request, response: Response) -> Bool {
         
-        let resp = Response(socket: response._socket)
-        resp.statusCode = 404
-        resp.send()
-        
+        response.sendError(404)
         return true
     }
 }

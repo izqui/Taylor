@@ -59,14 +59,30 @@ class Response {
         self.send()
     }
     
-    func send() {
-        
-        _socket.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
-    }
     
     func sendFile(data: NSData, fileType: NSString) {
         
+        self.body = data
+        self.headers["Content-Type"] = fileType
         
+        self.send()
+    }
+    
+    func sendError(errorCode: Int){
+        
+        self.statusCode = errorCode
+        
+        if let a = self._codes[self.statusCode]{
+            
+            self.stringBody = a
+        }
+        
+        self.send()
+        
+    }
+    func send() {
+        
+        _socket.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
     }
     
     func generateResponse() -> NSData {
@@ -84,8 +100,8 @@ class Response {
             bodyData = NSData(data: stringBody!.dataUsingEncoding(NSUTF8StringEncoding))
         }
         
-        if !headers["Content-length"] {
-            headers["Content-length"] = String(bodyData.length)
+        if !headers["Content-Length"] {
+            headers["Content-Length"] = String(bodyData.length)
         }
         
         var startLine = "\(self._protocol) \(String(self.statusCode)) \(self.statusLine)\r\n"
