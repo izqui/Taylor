@@ -10,8 +10,7 @@ import Foundation
 
 class Response {
     
-    let _socket: GCDAsyncSocket
-    
+    let _socket: GCDAsyncSocket?
     
     var statusCode: Int = 200
     var statusLine: String = ""
@@ -50,7 +49,13 @@ class Response {
     503: "Service Unavailable"
     ]
     
-    init(socket s: GCDAsyncSocket){
+    convenience init(){
+        
+        self.init(socket: nil)
+    }
+
+    
+    init(socket s: GCDAsyncSocket?){
         
         _socket = s
     }
@@ -86,7 +91,12 @@ class Response {
     func send() {
         
         self.sent = true
-        _socket.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
+        
+        if _socket {
+            
+            _socket!.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
+        }
+        
     }
     
     func generateResponse() -> NSData {

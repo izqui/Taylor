@@ -17,7 +17,19 @@ class Request {
         case UNDEFINED = "UNDEFINED" // it will never match
     }
     
-    var path: String = String()
+    var path: String {
+
+    didSet {
+        
+        var comps = self.path.componentsSeparatedByString("/")
+        
+        //We don't care about the first element, which will always be nil since paths are like this: "/something"
+        for i in 1..comps.count {
+            
+            self.pathComponents += comps[i]
+        }
+    }
+    }
     var pathComponents: String[] = String[]()
     
     var arguments: Dictionary<String, String> = Dictionary<String, String>() // ?hello=world -> arguments["hello"]
@@ -32,16 +44,27 @@ class Request {
     
     var _protocol: String?
     
-    init(data d: NSData){
+    convenience init(){
         
-        //Parsing data from socket to build a HTTP request
-        self.parseRequest(d)
+        self.init(data: nil)
     }
+
+    init(data d: NSData?){
+        
+        self.path = String()
+        //Parsing data from socket to build a HTTP request
+        if d {
+            
+            self.parseRequest(d!)
+        }
+    }
+    
     
     func parseRequest(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
+        println(string)
         
         var http: String[] = string.componentsSeparatedByString("\r\n") as String[]
         
@@ -65,14 +88,7 @@ class Request {
                 var urlElements: String[] = url.componentsSeparatedByString("?") as String[]
                 
                 self.path = urlElements[0]
-                var comps = self.path.componentsSeparatedByString("/")
                 
-                //We don't care about the first element, which will always be nil since paths are like this: "/something"
-                for i in 1..comps.count {
-                    
-                    self.pathComponents += comps[i]
-                }
-            
                 if urlElements.count == 2 {
                     
                     var args = urlElements[1].componentsSeparatedByString("&") as String[]
@@ -101,7 +117,7 @@ class Request {
         }
         
         //Parse Headers
-        var i = 1
+        var i = 0
         
         while ++i < http.count {
             
@@ -119,6 +135,7 @@ class Request {
         }
         
         if i < http.count && (self.method == .POST || false) { // Add other methods that support body data
+            
             
             var str = NSMutableString()
             while ++i < http.count {

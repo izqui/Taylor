@@ -14,6 +14,17 @@
 		E1247F1519565431007B7D5C /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0C19565431007B7D5C /* router.swift */; };
 		E1247F1619565431007B7D5C /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0D19565431007B7D5C /* taylor.swift */; };
 		E18467C4195B33960038B8D7 /* fileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18467C3195B33960038B8D7 /* fileTypes.swift */; };
+		E1A84F60195CA2030008C15A /* Taylor_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A84F5F195CA2030008C15A /* Taylor_Tests.swift */; };
+		E1A84F64195CA20A0008C15A /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0D19565431007B7D5C /* taylor.swift */; };
+		E1A84F65195CA20A0008C15A /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0919565431007B7D5C /* request.swift */; };
+		E1A84F66195CA20A0008C15A /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0A19565431007B7D5C /* response.swift */; };
+		E1A84F67195CA20A0008C15A /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0C19565431007B7D5C /* router.swift */; };
+		E1A84F68195CA20A0008C15A /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0B19565431007B7D5C /* route.swift */; };
+		E1A84F69195CA20A0008C15A /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46B5A195A08BE00ABCEA9 /* middleware.swift */; };
+		E1A84F6A195CA20A0008C15A /* fileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18467C3195B33960038B8D7 /* fileTypes.swift */; };
+		E1A84F6C195CA2C50008C15A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A84F6B195CA2C50008C15A /* Security.framework */; };
+		E1A84F6E195CA2C90008C15A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A84F6D195CA2C90008C15A /* CFNetwork.framework */; };
+		E1A84F6F195CA2DB0008C15A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */; };
 		E1C46B5B195A08BE00ABCEA9 /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46B5A195A08BE00ABCEA9 /* middleware.swift */; };
 		E1D4CE211958BAE8008BB3FF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */; };
 /* End PBXBuildFile section */
@@ -39,6 +50,13 @@
 		E1247F0D19565431007B7D5C /* taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = taylor.swift; path = taylor/taylor.swift; sourceTree = SOURCE_ROOT; };
 		E18467C3195B33960038B8D7 /* fileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = fileTypes.swift; path = taylor/fileTypes.swift; sourceTree = SOURCE_ROOT; };
 		E19349BC19564CA2001E92EE /* Taylor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Taylor; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A84F51195CA0EA0008C15A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1A84F52195CA0EA0008C15A /* Taylor_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taylor_Tests.swift; sourceTree = "<group>"; };
+		E1A84F5B195CA2030008C15A /* Taylor-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Taylor-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A84F5E195CA2030008C15A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1A84F5F195CA2030008C15A /* Taylor_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taylor_Tests.swift; sourceTree = "<group>"; };
+		E1A84F6B195CA2C50008C15A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E1A84F6D195CA2C90008C15A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E1C46B5A195A08BE00ABCEA9 /* middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = middleware.swift; path = taylor/middleware.swift; sourceTree = SOURCE_ROOT; };
 		E1D4CE1E1958BAE8008BB3FF /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = taylor/dependencies/GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = taylor/dependencies/GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
@@ -50,6 +68,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1A84F58195CA2030008C15A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1A84F6E195CA2C90008C15A /* CFNetwork.framework in Frameworks */,
+				E1A84F6C195CA2C50008C15A /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +97,11 @@
 		E19349B319564CA2001E92EE = {
 			isa = PBXGroup;
 			children = (
+				E1A84F6D195CA2C90008C15A /* CFNetwork.framework */,
+				E1A84F6B195CA2C50008C15A /* Security.framework */,
 				E19349BE19564CA2001E92EE /* Taylor */,
+				E1A84F4F195CA0EA0008C15A /* Taylor-Tests */,
+				E1A84F5C195CA2030008C15A /* Taylor-Tests */,
 				E19349BD19564CA2001E92EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E19349BC19564CA2001E92EE /* Taylor */,
+				E1A84F5B195CA2030008C15A /* Taylor-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +139,40 @@
 			path = Taylor;
 			sourceTree = "<group>";
 		};
+		E1A84F4F195CA0EA0008C15A /* Taylor-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F52195CA0EA0008C15A /* Taylor_Tests.swift */,
+				E1A84F50195CA0EA0008C15A /* Supporting Files */,
+			);
+			path = "Taylor-Tests";
+			sourceTree = "<group>";
+		};
+		E1A84F50195CA0EA0008C15A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F51195CA0EA0008C15A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1A84F5C195CA2030008C15A /* Taylor-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F5F195CA2030008C15A /* Taylor_Tests.swift */,
+				E1A84F5D195CA2030008C15A /* Supporting Files */,
+			);
+			path = "Taylor-Tests";
+			sourceTree = "<group>";
+		};
+		E1A84F5D195CA2030008C15A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F5E195CA2030008C15A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,6 +193,23 @@
 			productReference = E19349BC19564CA2001E92EE /* Taylor */;
 			productType = "com.apple.product-type.tool";
 		};
+		E1A84F5A195CA2030008C15A /* Taylor-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1A84F61195CA2030008C15A /* Build configuration list for PBXNativeTarget "Taylor-Tests" */;
+			buildPhases = (
+				E1A84F57195CA2030008C15A /* Sources */,
+				E1A84F58195CA2030008C15A /* Frameworks */,
+				E1A84F59195CA2030008C15A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Taylor-Tests";
+			productName = "Taylor-Tests";
+			productReference = E1A84F5B195CA2030008C15A /* Taylor-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -137,6 +220,9 @@
 				ORGANIZATIONNAME = "Jorge Izquierdo";
 				TargetAttributes = {
 					E19349BB19564CA2001E92EE = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					E1A84F5A195CA2030008C15A = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
@@ -154,9 +240,20 @@
 			projectRoot = "";
 			targets = (
 				E19349BB19564CA2001E92EE /* Taylor */,
+				E1A84F5A195CA2030008C15A /* Taylor-Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1A84F59195CA2030008C15A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E19349B819564CA2001E92EE /* Sources */ = {
@@ -172,6 +269,22 @@
 				E1D4CE211958BAE8008BB3FF /* GCDAsyncSocket.m in Sources */,
 				E1247F1219565431007B7D5C /* request.swift in Sources */,
 				E18467C4195B33960038B8D7 /* fileTypes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1A84F57195CA2030008C15A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1A84F6F195CA2DB0008C15A /* GCDAsyncSocket.m in Sources */,
+				E1A84F66195CA20A0008C15A /* response.swift in Sources */,
+				E1A84F64195CA20A0008C15A /* taylor.swift in Sources */,
+				E1A84F60195CA2030008C15A /* Taylor_Tests.swift in Sources */,
+				E1A84F69195CA20A0008C15A /* middleware.swift in Sources */,
+				E1A84F68195CA20A0008C15A /* route.swift in Sources */,
+				E1A84F67195CA20A0008C15A /* router.swift in Sources */,
+				E1A84F65195CA20A0008C15A /* request.swift in Sources */,
+				E1A84F6A195CA20A0008C15A /* fileTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +387,40 @@
 			};
 			name = Release;
 		};
+		E1A84F62195CA2030008C15A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Taylor-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/dependencies/Taylor-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		E1A84F63195CA2030008C15A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Taylor-Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/dependencies/Taylor-Bridging-Header.h";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -294,6 +441,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E1A84F61195CA2030008C15A /* Build configuration list for PBXNativeTarget "Taylor-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1A84F62195CA2030008C15A /* Debug */,
+				E1A84F63195CA2030008C15A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
