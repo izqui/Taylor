@@ -1,6 +1,8 @@
 Taylor
 ======
 
+Disclaimer: It is a work in progress, it may break. Use it at your own risk.
+
 Taylor is a library which allows you to create web server applications in [Swift](https://developer.apple.com/swift/)
 
 ## Status
