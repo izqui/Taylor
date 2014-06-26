@@ -84,27 +84,30 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         self._handlers += middleware
     }
     
-    func handleRequest(request: Request, response: Response) -> Bool {
+    func handleRequest(request: Request, response: Response, cb:() -> ()) {
         
         var t: TaylorHandlerTuple = (request: request, response: response)
         
-        for han in self._handlers {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
-            if let tuple = han(request: t.request, response: t.response) {
-                // Continue
-                t = tuple
+            for han in self._handlers {
+                
+                if let tuple = han(request: t.request, response: t.response) {
+                    // Continue
+                    t = tuple
+                }
             }
-        }
-        
-        if t.response.sent == false {
             
-            println("Response not sent, sending 404 bro")
-            t.response.sendError(404)
-            return true
+            if t.response.sent == false {
+                
+                println("Response not sent, sending 404 bro")
+                t.response.sendError(404)
+            }
             
-        } else {
-            
-            return true
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                cb()
+            }
         }
     }
     // GCDAsyncSocket delegate methods
@@ -119,13 +122,11 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         var request = Request(data: data)
         var response = Response(socket: sock)
         
-        if self.handleRequest(request, response: response) {
+        self.handleRequest(request, response: response) {
             
+            println("Handled request")
             sock.disconnectAfterWriting()
             
-        } else {
-            
-            sock.disconnect()
         }
     }
     
