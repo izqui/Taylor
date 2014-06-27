@@ -100,7 +100,7 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
             
             if t.response.sent == false {
                 
-                println("Response not sent, sending 404 bro")
+                println("Response not sent, 404")
                 t.response.sendError(404)
             }
             
@@ -124,7 +124,6 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
         
         self.handleRequest(request, response: response) {
             
-            println("Handled request")
             sock.disconnectAfterWriting()
             
         }
@@ -138,8 +137,6 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     
     //- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
     func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
-        
-        //println("disconnection happened")
     }
 
     //Convenience methods

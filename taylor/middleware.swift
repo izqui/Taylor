@@ -16,9 +16,13 @@ class Middleware {
             
             request, response in
             
-            if request.bodyString {
+            if request.bodyString && request.headers["Content-Type"] {
                 
-                if request.headers["Content-Type"] == "application/x-www-form-urlencoded" {
+                var h = request.headers["Content-Type"]!
+                
+                var notfound: Bool = (Int(NSIntegerMax) == h.bridgeToObjectiveC().rangeOfString("application/x-www-form-urlencoded").location)
+                
+                if !notfound {
                     
                     var args = request.bodyString!.componentsSeparatedByString("&") as String[]
                     

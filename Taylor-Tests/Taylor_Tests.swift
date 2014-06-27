@@ -46,16 +46,31 @@ class Taylor_Tests: XCTestCase {
         let string = "POST /hello?name=jorge HTTP/1.1\r\nHost: localhost:3003\r\nHeader2: hahaha  ssss\r\nHeader3: hehehe\r\n\r\nWhatever"
         let request = Request(data: string.dataUsingEncoding(NSUTF8StringEncoding))
         
-        println(request.path)
-        println(request.headers)
-        
         XCTAssertEqual(request.method, Request.HTTPMethod.POST, "Method parsing")
         XCTAssertEqual(request.path, "/hello", "Path parsing")
         XCTAssertEqual(request.headers.count, 3, "Header parsing")
-        
-        let body: NSString = (request.bodyString as NSString)
-        
-        //XCTAssertEqual(body.containsString("Whatever"), true, "Body")
     }
     
+    func testBody() {
+        
+        let string = "POST /hello?name=jorge HTTP/1.1\r\nHost: localhost:3003\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\nhello=hi&goodbye=bye"
+        let request = Request(data: string.dataUsingEncoding(NSUTF8StringEncoding))
+        
+        var bodyParser = Middleware.bodyParser()
+        XCTAssert(true, "Crash")
+    
+        let result = bodyParser(request: request, response: Response())
+        
+        var body = result!.request.body
+        
+        if let a = body["hello"] {
+
+            XCTAssertEqual(a, "hi", "Fuck")
+            
+        } else {
+            
+            XCTAssert(true, "Crash")
+        }
+        
+    }
 }

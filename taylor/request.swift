@@ -64,7 +64,6 @@ class Request {
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
-        println(string)
         
         var http: String[] = string.componentsSeparatedByString("\r\n") as String[]
         
