@@ -109,6 +109,5 @@ class Taylor_Tests: XCTestCase {
         let s = NSString(data: response.generateResponse(), encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual(s, "HTTP/1.1 200 OK\r\nContent-Length: 5\r\nContent-Type: text/plain\r\n\r\nHello", "Generates")
-        u
     }
 }
