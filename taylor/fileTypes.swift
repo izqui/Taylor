@@ -201,7 +201,8 @@ class FileTypes {
             "xpm":"image/x-xpixmap",
             "xwd":"image/x-xwindowdump",
             "z":"application/x-compress",
-            "zip":"application/zip"
+            "zip":"application/zip",
+            "json":"application/json"
         ]
         
         if let v = _dict[key] {

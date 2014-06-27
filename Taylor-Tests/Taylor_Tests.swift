@@ -110,4 +110,10 @@ class Taylor_Tests: XCTestCase {
         
         XCTAssertEqual(s, "HTTP/1.1 200 OK\r\nContent-Length: 5\r\nContent-Type: text/plain\r\n\r\nHello", "Generates")
     }
+    
+    func testFileTypes() {
+        
+        XCTAssertEqual(FileTypes.get("html"), "text/html", "Type")
+        XCTAssertEqual(FileTypes.get("json"), "application/json", "Type")
+    }
 }

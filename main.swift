@@ -19,7 +19,6 @@ if C_ARGC > 1 {
     }
 }
 
-
 let taylor = Taylor(port: port)
 
 taylor.get("/") {
@@ -37,7 +36,3 @@ taylor.get("/") {
 
 // Run forever
 taylor.startListening(forever: true)
-
-
-
-//"<h1>Hello</h1><p>What's your name?</p><form action=\"/form\" method=\"POST\"><input type=\"text\" name=\"name\"><input type=\"submit\"></form>"
