@@ -49,9 +49,10 @@ class Taylor_Tests: XCTestCase {
         XCTAssertEqual(request.method, Request.HTTPMethod.POST, "Method parsing")
         XCTAssertEqual(request.path, "/hello", "Path parsing")
         XCTAssertEqual(request.headers.count, 3, "Header parsing")
+        XCTAssertEqual(request.arguments["name"]!, "jorge", "Arg parsing")
     }
     
-    func testBody() {
+    func testBodyParsing() {
         
         let string = "POST /hello?name=jorge HTTP/1.1\r\nHost: localhost:3003\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\nhello=hi&goodbye=bye"
         let request = Request(data: string.dataUsingEncoding(NSUTF8StringEncoding))
@@ -71,6 +72,32 @@ class Taylor_Tests: XCTestCase {
             
             XCTAssert(true, "Crash")
         }
+    }
+    
+    func testRouter() {
         
+        let router = Router()
+        let handler: TaylorHandler = {
+            
+            request, response in
+            
+            response.sent = true
+            
+            return (request: request, response: response)
+        }
+        
+        let route = Route(m: .GET, path: "/hello/:whatever/jey", handlers:[handler])
+        router.addRoute(route)
+        
+        let request = Request()
+        request.method = .GET
+        request.path = "/hello/hshshshs/jey"
+        
+        let rHandler: TaylorHandler = router.handler()
+
+        if let r = rHandler(request:request, response: Response()){
+            
+            XCTAssert(r.response.sent, "Request handled")
+        }
     }
 }

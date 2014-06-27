@@ -59,7 +59,6 @@ class Request {
         }
     }
     
-    
     func parseRequest(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash

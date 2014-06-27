@@ -36,7 +36,6 @@ class Router {
                         t = tuple
                     }
                 }
-                
             }
             
             return t

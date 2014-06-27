@@ -95,7 +95,7 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
                 if let tuple = han(request: t.request, response: t.response) {
                     // Continue
                     t = tuple
-                }
+                } 
             }
             
             if t.response.sent == false {
