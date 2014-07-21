@@ -4490,8 +4490,7 @@ static NSThread *cfstreamThread;  // Used for CFStreams
             {
                 // Read type #3 - read up to a terminator
                 
-                bytesToRead = [currentRead readLengthForTermWithHint:estimatedBytesAvailable
-                                                     shouldPreBuffer:&readIntoPreBuffer];
+                bytesToRead = [currentRead readLengthForTermWithHint:estimatedBytesAvailable shouldPreBuffer:&readIntoPreBuffer];
             }
             else
             {
