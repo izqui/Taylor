@@ -24,22 +24,25 @@ class Middleware {
                 
                 if !notfound {
                     
-                    var args = request.bodyString!.componentsSeparatedByString("&") as String[]
-                    
-                    for a in args {
+                    if let b = request.bodyString {
                         
-                        var arg = a.componentsSeparatedByString("=") as String[]
+                        var args = b.componentsSeparatedByString("&") as [String]
                         
-                        //Would be nicer changing it to something that checks if element in array exists
-                        var val = ""
-                        if arg.count > 1 {
-                            val = arg[1]
+                        for a in args {
+                            
+                            var arg = a.componentsSeparatedByString("=") as [String]
+                            
+                            //Would be nicer changing it to something that checks if element in array exists
+                            var val = ""
+                            if arg.count > 1 {
+                                val = arg[1]
+                            }
+                            
+                            let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                            let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                            
+                            request.body.updateValue(value, forKey: key)
                         }
-                        
-                        let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
-                        let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
-                        
-                        request.body.updateValue(value, forKey: key)
                     }
                 }
             }
@@ -51,10 +54,10 @@ class Middleware {
     class func staticDirectory(path: String, directory: String) -> TaylorHandler {
         
         let tempComponents = path.componentsSeparatedByString("/")
-        var components = String[]()
+        var components = [String]()
         
         //We don't care about the first element, which will always be nil since paths are like this: "/something"
-        for i in 1..tempComponents.count {
+        for i in 1..<tempComponents.count {
             
             components += tempComponents[i]
         }
@@ -66,7 +69,7 @@ class Middleware {
                 
                 var j = -1
                 // Check if the request matches the path of the static file handler
-                for i in 0..components.count {
+                for i in 0..<components.count {
                     
                     if components[i] != request.pathComponents[i] {
                         
@@ -79,7 +82,7 @@ class Middleware {
                 
                 var filePath = directory.stringByExpandingTildeInPath
                 
-                for k in j+1..request.pathComponents.count {
+                for k in j+1..<request.pathComponents.count {
                     
                     filePath = filePath.stringByAppendingPathComponent(request.pathComponents[k])
                 }

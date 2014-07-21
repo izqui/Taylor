@@ -10,7 +10,7 @@ import Foundation
 
 class Router {
     
-    var _routes: Route[] = Route[]()
+    var _routes: [Route] = [Route]()
     
     func addRoute(route: Route) -> Bool {
         
@@ -50,7 +50,7 @@ class Router {
             let compCount = route.pathComponents.count
             if route.method == request.method && compCount == request.pathComponents.count {
                 
-                for i in 0..compCount {
+                for i in 0..<compCount {
                     
                     var isParameter = route.pathComponents[i].isParameter
                     if !(isParameter || route.pathComponents[i].value == request.pathComponents[i]) {

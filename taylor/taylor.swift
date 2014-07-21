@@ -19,8 +19,8 @@ class Taylor: NSObject, GCDAsyncSocketDelegate {
     let _port: Int
     var _socket: GCDAsyncSocket?
     
-    var _sockets: GCDAsyncSocket[] = GCDAsyncSocket[]()
-    var _handlers: TaylorHandler[] = TaylorHandler[]()
+    var _sockets: [GCDAsyncSocket] = [GCDAsyncSocket]()
+    var _handlers: [TaylorHandler] = [TaylorHandler]()
     
     var router: Router {
     

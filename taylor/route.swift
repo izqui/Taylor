@@ -13,11 +13,11 @@ class Route {
     let method: Request.HTTPMethod
     
     let path: String
-    let pathComponents: TaylorPathComponent[]
+    let pathComponents: [TaylorPathComponent]
     
-    let handlers: TaylorHandler[]
+    let handlers: [TaylorHandler]
   
-    init(m: Request.HTTPMethod, path p: String, handlers s: TaylorHandler[]){
+    init(m: Request.HTTPMethod, path p: String, handlers s: [TaylorHandler]){
         
         self.method = m
         self.handlers = s
@@ -27,7 +27,7 @@ class Route {
 
         //We don't care about the first element, which will always be nil since paths are like this: "/something"
         self.pathComponents = []
-        for i in 1..comps.count {
+        for i in 1..<comps.count {
             
             //Check if comp is ":something" parameter -> if true, comp = ["", "something"] else comp = ["something"]
             var compArr = comps[i].componentsSeparatedByString(":")

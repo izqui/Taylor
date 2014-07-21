@@ -24,13 +24,13 @@ class Request {
         var comps = self.path.componentsSeparatedByString("/")
         
         //We don't care about the first element, which will always be nil since paths are like this: "/something"
-        for i in 1..comps.count {
+        for i in 1..<comps.count {
             
             self.pathComponents += comps[i]
         }
     }
     }
-    var pathComponents: String[] = String[]()
+    var pathComponents: [String] = [String]()
     
     var arguments: Dictionary<String, String> = Dictionary<String, String>() // ?hello=world -> arguments["hello"]
     var parameters: Dictionary<String, String> = Dictionary<String, String>() // /:something -> parameters["something"]
@@ -64,12 +64,12 @@ class Request {
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
         
-        var http: String[] = string.componentsSeparatedByString("\r\n") as String[]
+        var http: [String] = string.componentsSeparatedByString("\r\n") as [String]
         
         //Parse method
         if http.count > 0 {
             
-            var startLineArr: String[] = http[0].componentsSeparatedByString(" ") //One space
+            var startLineArr: [String] = http[0].componentsSeparatedByString(" ") //One space
             
             if startLineArr.count > 0 {
                 
@@ -83,17 +83,17 @@ class Request {
             if startLineArr.count > 1 {
                 
                 var url = startLineArr[1]
-                var urlElements: String[] = url.componentsSeparatedByString("?") as String[]
+                var urlElements: [String] = url.componentsSeparatedByString("?") as [String]
                 
                 self.path = urlElements[0]
                 
                 if urlElements.count == 2 {
                     
-                    var args = urlElements[1].componentsSeparatedByString("&") as String[]
+                    var args = urlElements[1].componentsSeparatedByString("&") as [String]
                     
                     for a in args {
                         
-                        var arg = a.componentsSeparatedByString("=") as String[]
+                        var arg = a.componentsSeparatedByString("=") as [String]
                         
                         //Would be nicer changing it to something that checks if element in array exists
                         var value = ""
@@ -125,7 +125,7 @@ class Request {
                 // This newline means headers have ended and body started (New line already got parsed ("\r\n"))
                 break
             }
-            var header = content.componentsSeparatedByString(": ") as String[]
+            var header = content.componentsSeparatedByString(": ") as [String]
             if header.count == 2 {
                 
                 self.headers.updateValue(header[1], forKey: header[0])
