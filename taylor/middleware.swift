@@ -10,7 +10,7 @@ import Foundation
 
 class Middleware {
     
-    class func bodyParser() -> TaylorHandler {
+    class func bodyParser() -> Taylor.TaylorHandler {
         
         return {
             
@@ -46,12 +46,10 @@ class Middleware {
                     }
                 }
             }
-            
-            return (request: request, response: response)
         }
     }
     
-    class func staticDirectory(path: String, directory: String) -> TaylorHandler {
+    class func staticDirectory(path: String, directory: String) -> Taylor.TaylorHandler {
         
         let tempComponents = path.componentsSeparatedByString("/")
         var components = [String]()
@@ -74,7 +72,7 @@ class Middleware {
                     if components[i] != request.pathComponents[i] {
                         
                         // If at some point it doesn't match, just go on with the request handling
-                        return (request: request, response: response)
+                        return
                     }
                     // Means it matched the request
                     j = i
@@ -108,21 +106,17 @@ class Middleware {
                 response.sendError(404)
                 
             }
-            
-            // By default, countinue
-            return (request: request, response: response)
         }
     }
     
-    class func requestLogger() -> TaylorHandler {
+    class func requestLogger() -> Taylor.TaylorHandler {
         
         return {
             
             request, response in
             
             println("[Taylor] \(request.method.toRaw()) \(request.path)")
-            
-            return (request: request, response: response)
+            return
         }
     }
     

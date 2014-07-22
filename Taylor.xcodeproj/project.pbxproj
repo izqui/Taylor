@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1185E3B197EE7F500F916CB /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185E3A197EE7F500F916CB /* server.swift */; };
+		E1185E3C197EF58000F916CB /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185E3A197EE7F500F916CB /* server.swift */; };
 		E1247F081956540E007B7D5C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F071956540E007B7D5C /* main.swift */; };
 		E1247F1219565431007B7D5C /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0919565431007B7D5C /* request.swift */; };
 		E1247F1319565431007B7D5C /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0A19565431007B7D5C /* response.swift */; };
@@ -42,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E1185E3A197EE7F500F916CB /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = SOURCE_ROOT; };
 		E1247F071956540E007B7D5C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = SOURCE_ROOT; };
 		E1247F0919565431007B7D5C /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = request.swift; path = taylor/request.swift; sourceTree = SOURCE_ROOT; };
 		E1247F0A19565431007B7D5C /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = response.swift; path = taylor/response.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E1247F0D19565431007B7D5C /* taylor.swift */,
+				E1185E3A197EE7F500F916CB /* server.swift */,
 				E1247F0919565431007B7D5C /* request.swift */,
 				E1247F0A19565431007B7D5C /* response.swift */,
 				E1247F0C19565431007B7D5C /* router.swift */,
@@ -266,6 +270,7 @@
 				E1247F1619565431007B7D5C /* taylor.swift in Sources */,
 				E1247F081956540E007B7D5C /* main.swift in Sources */,
 				E1247F1519565431007B7D5C /* router.swift in Sources */,
+				E1185E3B197EE7F500F916CB /* server.swift in Sources */,
 				E1D4CE211958BAE8008BB3FF /* GCDAsyncSocket.m in Sources */,
 				E1247F1219565431007B7D5C /* request.swift in Sources */,
 				E18467C4195B33960038B8D7 /* fileTypes.swift in Sources */,
@@ -282,6 +287,7 @@
 				E1A84F60195CA2030008C15A /* Taylor_Tests.swift in Sources */,
 				E1A84F69195CA20A0008C15A /* middleware.swift in Sources */,
 				E1A84F68195CA20A0008C15A /* route.swift in Sources */,
+				E1185E3C197EF58000F916CB /* server.swift in Sources */,
 				E1A84F67195CA20A0008C15A /* router.swift in Sources */,
 				E1A84F65195CA20A0008C15A /* request.swift in Sources */,
 				E1A84F6A195CA20A0008C15A /* fileTypes.swift in Sources */,
@@ -449,6 +455,7 @@
 				E1A84F63195CA2030008C15A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

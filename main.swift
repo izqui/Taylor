@@ -19,21 +19,18 @@ if C_ARGC > 1 {
     }
 }
 
-
-let taylor = Taylor(port: port)
+let taylor = Server()
 
 taylor.get("/", Middleware.requestLogger()) {
     
     request, response in
     
     response.stringBody = "Hello new batch!"
-    
+
     response.headers["Content-Type"] = FileTypes.get("txt")
     
     response.send()
-    
-    return nil
 }
 
 // Run forever
-taylor.startListening(forever: true)
+taylor.startListening(port: port, forever: true)

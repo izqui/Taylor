@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Request {
+public class Request {
     
-    enum HTTPMethod: String {
+    public enum HTTPMethod: String {
         
         case GET = "GET"
         case POST = "POST"

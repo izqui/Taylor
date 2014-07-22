@@ -8,16 +8,15 @@
 
 import Foundation
 
-class Route {
+public class Route {
     
-    let method: Request.HTTPMethod
+    public let method: Request.HTTPMethod
+    public let path: String
+    public let handlers: [Taylor.TaylorHandler]
+
+    internal let pathComponents: [Taylor.TaylorPathComponent]
     
-    let path: String
-    let pathComponents: [TaylorPathComponent]
-    
-    let handlers: [TaylorHandler]
-  
-    init(m: Request.HTTPMethod, path p: String, handlers s: [TaylorHandler]){
+    init(m: Request.HTTPMethod, path p: String, handlers s: [Taylor.TaylorHandler]){
         
         self.method = m
         self.handlers = s
@@ -32,7 +31,7 @@ class Route {
             //Check if comp is ":something" parameter -> if true, comp = ["", "something"] else comp = ["something"]
             var compArr = comps[i].componentsSeparatedByString(":")
             
-            var component: TaylorPathComponent = (value:"", isParameter: false)
+            var component: Taylor.TaylorPathComponent = (value:"", isParameter: false)
             
             if compArr.count == 1 {
                 

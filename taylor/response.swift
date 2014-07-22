@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Response {
+public class Response {
     
     let _socket: GCDAsyncSocket?
     
@@ -90,6 +90,7 @@ class Response {
     }
     func send() {
         
+        assert(!self.sent)
         self.sent = true
         
         if _socket {

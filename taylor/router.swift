@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Router {
+public class Router {
     
     var _routes: [Route] = [Route]()
     
@@ -18,31 +18,25 @@ class Router {
         return true
     }
     
-    func handler() -> TaylorHandler {
+    public func handler() -> Taylor.TaylorHandler {
         
         return {
             
             request, response in
             
-            var t: TaylorHandlerTuple = (request: request, response: response)
-            
-            if let route = self.detectRouteForRequest(t.request){
+            if let route = self.detectRouteForRequest(request){
                 
                 //Execute all handlers
                 for handler in route.handlers {
                     
-                    if let tuple = handler(request: t.request, response: t.response) {
-                        // Continue
-                        t = tuple
-                    }
+                    handler(request: request, response: response)
+                    if response.sent { break }
                 }
             }
-            
-            return t
         }
     }
     
-    func detectRouteForRequest(request: Request) -> Route? {
+    private func detectRouteForRequest(request: Request) -> Route? {
         
         for route in self._routes {
             
@@ -55,6 +49,7 @@ class Router {
                     var isParameter = route.pathComponents[i].isParameter
                     if !(isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
                         
+                        request.parameters = [:]
                         break
                     }
                     

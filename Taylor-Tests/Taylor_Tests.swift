@@ -24,20 +24,20 @@ class Taylor_Tests: XCTestCase {
     func testRequestHandler() {
         // This is an example of a functional test case.
         
-        var taylor = Taylor(port: 3000)
+        var taylor = Server()
         
-        taylor.use {
+        taylor.addHandler {
             
             request, response in
-            return nil
+            response.stringBody = "Hey"
         }
         
         taylor.handleRequest(Request(), response: Response()) {
             
-            XCTAssert(true, "Taylor middleware handles requests")
+            XCTAssertEqual(true, "hey")
         }
         
-        taylor.startListening(forever: false)
+        taylor.startListening(port:3000, forever: false)
         
     }
     
@@ -60,9 +60,9 @@ class Taylor_Tests: XCTestCase {
         var bodyParser = Middleware.bodyParser()
         XCTAssert(true, "Crash")
     
-        let result = bodyParser(request: request, response: Response())
+        bodyParser(request: request, response: Response())
         
-        var body = result!.request.body
+        var body = request.body
         
         if let a = body["hello"] {
 
@@ -77,13 +77,11 @@ class Taylor_Tests: XCTestCase {
     func testRouter() {
         
         let router = Router()
-        let handler: TaylorHandler = {
+        let handler: Taylor.TaylorHandler = {
             
             request, response in
             
             response.sent = true
-            
-            return (request: request, response: response)
         }
         
         let route = Route(m: .GET, path: "/hello/:whatever/jey", handlers:[handler])
@@ -93,12 +91,13 @@ class Taylor_Tests: XCTestCase {
         request.method = .GET
         request.path = "/hello/hshshshs/jey"
         
-        let rHandler: TaylorHandler = router.handler()
+        let response = Response()
+        
+        let rHandler: Taylor.TaylorHandler = router.handler()
 
-        if let r = rHandler(request:request, response: Response()){
-            
-            XCTAssert(r.response.sent, "Request handled")
-        }
+        rHandler(request:request, response: response)
+        XCTAssert(response.sent, "Request handled")
+        
     }
     
     func testResponseGeneration() {
