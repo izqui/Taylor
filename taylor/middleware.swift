@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Middleware {
+class Middleware: MiddlewareProtocol {
     
     class func bodyParser() -> Taylor.TaylorHandler {
         
@@ -63,7 +63,7 @@ class Middleware {
             
             request, response in
             
-            if request.pathComponents.count >= components.count && request.method == Request.HTTPMethod.GET{
+            if request.method == Taylor.HTTPMethod.GET && request.pathComponents.count >= components.count {
                 
                 var j = -1
                 // Check if the request matches the path of the static file handler

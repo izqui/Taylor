@@ -8,17 +8,16 @@
 
 import Foundation
 
-public class Response {
+public class Response: ResponseProtocol {
     
-    let _socket: GCDAsyncSocket?
+    private let socket: GCDAsyncSocket?
+    private var statusLine: String = ""
     
-    var statusCode: Int = 200
-    var statusLine: String = ""
-    var headers: Dictionary<String, String> = Dictionary<String, String>()
+    public var statusCode: Int = 200
+    public var headers: Dictionary<String, String> = Dictionary<String, String>()
+    public var body: NSData?
     
-    var body: NSData?
-    
-    var sent: Bool = false
+    public var sent: Bool = false
     
     var stringBody: NSString? {
     didSet {
@@ -28,8 +27,8 @@ public class Response {
     }
     }
     
-    let _protocol: String = "HTTP/1.1"
-    var _codes = [
+    private let http_protocol: String = "HTTP/1.1"
+    internal var codes = [
     200: "OK",
     201: "Created",
     202: "Accepted",
@@ -57,7 +56,7 @@ public class Response {
     
     init(socket s: GCDAsyncSocket?){
         
-        _socket = s
+        socket = s
     }
     
     func redirect(url u: String) {
@@ -80,7 +79,7 @@ public class Response {
         
         self.statusCode = errorCode
         
-        if let a = self._codes[self.statusCode]{
+        if let a = self.codes[self.statusCode]{
             
             self.stringBody = a
         }
@@ -88,21 +87,21 @@ public class Response {
         self.send()
         
     }
-    func send() {
+    public func send() {
         
         assert(!self.sent)
         self.sent = true
         
-        if _socket {
+        if socket {
             
-            _socket!.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
+            socket!.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
         }
         
     }
     
-    func generateResponse() -> NSData {
+    internal func generateResponse() -> NSData {
         
-        if let a = self._codes[self.statusCode]{
+        if let a = self.codes[self.statusCode]{
             
             self.statusLine = a
         }
@@ -119,7 +118,7 @@ public class Response {
             headers["Content-Length"] = String(bodyData.length)
         }
         
-        var startLine = "\(self._protocol) \(String(self.statusCode)) \(self.statusLine)\r\n"
+        var startLine = "\(self.http_protocol) \(String(self.statusCode)) \(self.statusLine)\r\n"
         
         var headersStr = ""
         for (k, v) in self.headers {

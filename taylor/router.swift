@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class Router {
+public class Router: RouterProtocol {
     
-    var _routes: [Route] = [Route]()
+    private var routes: [Route] = [Route]()
     
-    func addRoute(route: Route) -> Bool {
+    public func addRoute(route: Route) -> Bool {
         
-        self._routes += route
+        routes += route
         return true
     }
     
@@ -38,7 +38,7 @@ public class Router {
     
     private func detectRouteForRequest(request: Request) -> Route? {
         
-        for route in self._routes {
+        for route in routes {
             
             request.parameters = Dictionary<String, String>()
             let compCount = route.pathComponents.count

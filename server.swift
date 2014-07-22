@@ -16,16 +16,7 @@ public class Server: ServerProtocol {
     private var sockets: [GCDAsyncSocket] = [GCDAsyncSocket]()
     private var handlers: [Taylor.TaylorHandler]
     
-    var router: Router {
-    
-    willSet (newOne){
-        
-        // When setting a new router, set the routes of the old one
-        for r in router._routes {
-            newOne.addRoute(r)
-        }
-    }
-    }
+    var router: Router
     
     public init(){
 

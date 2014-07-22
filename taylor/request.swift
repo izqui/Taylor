@@ -8,16 +8,9 @@
 
 import Foundation
 
-public class Request {
+public class Request: RequestProtocol {
     
-    public enum HTTPMethod: String {
-        
-        case GET = "GET"
-        case POST = "POST"
-        case UNDEFINED = "UNDEFINED" // it will never match
-    }
-    
-    var path: String {
+    public var path: String {
 
     didSet {
         
@@ -30,17 +23,17 @@ public class Request {
         }
     }
     }
-    var pathComponents: [String] = [String]()
+    public var pathComponents: [String] = [String]()
     
-    var arguments: Dictionary<String, String> = Dictionary<String, String>() // ?hello=world -> arguments["hello"]
-    var parameters: Dictionary<String, String> = Dictionary<String, String>() // /:something -> parameters["something"]
+    public var arguments: Dictionary<String, String> = Dictionary<String, String>() // ?hello=world -> arguments["hello"]
+    public var parameters: Dictionary<String, String> = Dictionary<String, String>() // /:something -> parameters["something"]
     
-    var method: HTTPMethod = .UNDEFINED
-    var headers: Dictionary<String, String> = Dictionary<String, String>()
+    public var method: Taylor.HTTPMethod = .UNDEFINED
+    public var headers: Dictionary<String, String> = Dictionary<String, String>()
     
     //var bodyData: NSData?
-    var bodyString: NSString?
-    var body: Dictionary<String, String> = Dictionary<String, String>()
+    public var bodyString: NSString?
+    public var body: Dictionary<String, String> = Dictionary<String, String>()
     
     var _protocol: String?
     
@@ -59,7 +52,7 @@ public class Request {
         }
     }
     
-    func parseRequest(d: NSData){
+    private func parseRequest(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
@@ -73,7 +66,7 @@ public class Request {
             
             if startLineArr.count > 0 {
                 
-                if let m = HTTPMethod.fromRaw(startLineArr[0]) {
+                if let m = Taylor.HTTPMethod.fromRaw(startLineArr[0]) {
                     
                     self.method = m
                 }
@@ -132,7 +125,7 @@ public class Request {
             }
         }
         
-        if i < http.count && (self.method == .POST || false) { // Add other methods that support body data
+        if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
             
             
             var str = NSMutableString()

@@ -8,15 +8,15 @@
 
 import Foundation
 
-public class Route {
+public class Route: RouteProtocol {
     
-    public let method: Request.HTTPMethod
+    public let method: Taylor.HTTPMethod
     public let path: String
     public let handlers: [Taylor.TaylorHandler]
 
     internal let pathComponents: [Taylor.TaylorPathComponent]
     
-    init(m: Request.HTTPMethod, path p: String, handlers s: [Taylor.TaylorHandler]){
+    init(m: Taylor.HTTPMethod, path p: String, handlers s: [Taylor.TaylorHandler]){
         
         self.method = m
         self.handlers = s
