@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Middleware: MiddlewareProtocol {
+public class TMiddleware {
     
-    class func bodyParser() -> Taylor.TaylorHandler {
+    public class func bodyParser() -> Taylor.Handler {
         
         return {
             
@@ -38,10 +38,10 @@ class Middleware: MiddlewareProtocol {
                                 val = arg[1]
                             }
                             
-                            let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
-                            let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                            let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
                             
-                            request.body.updateValue(value, forKey: key)
+                            request.body[key] = value
                         }
                     }
                 }
@@ -49,7 +49,7 @@ class Middleware: MiddlewareProtocol {
         }
     }
     
-    class func staticDirectory(path: String, directory: String) -> Taylor.TaylorHandler {
+    public class func staticDirectory(path: String, directory: String) -> Taylor.Handler {
         
         let tempComponents = path.componentsSeparatedByString("/")
         var components = [String]()
@@ -63,13 +63,22 @@ class Middleware: MiddlewareProtocol {
             
             request, response in
             
-            if request.method == Taylor.HTTPMethod.GET && request.pathComponents.count >= components.count {
+            var comps = request.path.componentsSeparatedByString("/")
+            
+            //We don't care about the first element, which will always be nil since paths are like this: "/something"
+            var pathComponents: [String] = []
+            for i in 1..<comps.count {
+                
+                pathComponents += comps[i]
+            }
+            
+            if request.method == Taylor.HTTPMethod.GET && pathComponents.count >= components.count {
                 
                 var j = -1
                 // Check if the request matches the path of the static file handler
                 for i in 0..<components.count {
                     
-                    if components[i] != request.pathComponents[i] {
+                    if components[i] != pathComponents[i] {
                         
                         // If at some point it doesn't match, just go on with the request handling
                         return
@@ -80,9 +89,9 @@ class Middleware: MiddlewareProtocol {
                 
                 var filePath = directory.stringByExpandingTildeInPath
                 
-                for k in j+1..<request.pathComponents.count {
+                for k in j+1..<pathComponents.count {
                     
-                    filePath = filePath.stringByAppendingPathComponent(request.pathComponents[k])
+                    filePath = filePath.stringByAppendingPathComponent(pathComponents[k])
                 }
                 
                 let fileManager = NSFileManager.defaultManager()
@@ -99,7 +108,7 @@ class Middleware: MiddlewareProtocol {
                     
                     //TODO: Make it asyncronous
                     var fileData = NSData(contentsOfFile: filePath)
-                    response.sendFile(fileData, fileType: FileTypes.get(filePath.pathExtension))
+                    response.sendFile(fileData, fileType: Taylor.FileTypes.get(filePath.pathExtension))
                 }
                 
                 // In case we didn't send any files, 404 it.
@@ -109,7 +118,7 @@ class Middleware: MiddlewareProtocol {
         }
     }
     
-    class func requestLogger() -> Taylor.TaylorHandler {
+    public class func requestLogger() -> Taylor.Handler {
         
         return {
             

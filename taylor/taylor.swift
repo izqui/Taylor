@@ -10,74 +10,82 @@ import Foundation
 
 public class Taylor: NSObject, GCDAsyncSocketDelegate {
     
+    public typealias Handler = (request: TRequest, response: TResponse) -> ()
+    internal typealias PathComponent = (value: String, isParameter: Bool)
+    
     public enum HTTPMethod: String {
         
         case GET = "GET"
         case POST = "POST"
         case UNDEFINED = "UNDEFINED" // it will never match
     }
-
-    public typealias TaylorHandler = TaylorHandlerComponents -> ()
-    public typealias TaylorHandlerComponents = (request: Request, response: Response)
-    internal typealias TaylorPathComponent = (value: String, isParameter: Bool)
     
-    /*public class func NewServer() {
+    public class func NewServer() -> TServer {
         
-        var a = Server()
-    }*/
+        return TServer()
+    }
+    
+    public typealias Server = TServer
+    public typealias Request = TRequest
+    public typealias Response = TResponse
+    public typealias Router = TRouter
+    public typealias Route = TRoute
+    
+    public typealias Middleware = TMiddleware
+    public typealias FileTypes = TFileTypes
 }
 
-public protocol ServerProtocol {
+public protocol TServerProtocol {
+    
+    func addHandler(handler: Taylor.Handler)
     
     func startListening(#port: Int, forever: Bool)
     func stopListening()
     
-    func addHandler(handler: Taylor.TaylorHandler)
+    //Convinience methods
+    func get(p: String, callback c: Taylor.Handler...)
+    func post(p: String, callback c: Taylor.Handler...)
 }
 
-public protocol RouteProtocol {
+public protocol TRouterProtocol {
     
-    init(m: Taylor.HTTPMethod, path p: String, handlers s: [Taylor.TaylorHandler])
+    func addRoute(route: TRoute) -> Bool
+    func handler() -> Taylor.Handler
+}
+
+public protocol TRouteProtocol {
+    
+    init(m: Taylor.HTTPMethod, path p: String, handlers s: [Taylor.Handler])
     
     var method: Taylor.HTTPMethod {get}
     var path: String {get}
-    var handlers: [Taylor.TaylorHandler] {get}
-    
+    var handlers: [Taylor.Handler] {get}
 }
 
-public protocol RouterProtocol {
+public protocol TRequestProtocol {
     
-    func addRoute(route: Route) -> Bool
-    func handler() -> Taylor.TaylorHandler 
+    var method: Taylor.HTTPMethod {get}
+    var path: String {get}
+    var headers: [String:String] {get}
     
+    var arguments: [String:String] {get}// /name?hello=world -> arguments["hello"]
+    var parameters: [String:String] {get}// /name/:something -> parameters["something"]
+    
+    var body: [String:String] {get set}
+    var bodyString: NSString? {get set}
 }
 
-@objc public protocol RequestProtocol {
-    
-    var path: String { get set }
-    var headers: Dictionary<String, String> {get}
-    
-    var arguments: Dictionary<String, String> {get}// /name?hello=world -> arguments["hello"]
-    var parameters: Dictionary<String, String> {get}// /name/:something -> parameters["something"]
-    
-    var body: Dictionary<String, String> {get}
-    
-    optional var bodyString: NSString {get set}
-}
-
-@objc public protocol ResponseProtocol {
+public protocol TResponseProtocol {
     
     var statusCode: Int {get set}
-    var headers: Dictionary<String, String> {get set}
-    optional var body: NSData {get set}
+    var headers: [String:String] {get set}
+    
+    var bodyString: String? {get set}
+    var body: NSData? {get set}
     
     func send()
-    var sent: Bool {get}
-}
-
-public protocol MiddlewareProtocol {
+    func sendFile(data: NSData, fileType: NSString)
+    func sendError(errorCode: Int)
     
-    class func bodyParser() -> Taylor.TaylorHandler
-    class func staticDirectory(path: String, directory: String) -> Taylor.TaylorHandler
-    class func requestLogger() -> Taylor.TaylorHandler
+    var sent: Bool {get}
 }

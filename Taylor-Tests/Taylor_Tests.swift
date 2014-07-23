@@ -24,15 +24,15 @@ class Taylor_Tests: XCTestCase {
     func testRequestHandler() {
         // This is an example of a functional test case.
         
-        var taylor = Server()
+        var taylor = TServer()
         
         taylor.addHandler {
             
             request, response in
-            response.stringBody = "Hey"
+            response.bodyString = "Hey"
         }
         
-        taylor.handleRequest(Request(), response: Response()) {
+        taylor.handleRequest(TRequest(), response: TResponse()) {
             
             XCTAssertEqual(true, "hey")
         }
@@ -44,9 +44,9 @@ class Taylor_Tests: XCTestCase {
     func testRequestParsing() {
         
         let string = "POST /hello?name=jorge HTTP/1.1\r\nHost: localhost:3003\r\nHeader2: hahaha  ssss\r\nHeader3: hehehe\r\n\r\nWhatever"
-        let request = Request(data: string.dataUsingEncoding(NSUTF8StringEncoding))
+        let request = TRequest(data: string.dataUsingEncoding(NSUTF8StringEncoding))
         
-        XCTAssertEqual(request.method, Request.HTTPMethod.POST, "Method parsing")
+        XCTAssertEqual(request.method, Taylor.HTTPMethod.POST, "Method parsing")
         XCTAssertEqual(request.path, "/hello", "Path parsing")
         XCTAssertEqual(request.headers.count, 3, "Header parsing")
         XCTAssertEqual(request.arguments["name"]!, "jorge", "Arg parsing")
@@ -55,12 +55,12 @@ class Taylor_Tests: XCTestCase {
     func testBodyParsing() {
         
         let string = "POST /hello?name=jorge HTTP/1.1\r\nHost: localhost:3003\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\nhello=hi&goodbye=bye"
-        let request = Request(data: string.dataUsingEncoding(NSUTF8StringEncoding))
+        let request = TRequest(data: string.dataUsingEncoding(NSUTF8StringEncoding))
         
-        var bodyParser = Middleware.bodyParser()
+        var bodyParser = TMiddleware.bodyParser()
         XCTAssert(true, "Crash")
     
-        bodyParser(request: request, response: Response())
+        bodyParser(request: request, response: TResponse())
         
         var body = request.body
         
@@ -76,34 +76,34 @@ class Taylor_Tests: XCTestCase {
     
     func testRouter() {
         
-        let router = Router()
-        let handler: Taylor.TaylorHandler = {
+        let router = TRouter()
+        let handler: Taylor.Handler = {
             
             request, response in
             
             response.sent = true
         }
         
-        let route = Route(m: .GET, path: "/hello/:whatever/jey", handlers:[handler])
+        let route = TRoute(m: .GET, path: "/hello/:whatever/jey", handlers:[handler])
         router.addRoute(route)
         
-        let request = Request()
+        let request = TRequest()
         request.method = .GET
         request.path = "/hello/hshshshs/jey"
         
-        let response = Response()
+        let response = TResponse()
         
-        let rHandler: Taylor.TaylorHandler = router.handler()
+        let rHandler: Taylor.Handler = router.handler()
 
         rHandler(request:request, response: response)
-        XCTAssert(response.sent, "Request handled")
+        XCTAssert(response.sent, "TRequest handled")
         
     }
     
     func testResponseGeneration() {
         
-        let response = Response()
-        response.stringBody = "Hello"
+        let response = TResponse()
+        response.bodyString = "Hello"
         
         let s = NSString(data: response.generateResponse(), encoding: NSUTF8StringEncoding)
         
@@ -112,7 +112,7 @@ class Taylor_Tests: XCTestCase {
     
     func testFileTypes() {
         
-        XCTAssertEqual(FileTypes.get("html"), "text/html", "Type")
-        XCTAssertEqual(FileTypes.get("json"), "application/json", "Type")
+        XCTAssertEqual(Taylor.FileTypes.get("html"), "text/html", "Type")
+        XCTAssertEqual(Taylor.FileTypes.get("json"), "application/json", "Type")
     }
 }

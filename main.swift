@@ -19,17 +19,43 @@ if C_ARGC > 1 {
     }
 }
 
-let taylor = Server()
+let taylor: Taylor.Server = Taylor.NewServer()
 
-taylor.get("/", Middleware.requestLogger()) {
-    
-    request, response in
-    
-    response.stringBody = "Hello new batch!"
+taylor.addHandler(Taylor.Middleware.requestLogger())
 
-    response.headers["Content-Type"] = FileTypes.get("txt")
+taylor.get("/") {
     
-    response.send()
+    req, res in
+    
+    res.bodyString = "Hello world"
+    
+    res.send()
+}
+
+taylor.get("/form/:name") {
+    
+    req, res in
+    
+    var name = req.parameters["name"]!
+    res.bodyString = "<h1>Hello \(name) <form method=\"POST\"><p>Your age:</p> <input type=\"text\" name=\"age\"><input type=\"submit\"></form>"
+    res.headers["Content-Type"] = Taylor.FileTypes.get("html")
+    
+    res.send()
+}
+
+taylor.post("/form/:name", Taylor.Middleware.bodyParser()) {
+    
+    req, res in
+    
+    var name = req.parameters["name"]!
+    var age = "unknown"
+    
+    if let a = req.body["age"]{
+        age = a
+    }
+    
+    res.bodyString = "\(name)'s age is \(age)"
+    res.send()
 }
 
 // Run forever

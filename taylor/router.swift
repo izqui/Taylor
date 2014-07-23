@@ -8,23 +8,23 @@
 
 import Foundation
 
-public class Router: RouterProtocol {
+public class TRouter: TRouterProtocol {
     
-    private var routes: [Route] = [Route]()
+    private var routes: [TRoute] = [TRoute]()
     
-    public func addRoute(route: Route) -> Bool {
+    public func addRoute(route: TRoute) -> Bool {
         
         routes += route
         return true
     }
     
-    public func handler() -> Taylor.TaylorHandler {
+    public func handler() -> Taylor.Handler {
         
         return {
             
             request, response in
             
-            if let route = self.detectRouteForRequest(request){
+            if let route = self.detectRouteForRequest(request as TRequest){
                 
                 //Execute all handlers
                 for handler in route.handlers {
@@ -36,7 +36,7 @@ public class Router: RouterProtocol {
         }
     }
     
-    private func detectRouteForRequest(request: Request) -> Route? {
+    private func detectRouteForRequest(request: TRequest) -> TRoute? {
         
         for route in routes {
             
@@ -68,7 +68,7 @@ public class Router: RouterProtocol {
         return nil
     }
     
-    func 😕(request: Request, response: Response) -> Bool {
+    func 😕(request: TRequest, response: TResponse) -> Bool {
         
         response.sendError(404)
         return true

@@ -8,36 +8,32 @@
 
 import Foundation
 
-public class Server: ServerProtocol {
+public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
     
-    private let port: Int = 8080
-    private var socket: GCDAsyncSocket?
+    private var socket: GCDAsyncSocket
     
     private var sockets: [GCDAsyncSocket] = [GCDAsyncSocket]()
-    private var handlers: [Taylor.TaylorHandler]
+    private var handlers: [Taylor.Handler]
     
-    var router: Router
+    var router: TRouter
     
     public init(){
 
-        router = Router()
+        router = TRouter()
         handlers = []
         
-        self.setup()
-    }
-    
-    private func setup(){
-        
-        socket = GCDAsyncSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
+        socket = GCDAsyncSocket()
     }
     
     public func startListening(port p: Int, forever awake: Bool){
         
+        socket.setDelegate(self, delegateQueue: dispatch_get_main_queue())
+        
         var err: NSError?
         
-        if socket?.acceptOnInterface(nil, port: UInt16(port), error: &err) {
+        if socket.acceptOnInterface(nil, port: UInt16(p), error: &err) {
             
-            println("Server running on port \(socket!.localPort())")
+            println("Server running on port \(socket.localPort())")
             
             //Should find a better location for this
             self.addHandler(self.router.handler())
@@ -62,16 +58,16 @@ public class Server: ServerProtocol {
     }
     public func stopListening() {
         
-        socket?.disconnect()
+        socket.disconnect()
     }
     
-    public func addHandler(handler: Taylor.TaylorHandler){
+    public func addHandler(handler: Taylor.Handler){
         
         //Should check if middleare has already been added, but it's difficult since it is a clousure and not an object
         self.handlers += handler
     }
     
-    internal func handleRequest(request: Request, response: Response, cb:() -> ()) {
+    internal func handleRequest(request: TRequest, response: TResponse, cb:() -> ()) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
@@ -93,8 +89,8 @@ public class Server: ServerProtocol {
             }
         }
     }
-    // GCDAsyncSocket delegate methods
     
+    // GCDAsyncSocketDelegate methods
     public func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
         
         newSocket.readDataWithTimeout(10, tag: 1)
@@ -102,8 +98,8 @@ public class Server: ServerProtocol {
     
     public func socket(sock: GCDAsyncSocket, didReadData data: NSData, withTag tag: Double){
         
-        var request = Request(data: data)
-        var response = Response(socket: sock)
+        var request = TRequest(data: data)
+        var response = TResponse(socket: sock)
         
         self.handleRequest(request, response: response) {
             
@@ -112,24 +108,17 @@ public class Server: ServerProtocol {
         }
     }
     
-    /*
-    //- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
-    func socket(sock: GCDAsyncSocket, didReadPartialDataOfLength length: Int, tag t: Double){
-    
-    }*/
-    
-    //- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
     public func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
     }
     
     //Convenience methods
-    public func get(p: String, callback c: Taylor.TaylorHandler...) {
+    public func get(p: String, callback c: Taylor.Handler...) {
         
-        self.router.addRoute(Route(m: .GET, path: p, handlers: c))
+        self.router.addRoute(TRoute(m: .GET, path: p, handlers: c))
     }
     
-    public func post(p: String, callback c: Taylor.TaylorHandler...) {
+    public func post(p: String, callback c: Taylor.Handler...) {
         
-        self.router.addRoute(Route(m: .POST, path: p, handlers: c))
+        self.router.addRoute(TRoute(m: .POST, path: p, handlers: c))
     }
 }

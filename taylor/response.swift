@@ -8,24 +8,25 @@
 
 import Foundation
 
-public class Response: ResponseProtocol {
+public class TResponse: TResponseProtocol {
     
     private let socket: GCDAsyncSocket?
     private var statusLine: String = ""
     
     public var statusCode: Int = 200
     public var headers: Dictionary<String, String> = Dictionary<String, String>()
-    public var body: NSData?
     
     public var sent: Bool = false
     
-    var stringBody: NSString? {
+    public var body: NSData?
+    public var bodyString: String? {
     didSet {
         if !headers["Content-Type"]{
-            headers["Content-Type"] = FileTypes.get("txt")
+            headers["Content-Type"] = Taylor.FileTypes.get("txt")
         }
     }
     }
+    
     
     private let http_protocol: String = "HTTP/1.1"
     internal var codes = [
@@ -38,7 +39,7 @@ public class Response: ResponseProtocol {
     302: "Found",
     303: "See other",
     
-    400: "Bad Request",
+    400: "Bad TRequest",
     401: "Unauthorized",
     403: "Forbidden",
     404: "Not Found",
@@ -67,7 +68,7 @@ public class Response: ResponseProtocol {
     }
     
     
-    func sendFile(data: NSData, fileType: NSString) {
+    public func sendFile(data: NSData, fileType: NSString) {
         
         self.body = data
         self.headers["Content-Type"] = fileType
@@ -75,13 +76,13 @@ public class Response: ResponseProtocol {
         self.send()
     }
     
-    func sendError(errorCode: Int){
+    public func sendError(errorCode: Int){
         
         self.statusCode = errorCode
         
         if let a = self.codes[self.statusCode]{
             
-            self.stringBody = a
+            self.bodyString = a
         }
         
         self.send()
@@ -110,8 +111,8 @@ public class Response: ResponseProtocol {
         
         if body {
             bodyData = body!
-        } else if stringBody {
-            bodyData = NSData(data: stringBody!.dataUsingEncoding(NSUTF8StringEncoding))
+        } else if bodyString {
+            bodyData = NSData(data: bodyString!.dataUsingEncoding(NSUTF8StringEncoding))
         }
         
         if !headers["Content-Length"] {
