@@ -37,26 +37,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>E1247F071956540E007B7D5C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>main.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F081956540E007B7D5C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F071956540E007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>E1247F0919565431007B7D5C</key>
 		<dict>
 			<key>fileEncoding</key>
@@ -65,8 +45,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>request.swift</string>
 			<key>path</key>
 			<string>request.swift</string>
 			<key>sourceTree</key>
@@ -80,8 +58,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>response.swift</string>
 			<key>path</key>
 			<string>response.swift</string>
 			<key>sourceTree</key>
@@ -95,8 +71,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>route.swift</string>
 			<key>path</key>
 			<string>route.swift</string>
 			<key>sourceTree</key>
@@ -110,8 +84,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>router.swift</string>
 			<key>path</key>
 			<string>router.swift</string>
 			<key>sourceTree</key>
@@ -125,8 +97,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>taylor.swift</string>
 			<key>path</key>
 			<string>taylor.swift</string>
 			<key>sourceTree</key>
@@ -143,9 +113,9 @@
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>TCP</string>
+			<string>dependencies</string>
 			<key>path</key>
-			<string>TCP</string>
+			<string>dependencies</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -184,6 +154,26 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>E17FF294198045F600175D34</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>main.swift</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>E17FF295198045F600175D34</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E17FF294198045F600175D34</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>E18467C3195B33960038B8D7</key>
 		<dict>
 			<key>fileEncoding</key>
@@ -192,8 +182,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>fileTypes.swift</string>
 			<key>path</key>
 			<string>fileTypes.swift</string>
 			<key>sourceTree</key>
@@ -212,9 +200,9 @@
 			<array>
 				<string>E1A84F6D195CA2C90008C15A</string>
 				<string>E1A84F6B195CA2C50008C15A</string>
-				<string>E19349BE19564CA2001E92EE</string>
+				<string>E17FF294198045F600175D34</string>
+				<string>E19349D519564CF0001E92EE</string>
 				<string>E1A84F4F195CA0EA0008C15A</string>
-				<string>E1A84F5C195CA2030008C15A</string>
 				<string>E19349BD19564CA2001E92EE</string>
 			</array>
 			<key>isa</key>
@@ -298,9 +286,9 @@
 				<string>E1C46B5B195A08BE00ABCEA9</string>
 				<string>E1247F1419565431007B7D5C</string>
 				<string>E1247F1619565431007B7D5C</string>
-				<string>E1247F081956540E007B7D5C</string>
 				<string>E1247F1519565431007B7D5C</string>
 				<string>E1185E3B197EE7F500F916CB</string>
+				<string>E17FF295198045F600175D34</string>
 				<string>E1D4CE211958BAE8008BB3FF</string>
 				<string>E1247F1219565431007B7D5C</string>
 				<string>E18467C4195B33960038B8D7</string>
@@ -385,20 +373,6 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E19349BE19564CA2001E92EE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1247F071956540E007B7D5C</string>
-				<string>E19349D519564CF0001E92EE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Taylor</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -640,8 +614,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
 			<key>path</key>
 			<string>Supporting Files</string>
 			<key>sourceTree</key>
@@ -678,7 +650,6 @@
 				<string>E1A84F6F195CA2DB0008C15A</string>
 				<string>E1A84F66195CA20A0008C15A</string>
 				<string>E1A84F64195CA20A0008C15A</string>
-				<string>E1A84F60195CA2030008C15A</string>
 				<string>E1A84F69195CA20A0008C15A</string>
 				<string>E1A84F68195CA20A0008C15A</string>
 				<string>E1185E3C197EF58000F916CB</string>
@@ -753,64 +724,6 @@
 			<string>Taylor-Tests.xctest</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>E1A84F5C195CA2030008C15A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1A84F5F195CA2030008C15A</string>
-				<string>E1A84F5D195CA2030008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Taylor-Tests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F5D195CA2030008C15A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1A84F5E195CA2030008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>path</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F5E195CA2030008C15A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F5F195CA2030008C15A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Taylor_Tests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F60195CA2030008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1A84F5F195CA2030008C15A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>E1A84F61195CA2030008C15A</key>
 		<dict>
@@ -985,8 +898,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>middleware.swift</string>
 			<key>path</key>
 			<string>middleware.swift</string>
 			<key>sourceTree</key>
@@ -1007,8 +918,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>GCDAsyncSocket.h</string>
 			<key>path</key>
 			<string>GCDAsyncSocket.h</string>
 			<key>sourceTree</key>
@@ -1022,8 +931,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>GCDAsyncSocket.m</string>
 			<key>path</key>
 			<string>GCDAsyncSocket.m</string>
 			<key>sourceTree</key>
@@ -1037,8 +944,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>Taylor-Bridging-Header.h</string>
 			<key>path</key>
 			<string>Taylor-Bridging-Header.h</string>
 			<key>sourceTree</key>

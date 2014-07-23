@@ -12,7 +12,7 @@ import Foundation
 var port = 3003
 
 if C_ARGC > 1 {
-
+    
     var string = String.fromCString(C_ARGV[1])
     if let i = string?.toInt() {
         port = i
@@ -27,7 +27,7 @@ taylor.get("/") {
     
     req, res in
     
-    res.bodyString = "Hello world"
+    res.bodyString = "Hello world!"
     
     res.send()
 }
