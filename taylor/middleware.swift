@@ -16,11 +16,11 @@ public class TMiddleware {
             
             request, response in
             
-            if request.bodyString && request.headers["Content-Type"] {
+            if request.bodyString != nil && request.headers["Content-Type"] != nil {
                 
-                var h = request.headers["Content-Type"]!
+                var h: NSString = request.headers["Content-Type"]! as NSString
                 
-                var notfound: Bool = (Int(NSIntegerMax) == h.bridgeToObjectiveC().rangeOfString("application/x-www-form-urlencoded").location)
+                var notfound: Bool = (Int(NSIntegerMax) == h.rangeOfString("application/x-www-form-urlencoded").location)
                 
                 if !notfound {
                     
@@ -57,8 +57,10 @@ public class TMiddleware {
         //We don't care about the first element, which will always be nil since paths are like this: "/something"
         for i in 1..<tempComponents.count {
             
-            components += tempComponents[i]
+            components.append(tempComponents[i])
+            
         }
+        
         return {
             
             request, response in
@@ -69,7 +71,7 @@ public class TMiddleware {
             var pathComponents: [String] = []
             for i in 1..<comps.count {
                 
-                pathComponents += comps[i]
+                pathComponents.append(comps[i])
             }
             
             if request.method == Taylor.HTTPMethod.GET && pathComponents.count >= components.count {

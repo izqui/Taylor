@@ -19,6 +19,7 @@ if C_ARGC > 1 {
     }
 }
 
+
 let taylor: Taylor.Server = Taylor.NewServer()
 
 taylor.addHandler(Taylor.Middleware.requestLogger())

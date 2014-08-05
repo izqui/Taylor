@@ -19,7 +19,7 @@ public class TRequest: TRequestProtocol {
         //We don't care about the first element, which will always be nil since paths are like this: "/something"
         for i in 1..<comps.count {
             
-            self.pathComponents += comps[i]
+            self.pathComponents.append(comps[i])
         }
     }
     }
@@ -46,7 +46,7 @@ public class TRequest: TRequestProtocol {
         
         self.path = String()
         //Parsing data from socket to build a HTTP request
-        if d {
+        if d != nil {
             
             self.parseRequest(d!)
         }

@@ -21,7 +21,7 @@ public class TResponse: TResponseProtocol {
     public var body: NSData?
     public var bodyString: String? {
     didSet {
-        if !headers["Content-Type"]{
+        if headers["Content-Type"] == nil {
             headers["Content-Type"] = Taylor.FileTypes.get("txt")
         }
     }
@@ -93,7 +93,7 @@ public class TResponse: TResponseProtocol {
         assert(!self.sent)
         self.sent = true
         
-        if socket {
+        if socket != nil {
             
             socket!.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
         }
@@ -109,13 +109,13 @@ public class TResponse: TResponseProtocol {
         
         var bodyData: NSData = NSData()
         
-        if body {
+        if body != nil {
             bodyData = body!
-        } else if bodyString {
+        } else if bodyString != nil {
             bodyData = NSData(data: bodyString!.dataUsingEncoding(NSUTF8StringEncoding))
         }
         
-        if !headers["Content-Length"] {
+        if headers["Content-Length"] == nil{
             headers["Content-Length"] = String(bodyData.length)
         }
         
@@ -128,7 +128,7 @@ public class TResponse: TResponseProtocol {
         }
         
         headersStr += "\r\n"
-        var finalStr = String(startLine+headersStr)
+        var finalStr = String(format: startLine+headersStr)
         
         var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
         data.appendData(bodyData)

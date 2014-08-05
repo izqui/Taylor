@@ -14,7 +14,7 @@ public class TRouter: TRouterProtocol {
     
     public func addRoute(route: TRoute) -> Bool {
         
-        routes += route
+        routes.append(route)
         return true
     }
     

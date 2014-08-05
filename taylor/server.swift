@@ -17,7 +17,7 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
     
     var router: TRouter
     
-    public init(){
+    public override init(){
 
         router = TRouter()
         handlers = []
@@ -38,7 +38,7 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
             //Should find a better location for this
             self.addHandler(self.router.handler())
         }
-        else if err {
+        else if err != nil {
             
             println("Error \(err!)")
         }
@@ -64,7 +64,7 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
     public func addHandler(handler: Taylor.Handler){
         
         //Should check if middleare has already been added, but it's difficult since it is a clousure and not an object
-        self.handlers += handler
+        self.handlers.append(handler)
     }
     
     internal func handleRequest(request: TRequest, response: TResponse, cb:() -> ()) {
