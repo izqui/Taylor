@@ -51,6 +51,17 @@ class Taylor_Tests: XCTestCase {
         XCTAssertEqual(request.headers.count, 3, "Header parsing")
         XCTAssertEqual(request.arguments["name"]!, "jorge", "Arg parsing")
     }
+
+    func testRequestParsingWithMultipleSP() {
+
+        let string = "GET   /write?space=name  HTTP/1.1\r\nHost: localhost:1989\r\nHeader2: It's gonna go down in flames\r\n\r\ndaydream"
+        let request = TRequest(data: string.dataUsingEncoding(NSUTF8StringEncoding))
+
+        XCTAssertEqual(request.method, Taylor.HTTPMethod.GET, "Method parsing")
+        XCTAssertEqual(request.path, "/write", "Path parsing")
+        XCTAssertEqual(request.headers.count, 2, "Header parsing")
+        XCTAssertEqual(request.arguments["space"]!, "name", "Arg parsing")
+    }
     
     func testBodyParsing() {
         
