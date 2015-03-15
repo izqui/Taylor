@@ -11,9 +11,9 @@ import Foundation
 //Check if port is being set from the command line
 var port = 3003
 
-if C_ARGC > 1 {
+if Process.argc > 1 {
     
-    var string = String.fromCString(C_ARGV[1])
+    var string = String.fromCString(Process.unsafeArgv[1])
     if let i = string?.toInt() {
         port = i
     }
@@ -44,7 +44,7 @@ taylor.get("/form/:name") {
     res.send()
 }
 
-taylor.post("/form/:name", Taylor.Middleware.bodyParser()) {
+taylor.post("/form/:name"/*, Taylor.Middleware.bodyParser()*/) {
     
     req, res in
     

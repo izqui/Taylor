@@ -96,7 +96,7 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
         newSocket.readDataWithTimeout(10, tag: 1)
     }
     
-    public func socket(sock: GCDAsyncSocket, didReadData data: NSData, withTag tag: Double){
+    public func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         
         var request = TRequest(data: data)
         var response = TResponse(socket: sock)

@@ -57,7 +57,7 @@ public class TRequest: TRequestProtocol {
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         var string = NSString(data: d, encoding: NSUTF8StringEncoding)
         
-        var http: [String] = string.componentsSeparatedByString("\r\n") as [String]
+        var http: [String] = string!.componentsSeparatedByString("\r\n") as! [String]
         
         //Parse method
         if http.count > 0 {
@@ -66,7 +66,7 @@ public class TRequest: TRequestProtocol {
             
             if startLineArr.count > 0 {
                 
-                if let m = Taylor.HTTPMethod.fromRaw(startLineArr[0]) {
+                if let m = Taylor.HTTPMethod(rawValue: startLineArr[0]) {
                     
                     self.method = m
                 }
@@ -95,7 +95,7 @@ public class TRequest: TRequestProtocol {
                         }
                         
                         // Adding the values removing the %20 bullshit and stuff
-                        self.arguments.updateValue(value.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding), forKey: arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding))
+                        self.arguments.updateValue(value.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!, forKey: arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)
                     }
                 }
             }

@@ -1,963 +1,434 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>E1185E3A197EE7F500F916CB</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>server.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1185E3B197EE7F500F916CB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1185E3A197EE7F500F916CB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1185E3C197EF58000F916CB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1185E3A197EE7F500F916CB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1247F0919565431007B7D5C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>request.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F0A19565431007B7D5C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>response.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F0B19565431007B7D5C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>route.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F0C19565431007B7D5C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>router.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F0D19565431007B7D5C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>taylor.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F0E19565431007B7D5C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1D4CE1E1958BAE8008BB3FF</string>
-				<string>E1D4CE1F1958BAE8008BB3FF</string>
-				<string>E1D4CE201958BAE8008BB3FF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>dependencies</string>
-			<key>path</key>
-			<string>dependencies</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1247F1219565431007B7D5C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0919565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1247F1319565431007B7D5C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0A19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1247F1419565431007B7D5C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0B19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1247F1519565431007B7D5C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0C19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1247F1619565431007B7D5C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0D19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E17FF294198045F600175D34</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>main.swift</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>E17FF295198045F600175D34</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E17FF294198045F600175D34</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E18467C3195B33960038B8D7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>fileTypes.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E18467C4195B33960038B8D7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E18467C3195B33960038B8D7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E19349B319564CA2001E92EE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1A84F6D195CA2C90008C15A</string>
-				<string>E1A84F6B195CA2C50008C15A</string>
-				<string>E17FF294198045F600175D34</string>
-				<string>E19349D519564CF0001E92EE</string>
-				<string>E1A84F4F195CA0EA0008C15A</string>
-				<string>E19349BD19564CA2001E92EE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E19349B419564CA2001E92EE</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0600</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Jorge Izquierdo</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>E19349BB19564CA2001E92EE</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.0</string>
-					</dict>
-					<key>E1A84F5A195CA2030008C15A</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.0</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>E19349B719564CA2001E92EE</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>E19349B319564CA2001E92EE</string>
-			<key>productRefGroup</key>
-			<string>E19349BD19564CA2001E92EE</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>E19349BB19564CA2001E92EE</string>
-				<string>E1A84F5A195CA2030008C15A</string>
-			</array>
-		</dict>
-		<key>E19349B719564CA2001E92EE</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E19349C119564CA2001E92EE</string>
-				<string>E19349C219564CA2001E92EE</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E19349B819564CA2001E92EE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E1247F1319565431007B7D5C</string>
-				<string>E1C46B5B195A08BE00ABCEA9</string>
-				<string>E1247F1419565431007B7D5C</string>
-				<string>E1247F1619565431007B7D5C</string>
-				<string>E1247F1519565431007B7D5C</string>
-				<string>E1185E3B197EE7F500F916CB</string>
-				<string>E17FF295198045F600175D34</string>
-				<string>E1D4CE211958BAE8008BB3FF</string>
-				<string>E1247F1219565431007B7D5C</string>
-				<string>E18467C4195B33960038B8D7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E19349B919564CA2001E92EE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E19349BA19564CA2001E92EE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>dstPath</key>
-			<string>/usr/share/man/man1/</string>
-			<key>dstSubfolderSpec</key>
-			<string>0</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXCopyFilesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>1</string>
-		</dict>
-		<key>E19349BB19564CA2001E92EE</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E19349C319564CA2001E92EE</string>
-			<key>buildPhases</key>
-			<array>
-				<string>E19349B819564CA2001E92EE</string>
-				<string>E19349B919564CA2001E92EE</string>
-				<string>E19349BA19564CA2001E92EE</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Taylor</string>
-			<key>productName</key>
-			<string>Taylor</string>
-			<key>productReference</key>
-			<string>E19349BC19564CA2001E92EE</string>
-			<key>productType</key>
-			<string>com.apple.product-type.tool</string>
-		</dict>
-		<key>E19349BC19564CA2001E92EE</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>compiled.mach-o.executable</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Taylor</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>E19349BD19564CA2001E92EE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E19349BC19564CA2001E92EE</string>
-				<string>E1A84F5B195CA2030008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E19349C119564CA2001E92EE</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>METAL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E19349C219564CA2001E92EE</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>METAL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E19349C319564CA2001E92EE</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E19349C419564CA2001E92EE</string>
-				<string>E19349C519564CA2001E92EE</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E19349C419564CA2001E92EE</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Taylor/dependencies/Taylor-Bridging-Header.h</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E19349C519564CA2001E92EE</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Taylor/dependencies/Taylor-Bridging-Header.h</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E19349D519564CF0001E92EE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1247F0D19565431007B7D5C</string>
-				<string>E1185E3A197EE7F500F916CB</string>
-				<string>E1247F0919565431007B7D5C</string>
-				<string>E1247F0A19565431007B7D5C</string>
-				<string>E1247F0C19565431007B7D5C</string>
-				<string>E1247F0B19565431007B7D5C</string>
-				<string>E1C46B5A195A08BE00ABCEA9</string>
-				<string>E18467C3195B33960038B8D7</string>
-				<string>E1247F0E19565431007B7D5C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Taylor</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F4F195CA0EA0008C15A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1A84F52195CA0EA0008C15A</string>
-				<string>E1A84F50195CA0EA0008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Taylor-Tests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F50195CA0EA0008C15A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E1A84F51195CA0EA0008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F51195CA0EA0008C15A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F52195CA0EA0008C15A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Taylor_Tests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1A84F57195CA2030008C15A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E1A84F6F195CA2DB0008C15A</string>
-				<string>E1A84F66195CA20A0008C15A</string>
-				<string>E1A84F64195CA20A0008C15A</string>
-				<string>E1A84F69195CA20A0008C15A</string>
-				<string>E1A84F68195CA20A0008C15A</string>
-				<string>E1185E3C197EF58000F916CB</string>
-				<string>E1A84F67195CA20A0008C15A</string>
-				<string>E1A84F65195CA20A0008C15A</string>
-				<string>E1A84F6A195CA20A0008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E1A84F58195CA2030008C15A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E1A84F6E195CA2C90008C15A</string>
-				<string>E1A84F6C195CA2C50008C15A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E1A84F59195CA2030008C15A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E1A84F5A195CA2030008C15A</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E1A84F61195CA2030008C15A</string>
-			<key>buildPhases</key>
-			<array>
-				<string>E1A84F57195CA2030008C15A</string>
-				<string>E1A84F58195CA2030008C15A</string>
-				<string>E1A84F59195CA2030008C15A</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Taylor-Tests</string>
-			<key>productName</key>
-			<string>Taylor-Tests</string>
-			<key>productReference</key>
-			<string>E1A84F5B195CA2030008C15A</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>E1A84F5B195CA2030008C15A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Taylor-Tests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>E1A84F61195CA2030008C15A</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>E1A84F62195CA2030008C15A</string>
-				<string>E1A84F63195CA2030008C15A</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E1A84F62195CA2030008C15A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>Taylor-Tests/Supporting Files/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>METAL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Taylor/dependencies/Taylor-Bridging-Header.h</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>E1A84F63195CA2030008C15A</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>Taylor-Tests/Supporting Files/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>METAL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Taylor/dependencies/Taylor-Bridging-Header.h</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>E1A84F64195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0D19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F65195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0919565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F66195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0A19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F67195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0C19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F68195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1247F0B19565431007B7D5C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F69195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1C46B5A195A08BE00ABCEA9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F6A195CA20A0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E18467C3195B33960038B8D7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F6B195CA2C50008C15A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Security.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Security.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>E1A84F6C195CA2C50008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1A84F6B195CA2C50008C15A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F6D195CA2C90008C15A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CFNetwork.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CFNetwork.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>E1A84F6E195CA2C90008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1A84F6D195CA2C90008C15A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1A84F6F195CA2DB0008C15A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1D4CE1F1958BAE8008BB3FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1C46B5A195A08BE00ABCEA9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>middleware.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1C46B5B195A08BE00ABCEA9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1C46B5A195A08BE00ABCEA9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1D4CE1E1958BAE8008BB3FF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>GCDAsyncSocket.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1D4CE1F1958BAE8008BB3FF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>GCDAsyncSocket.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1D4CE201958BAE8008BB3FF</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Taylor-Bridging-Header.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1D4CE211958BAE8008BB3FF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1D4CE1F1958BAE8008BB3FF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>E19349B419564CA2001E92EE</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1185E3B197EE7F500F916CB /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185E3A197EE7F500F916CB /* server.swift */; };
+		E1185E3C197EF58000F916CB /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185E3A197EE7F500F916CB /* server.swift */; };
+		E1247F1219565431007B7D5C /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0919565431007B7D5C /* request.swift */; };
+		E1247F1319565431007B7D5C /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0A19565431007B7D5C /* response.swift */; };
+		E1247F1419565431007B7D5C /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0B19565431007B7D5C /* route.swift */; };
+		E1247F1519565431007B7D5C /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0C19565431007B7D5C /* router.swift */; };
+		E1247F1619565431007B7D5C /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0D19565431007B7D5C /* taylor.swift */; };
+		E17FF295198045F600175D34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17FF294198045F600175D34 /* main.swift */; };
+		E18467C4195B33960038B8D7 /* fileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18467C3195B33960038B8D7 /* fileTypes.swift */; };
+		E1A84F64195CA20A0008C15A /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0D19565431007B7D5C /* taylor.swift */; };
+		E1A84F65195CA20A0008C15A /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0919565431007B7D5C /* request.swift */; };
+		E1A84F66195CA20A0008C15A /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0A19565431007B7D5C /* response.swift */; };
+		E1A84F67195CA20A0008C15A /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0C19565431007B7D5C /* router.swift */; };
+		E1A84F68195CA20A0008C15A /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1247F0B19565431007B7D5C /* route.swift */; };
+		E1A84F69195CA20A0008C15A /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46B5A195A08BE00ABCEA9 /* middleware.swift */; };
+		E1A84F6A195CA20A0008C15A /* fileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18467C3195B33960038B8D7 /* fileTypes.swift */; };
+		E1A84F6C195CA2C50008C15A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A84F6B195CA2C50008C15A /* Security.framework */; };
+		E1A84F6E195CA2C90008C15A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A84F6D195CA2C90008C15A /* CFNetwork.framework */; };
+		E1A84F6F195CA2DB0008C15A /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */; };
+		E1C46B5B195A08BE00ABCEA9 /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C46B5A195A08BE00ABCEA9 /* middleware.swift */; };
+		E1D1A0751AB5E3E200DBD6A1 /* Taylor_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A84F52195CA0EA0008C15A /* Taylor_Tests.swift */; };
+		E1D4CE211958BAE8008BB3FF /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E19349BA19564CA2001E92EE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E1185E3A197EE7F500F916CB /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
+		E1247F0919565431007B7D5C /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		E1247F0A19565431007B7D5C /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = response.swift; sourceTree = "<group>"; };
+		E1247F0B19565431007B7D5C /* route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = route.swift; sourceTree = "<group>"; };
+		E1247F0C19565431007B7D5C /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
+		E1247F0D19565431007B7D5C /* taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taylor.swift; sourceTree = "<group>"; };
+		E17FF294198045F600175D34 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = SOURCE_ROOT; };
+		E18467C3195B33960038B8D7 /* fileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fileTypes.swift; sourceTree = "<group>"; };
+		E19349BC19564CA2001E92EE /* Taylor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Taylor; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A84F51195CA0EA0008C15A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1A84F52195CA0EA0008C15A /* Taylor_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taylor_Tests.swift; sourceTree = "<group>"; };
+		E1A84F5B195CA2030008C15A /* Taylor-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Taylor-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1A84F6B195CA2C50008C15A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E1A84F6D195CA2C90008C15A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E1C46B5A195A08BE00ABCEA9 /* middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = middleware.swift; sourceTree = "<group>"; };
+		E1D4CE1E1958BAE8008BB3FF /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		E1D4CE201958BAE8008BB3FF /* Taylor-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Taylor-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E19349B919564CA2001E92EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1A84F58195CA2030008C15A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1A84F6E195CA2C90008C15A /* CFNetwork.framework in Frameworks */,
+				E1A84F6C195CA2C50008C15A /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1247F0E19565431007B7D5C /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F6D195CA2C90008C15A /* CFNetwork.framework */,
+				E1A84F6B195CA2C50008C15A /* Security.framework */,
+				E1D4CE1E1958BAE8008BB3FF /* GCDAsyncSocket.h */,
+				E1D4CE1F1958BAE8008BB3FF /* GCDAsyncSocket.m */,
+				E1D4CE201958BAE8008BB3FF /* Taylor-Bridging-Header.h */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+		E19349B319564CA2001E92EE = {
+			isa = PBXGroup;
+			children = (
+				E17FF294198045F600175D34 /* main.swift */,
+				E19349D519564CF0001E92EE /* Taylor */,
+				E1A84F4F195CA0EA0008C15A /* Taylor-Tests */,
+				E19349BD19564CA2001E92EE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E19349BD19564CA2001E92EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E19349BC19564CA2001E92EE /* Taylor */,
+				E1A84F5B195CA2030008C15A /* Taylor-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E19349D519564CF0001E92EE /* Taylor */ = {
+			isa = PBXGroup;
+			children = (
+				E1247F0D19565431007B7D5C /* taylor.swift */,
+				E1185E3A197EE7F500F916CB /* server.swift */,
+				E1247F0919565431007B7D5C /* request.swift */,
+				E1247F0A19565431007B7D5C /* response.swift */,
+				E1247F0C19565431007B7D5C /* router.swift */,
+				E1247F0B19565431007B7D5C /* route.swift */,
+				E1C46B5A195A08BE00ABCEA9 /* middleware.swift */,
+				E18467C3195B33960038B8D7 /* fileTypes.swift */,
+				E1247F0E19565431007B7D5C /* dependencies */,
+			);
+			path = Taylor;
+			sourceTree = "<group>";
+		};
+		E1A84F4F195CA0EA0008C15A /* Taylor-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F52195CA0EA0008C15A /* Taylor_Tests.swift */,
+				E1A84F50195CA0EA0008C15A /* Supporting Files */,
+			);
+			path = "Taylor-Tests";
+			sourceTree = "<group>";
+		};
+		E1A84F50195CA0EA0008C15A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1A84F51195CA0EA0008C15A /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E19349BB19564CA2001E92EE /* Taylor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19349C319564CA2001E92EE /* Build configuration list for PBXNativeTarget "Taylor" */;
+			buildPhases = (
+				E19349B819564CA2001E92EE /* Sources */,
+				E19349B919564CA2001E92EE /* Frameworks */,
+				E19349BA19564CA2001E92EE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taylor;
+			productName = Taylor;
+			productReference = E19349BC19564CA2001E92EE /* Taylor */;
+			productType = "com.apple.product-type.tool";
+		};
+		E1A84F5A195CA2030008C15A /* Taylor-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1A84F61195CA2030008C15A /* Build configuration list for PBXNativeTarget "Taylor-Tests" */;
+			buildPhases = (
+				E1A84F57195CA2030008C15A /* Sources */,
+				E1A84F58195CA2030008C15A /* Frameworks */,
+				E1A84F59195CA2030008C15A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Taylor-Tests";
+			productName = "Taylor-Tests";
+			productReference = E1A84F5B195CA2030008C15A /* Taylor-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E19349B419564CA2001E92EE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Jorge Izquierdo";
+				TargetAttributes = {
+					E19349BB19564CA2001E92EE = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					E1A84F5A195CA2030008C15A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = E19349B719564CA2001E92EE /* Build configuration list for PBXProject "Taylor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E19349B319564CA2001E92EE;
+			productRefGroup = E19349BD19564CA2001E92EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E19349BB19564CA2001E92EE /* Taylor */,
+				E1A84F5A195CA2030008C15A /* Taylor-Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1A84F59195CA2030008C15A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E19349B819564CA2001E92EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1247F1319565431007B7D5C /* response.swift in Sources */,
+				E1C46B5B195A08BE00ABCEA9 /* middleware.swift in Sources */,
+				E1247F1419565431007B7D5C /* route.swift in Sources */,
+				E1247F1619565431007B7D5C /* taylor.swift in Sources */,
+				E1247F1519565431007B7D5C /* router.swift in Sources */,
+				E1185E3B197EE7F500F916CB /* server.swift in Sources */,
+				E17FF295198045F600175D34 /* main.swift in Sources */,
+				E1D4CE211958BAE8008BB3FF /* GCDAsyncSocket.m in Sources */,
+				E1247F1219565431007B7D5C /* request.swift in Sources */,
+				E18467C4195B33960038B8D7 /* fileTypes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1A84F57195CA2030008C15A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D1A0751AB5E3E200DBD6A1 /* Taylor_Tests.swift in Sources */,
+				E1A84F6F195CA2DB0008C15A /* GCDAsyncSocket.m in Sources */,
+				E1A84F66195CA20A0008C15A /* response.swift in Sources */,
+				E1A84F64195CA20A0008C15A /* taylor.swift in Sources */,
+				E1A84F69195CA20A0008C15A /* middleware.swift in Sources */,
+				E1A84F68195CA20A0008C15A /* route.swift in Sources */,
+				E1185E3C197EF58000F916CB /* server.swift in Sources */,
+				E1A84F67195CA20A0008C15A /* router.swift in Sources */,
+				E1A84F65195CA20A0008C15A /* request.swift in Sources */,
+				E1A84F6A195CA20A0008C15A /* fileTypes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E19349C119564CA2001E92EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E19349C219564CA2001E92EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E19349C419564CA2001E92EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/dependencies/Taylor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E19349C519564CA2001E92EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/dependencies/Taylor-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		E1A84F62195CA2030008C15A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Taylor-Tests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/dependencies/Taylor-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		E1A84F63195CA2030008C15A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Taylor-Tests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Taylor/dependencies/Taylor-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E19349B719564CA2001E92EE /* Build configuration list for PBXProject "Taylor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19349C119564CA2001E92EE /* Debug */,
+				E19349C219564CA2001E92EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19349C319564CA2001E92EE /* Build configuration list for PBXNativeTarget "Taylor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19349C419564CA2001E92EE /* Debug */,
+				E19349C519564CA2001E92EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1A84F61195CA2030008C15A /* Build configuration list for PBXNativeTarget "Taylor-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1A84F62195CA2030008C15A /* Debug */,
+				E1A84F63195CA2030008C15A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E19349B419564CA2001E92EE /* Project object */;
+}

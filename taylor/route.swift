@@ -14,7 +14,7 @@ public class TRoute: TRouteProtocol {
     public let path: String
     public let handlers: [Taylor.Handler]
 
-    internal let pathComponents: [Taylor.PathComponent]
+    internal var pathComponents: [Taylor.PathComponent]
     
     public required init(m: Taylor.HTTPMethod, path p: String, handlers s: [Taylor.Handler]){
         

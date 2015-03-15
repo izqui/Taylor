@@ -71,7 +71,7 @@ public class TResponse: TResponseProtocol {
     public func sendFile(data: NSData, fileType: NSString) {
         
         self.body = data
-        self.headers["Content-Type"] = fileType
+        self.headers["Content-Type"] = fileType as String
         
         self.send()
     }
@@ -112,7 +112,7 @@ public class TResponse: TResponseProtocol {
         if body != nil {
             bodyData = body!
         } else if bodyString != nil {
-            bodyData = NSData(data: bodyString!.dataUsingEncoding(NSUTF8StringEncoding))
+            bodyData = NSData(data: bodyString!.dataUsingEncoding(NSUTF8StringEncoding)!)
         }
         
         if headers["Content-Length"] == nil{
@@ -130,7 +130,7 @@ public class TResponse: TResponseProtocol {
         headersStr += "\r\n"
         var finalStr = String(format: startLine+headersStr)
         
-        var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+        var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
         data.appendData(bodyData)
         
         return data as NSData

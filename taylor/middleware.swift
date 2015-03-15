@@ -26,7 +26,7 @@ public class TMiddleware {
                     
                     if let b = request.bodyString {
                         
-                        var args = b.componentsSeparatedByString("&") as [String]
+                        var args = b.componentsSeparatedByString("&") as! [String]
                         
                         for a in args {
                             
@@ -38,8 +38,8 @@ public class TMiddleware {
                                 val = arg[1]
                             }
                             
-                            let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
-                            let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding).stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
                             
                             request.body[key] = value
                         }
@@ -110,7 +110,7 @@ public class TMiddleware {
                     
                     //TODO: Make it asyncronous
                     var fileData = NSData(contentsOfFile: filePath)
-                    response.sendFile(fileData, fileType: Taylor.FileTypes.get(filePath.pathExtension))
+                    response.sendFile(fileData!, fileType: Taylor.FileTypes.get(filePath.pathExtension))
                 }
                 
                 // In case we didn't send any files, 404 it.
@@ -126,7 +126,7 @@ public class TMiddleware {
             
             request, response in
             
-            println("[Taylor] \(request.method.toRaw()) \(request.path)")
+            println("[Taylor] \(request.method.rawValue) \(request.path)")
             return
         }
     }
