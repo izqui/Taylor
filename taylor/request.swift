@@ -63,7 +63,7 @@ public class TRequest: TRequestProtocol {
         if http.count > 0 {
 
             // The delimiter can be any number of blank spaces
-            var startLineArr: [String] = split(http[0], { $0 == " "}, maxSplit: Int.max, allowEmptySlices: false)
+            var startLineArr: [String] = split(http[0], maxSplit: Int.max, allowEmptySlices: false) { $0 == " "}
             
             if startLineArr.count > 0 {
                 
