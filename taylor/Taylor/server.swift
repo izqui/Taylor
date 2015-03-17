@@ -77,7 +77,7 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
     internal func handleRequest(socket: GCDAsyncSocket, request: Request, response: Response) {
         
         var j = -1
-        var postRequest: (Callback)->() = {(_)in}
+        var postRequest: ((Callback)->())!
         postRequest = {
             a in
             switch a {
@@ -91,7 +91,7 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
             }
         }
         
-        var cb: (Callback)->() = {(_)in}
+        var cb: ((Callback)->())!
         var i = -1
         cb = {
             a in

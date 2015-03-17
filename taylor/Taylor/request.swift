@@ -35,6 +35,7 @@ public class Request {
     public var bodyString: NSString?
     public var body: Dictionary<String, String> = Dictionary<String, String>()
     
+    internal var startTime: Double = CACurrentMediaTime()
     var _protocol: String?
     
     convenience init(){

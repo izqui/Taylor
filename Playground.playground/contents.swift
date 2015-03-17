@@ -15,7 +15,7 @@ server.get("/") {
     cb(.Send(req, res))
 }
 
-server.post("/", Middleware.bodyParser(), {
+server.post("/post", Middleware.bodyParser(), {
     req, res, cb in
     
     if let n = req.body["number"], let i = n.toInt() {
@@ -38,7 +38,7 @@ server.get("/hola/:name/adios") {
     cb(.Send(req, res))
 }
 
-server.addPostRequestHandler(Middleware.requestLogger(printer: {XCPCaptureValue("Taylor", $0)}))
+server.addPostRequestHandler(Middleware.requestLogger(printer: {XCPCaptureValue("Requests", $0)}))
 
 let port = 3002
 server.startListening(port: port, forever: true) {

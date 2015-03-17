@@ -27,7 +27,7 @@ public class Router {
             if let route = self.detectRouteForRequest(request as Request){
                 
                 //Execute all handlers
-                var cb: (Callback)->() = {(_)in}
+                var cb: ((Callback)->())!
                 var i = -1
                 cb = {
                     a in
