@@ -98,14 +98,14 @@
 			isa = PBXGroup;
 			children = (
 				E1D6FAC01AB5E91700399154 /* Taylor.h */,
-				E1D6FAD81AB5E95900399154 /* fileTypes.swift */,
+				E1D6FADF1AB5E95900399154 /* taylor.swift */,
 				E1D6FAD91AB5E95900399154 /* middleware.swift */,
+				E1D6FAD81AB5E95900399154 /* fileTypes.swift */,
 				E1D6FADA1AB5E95900399154 /* request.swift */,
 				E1D6FADB1AB5E95900399154 /* response.swift */,
 				E1D6FADC1AB5E95900399154 /* route.swift */,
 				E1D6FADD1AB5E95900399154 /* router.swift */,
 				E1D6FADE1AB5E95900399154 /* server.swift */,
-				E1D6FADF1AB5E95900399154 /* taylor.swift */,
 				E1D6FAEB1AB5E98D00399154 /* dependencies */,
 				E1D6FABE1AB5E91700399154 /* Supporting Files */,
 			);

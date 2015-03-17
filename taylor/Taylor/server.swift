@@ -14,18 +14,25 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
     
     private var sockets: [GCDAsyncSocket] = [GCDAsyncSocket]()
     private var handlers: [Handler]
+    private var postRequestHandlers: [Handler]
     
+    public var notFoundHandler: Handler = {
+        req, res, cb in
+        res.setError(404)
+        cb(.Send(req, res))
+    }
     var router: Router
     
     public override init(){
 
         router = Router()
         self.handlers = []
+        self.postRequestHandlers = []
         
         socket = GCDAsyncSocket()
     }
     
-    public func startListening(port p: Int, forever awake: Bool){
+    public func startListening(port p: Int, forever awake: Bool, callback:((Result)->())?){
         
         socket.setDelegate(self, delegateQueue: dispatch_get_main_queue())
         
@@ -33,18 +40,14 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         
         if socket.acceptOnInterface(nil, port: UInt16(p), error: &err) {
             
-            println("Server running on port \(socket.localPort())")
+            callback?(.Success)
             
             //Should find a better location for this
             self.addHandler(self.router.handler())
         }
         else if err != nil {
             
-            println("Error \(err!)")
-        }
-        else {
-            
-            println("wtf")
+            callback?(.Error(err!))
         }
         
         if awake {
@@ -67,27 +70,47 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         self.handlers.append(handler)
     }
     
-    internal func handleRequest(request: Request, response: Response, cb:() -> ()) {
+    public func addPostRequestHandler(handler: Handler){
+        self.postRequestHandlers.append(handler)
+    }
+    
+    internal func handleRequest(socket: GCDAsyncSocket, request: Request, response: Response) {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            
-            for han in self.handlers {
-                
-                han(request: request, response: response)
-                if response.sent { break }
-            }
-            
-            //TODO: 404 as the default last handler
-            if !response.sent {
-                println("wat")
-                response.sendError(404)
-            }
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                cb()
+        var j = -1
+        var postRequest: (Callback)->() = {(_)in}
+        postRequest = {
+            a in
+            switch a {
+            case .Continue(let req, let res):
+                j = j+1
+                if j < self.postRequestHandlers.count {
+                    self.postRequestHandlers[j](req, res, postRequest)
+                }
+            case .Send(let req, let res):
+                println("Attempting to send a response twice")
             }
         }
+        
+        var cb: (Callback)->() = {(_)in}
+        var i = -1
+        cb = {
+            a in
+            switch a {
+            case .Continue(let req, let res):
+                i = i+1
+                if i < self.handlers.count {
+                    self.handlers[i](req, res, cb)
+                } else {
+                    self.notFoundHandler(req, res, cb)
+                }
+            case .Send(let req, let res):
+                socket.writeData(res.generateResponse(), withTimeout: 10, tag: 1)
+                socket.disconnectAfterWriting()
+                postRequest(.Continue(req, res))
+            }
+        }
+
+        cb(.Continue(request, response))
     }
     
     // GCDAsyncSocketDelegate methods
@@ -101,23 +124,20 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         var request = Request(data: data)
         var response = Response(socket: sock)
         
-        self.handleRequest(request, response: response) {
-            
-            sock.disconnectAfterWriting()
-            
-        }
+        self.handleRequest(sock, request: request, response: response)
     }
+    
     
     public func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
     }
     
     //Convenience methods
-    public func get(p: String, callback c: Handler...) {
+    public func get(p: String, _ c: Handler...) {
         
         self.router.addRoute(Route(m: .GET, path: p, handlers: c))
     }
     
-    public func post(p: String, callback c: Handler...) {
+    public func post(p: String, _ c: Handler...) {
         
         self.router.addRoute(Route(m: .POST, path: p, handlers: c))
     }

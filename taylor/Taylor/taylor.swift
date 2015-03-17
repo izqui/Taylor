@@ -8,8 +8,18 @@
 
 import Foundation
 
-public typealias Handler = (request: Request, response: Response) -> ()
+public enum Callback {
+    case Continue(Request, Response)
+    case Send(Request, Response)
+}
+
+public typealias Handler = (Request, Response, (Callback) -> ()) -> ()
 internal typealias PathComponent = (value: String, isParameter: Bool)
+
+public enum Result {
+    case Success
+    case Error(NSError)
+}
 
 public enum HTTPMethod: String {
         

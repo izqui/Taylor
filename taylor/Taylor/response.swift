@@ -16,8 +16,6 @@ public class Response {
     public var statusCode: Int = 200
     public var headers: Dictionary<String, String> = Dictionary<String, String>()
     
-    public var sent: Bool = false
-    
     public var body: NSData?
     public var bodyString: String? {
     didSet {
@@ -63,19 +61,20 @@ public class Response {
         
         self.statusCode = 302
         self.headers["Location"] = u
-        self.send()
     }
     
     
-    public func sendFile(data: NSData, fileType: NSString) {
+    public func setFile(url: NSURL?) {
         
-        self.body = data
-        self.headers["Content-Type"] = fileType as String
-        
-        self.send()
+        if let u = url, let data = NSData(contentsOfURL: u) {
+            self.body = data
+            self.headers["Content-Type"] = FileTypes.get(u.pathExtension ?? "")
+        } else {
+            self.setError(404)
+        }
     }
     
-    public func sendError(errorCode: Int){
+    public func setError(errorCode: Int){
         
         self.statusCode = errorCode
         
@@ -83,20 +82,6 @@ public class Response {
             
             self.bodyString = a
         }
-        
-        self.send()
-        
-    }
-    public func send() {
-        
-        assert(!self.sent)
-        self.sent = true
-        
-        if socket != nil {
-            
-            socket!.writeData(self.generateResponse(), withTimeout: 10, tag: 1)
-        }
-        
     }
     
     internal func generateResponse() -> NSData {
@@ -131,7 +116,7 @@ public class Response {
         
         var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
         data.appendData(bodyData)
-        
+
         return data as NSData
     }
 }

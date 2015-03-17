@@ -14,7 +14,7 @@ public class Middleware {
         
         return {
             
-            request, response in
+            request, response, callback in
             
             if request.bodyString != nil && request.headers["Content-Type"] != nil {
                 
@@ -46,10 +46,12 @@ public class Middleware {
                     }
                 }
             }
+            callback(.Continue(request, response))
+            return
         }
     }
     
-    public class func staticDirectory(path: String, directory: String) -> Handler {
+    public class func staticDirectory(path: String, directory: String? = nil, bundle: NSBundle? = nil) -> Handler {
         
         let tempComponents = path.componentsSeparatedByString("/")
         var components = [String]()
@@ -63,9 +65,10 @@ public class Middleware {
         
         return {
             
-            request, response in
+            request, response, callback in
             
             var comps = request.path.componentsSeparatedByString("/")
+            
             
             //We don't care about the first element, which will always be nil since paths are like this: "/something"
             var pathComponents: [String] = []
@@ -73,6 +76,7 @@ public class Middleware {
                 
                 pathComponents.append(comps[i])
             }
+            
             
             if request.method == Taylor.HTTPMethod.GET && pathComponents.count >= components.count {
                 
@@ -83,56 +87,67 @@ public class Middleware {
                     if components[i] != pathComponents[i] {
                         
                         // If at some point it doesn't match, just go on with the request handling
+                        callback(.Continue(request, response))
                         return
                     }
                     // Means it matched the request
                     j = i
                 }
                 
-                var filePath = directory.stringByExpandingTildeInPath
-                
-                for k in j+1..<pathComponents.count {
+                if let b = bundle {
                     
-                    filePath = filePath.stringByAppendingPathComponent(pathComponents[k])
-                }
-                
-                let fileManager = NSFileManager.defaultManager()
-                
-                var isDir:ObjCBool = false
-                
-                if fileManager.fileExistsAtPath(filePath, isDirectory: &isDir){
+                    let last = pathComponents.removeLast()
+                    pathComponents.removeRange(0...pathComponents.count-components.count)
+                    response.setFile(b.URLForResource(last.lastPathComponent.stringByDeletingPathExtension, withExtension: last.pathExtension, subdirectory:NSString.pathWithComponents(pathComponents)))
+                    callback(.Send(request, response))
                     
-                    // In case it is a directory, we look for a index.html file inside
-                    if Bool(isDir) && fileManager.fileExistsAtPath(filePath.stringByAppendingPathComponent("index.html")) {
+                } else if let dir = directory {
+                    var filePath = dir.stringByExpandingTildeInPath
+                    
+                    for k in j+1..<pathComponents.count {
                         
-                        filePath = filePath.stringByAppendingPathComponent("index.html")
+                        filePath = filePath.stringByAppendingPathComponent(pathComponents[k])
                     }
                     
-                    //TODO: Make it asyncronous
-                    var fileData = NSData(contentsOfFile: filePath)
-                    if let data = fileData {
-                        response.sendFile(data, fileType: FileTypes.get(filePath.pathExtension))
+                    println(filePath)
+                    let fileManager = NSFileManager.defaultManager()
+                    
+                    var isDir:ObjCBool = false
+                    
+                    if fileManager.fileExistsAtPath(filePath, isDirectory: &isDir){
+                        
+                        // In case it is a directory, we look for a index.html file inside
+                        if Bool(isDir) && fileManager.fileExistsAtPath(filePath.stringByAppendingPathComponent("index.html")) {
+                            
+                            filePath = filePath.stringByAppendingPathComponent("index.html")
+                        }
+                        
+                        response.setFile(NSURL(fileURLWithPath: filePath))
+                        callback(.Send(request, response))
+                        
+                    } else {
+                        callback(.Continue(request, response))
                     }
                     
                 }
+            } else {
                 
-                // In case we didn't send any files, 404 it.
-                response.sendError(404)
-                
+                callback(.Continue(request, response))
             }
         }
     }
+
+
+public class func requestLogger(printer: ((String) -> ())? = nil) -> Handler {
     
-    public class func requestLogger() -> Handler {
+    return {
         
-        return {
-            
-            request, response in
-            
-            println("[Taylor] \(request.method.rawValue) \(request.path)")
-            return
-        }
+        request, response, callback in
+        
+        let text = "[Taylor] \(response.statusCode) \(request.method.rawValue) \(request.path)"
+        
+        (printer != nil ? printer : println)!(text)
+        callback(.Continue(request, response))
     }
-    
-    
+}
 }

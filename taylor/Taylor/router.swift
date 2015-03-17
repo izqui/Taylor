@@ -22,16 +22,32 @@ public class Router {
         
         return {
             
-            request, response in
+            request, response, callback in
             
             if let route = self.detectRouteForRequest(request as Request){
                 
                 //Execute all handlers
-                for handler in route.handlers {
-                    
-                    handler(request: request, response: response)
-                    if response.sent { break }
+                var cb: (Callback)->() = {(_)in}
+                var i = -1
+                cb = {
+                    a in
+                    switch a {
+                    case .Continue(let req, let res):
+                        i = i+1
+                        if i < route.handlers.count {
+                            route.handlers[i](req, res, cb)
+                        } else {
+                            callback(.Continue(req, res))
+                        }
+                    case .Send(let req, let res):
+                        
+                        callback(.Send(req, res))
+                    }
                 }
+                
+                cb(.Continue(request, response))
+            } else {
+                callback(.Continue(request, response))
             }
         }
     }
@@ -68,10 +84,5 @@ public class Router {
         return nil
     }
     
-    func 😕(request: Request, response: Response) -> Bool {
-        
-        response.sendError(404)
-        return true
-    }
 }
 
