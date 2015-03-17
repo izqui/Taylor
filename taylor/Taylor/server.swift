@@ -8,19 +8,19 @@
 
 import Foundation
 
-public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
+public class Server: NSObject, GCDAsyncSocketDelegate {
     
     private var socket: GCDAsyncSocket
     
     private var sockets: [GCDAsyncSocket] = [GCDAsyncSocket]()
-    private var handlers: [Taylor.Handler]
+    private var handlers: [Handler]
     
-    var router: TRouter
+    var router: Router
     
     public override init(){
 
-        router = TRouter()
-        handlers = []
+        router = Router()
+        self.handlers = []
         
         socket = GCDAsyncSocket()
     }
@@ -61,13 +61,13 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
         socket.disconnect()
     }
     
-    public func addHandler(handler: Taylor.Handler){
+    public func addHandler(handler: Handler){
         
         //Should check if middleare has already been added, but it's difficult since it is a clousure and not an object
         self.handlers.append(handler)
     }
     
-    internal func handleRequest(request: TRequest, response: TResponse, cb:() -> ()) {
+    internal func handleRequest(request: Request, response: Response, cb:() -> ()) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
@@ -98,8 +98,8 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
     
     public func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         
-        var request = TRequest(data: data)
-        var response = TResponse(socket: sock)
+        var request = Request(data: data)
+        var response = Response(socket: sock)
         
         self.handleRequest(request, response: response) {
             
@@ -112,13 +112,13 @@ public class TServer: NSObject, TServerProtocol, GCDAsyncSocketDelegate {
     }
     
     //Convenience methods
-    public func get(p: String, callback c: Taylor.Handler...) {
+    public func get(p: String, callback c: Handler...) {
         
-        self.router.addRoute(TRoute(m: .GET, path: p, handlers: c))
+        self.router.addRoute(Route(m: .GET, path: p, handlers: c))
     }
     
-    public func post(p: String, callback c: Taylor.Handler...) {
+    public func post(p: String, callback c: Handler...) {
         
-        self.router.addRoute(TRoute(m: .POST, path: p, handlers: c))
+        self.router.addRoute(Route(m: .POST, path: p, handlers: c))
     }
 }

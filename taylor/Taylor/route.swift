@@ -8,15 +8,15 @@
 
 import Foundation
 
-public class TRoute: TRouteProtocol {
+public class Route {
     
-    public let method: Taylor.HTTPMethod
+    public let method: HTTPMethod
     public let path: String
-    public let handlers: [Taylor.Handler]
+    public let handlers: [Handler]
 
-    internal var pathComponents: [Taylor.PathComponent]
+    internal var pathComponents: [PathComponent]
     
-    public required init(m: Taylor.HTTPMethod, path p: String, handlers s: [Taylor.Handler]){
+    public required init(m: Taylor.HTTPMethod, path p: String, handlers s: [Handler]){
         
         self.method = m
         self.handlers = s
@@ -31,7 +31,7 @@ public class TRoute: TRouteProtocol {
             //Check if comp is ":something" parameter -> if true, comp = ["", "something"] else comp = ["something"]
             var compArr = comps[i].componentsSeparatedByString(":")
             
-            var component: Taylor.PathComponent = (value:"", isParameter: false)
+            var component: PathComponent = (value:"", isParameter: false)
             
             if compArr.count == 1 {
                 

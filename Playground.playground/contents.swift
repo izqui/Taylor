@@ -4,7 +4,7 @@ import Cocoa
 import XCPlayground
 import Taylor
 
-let server = Taylor.NewServer()
+let server = Taylor.Server()
 
 //server.addHandler(Taylor.Middleware.staticDirectory("/desktop", directory: "/Users/izqui/Desktop"))
 server.addHandler(Taylor.Middleware.bodyParser())

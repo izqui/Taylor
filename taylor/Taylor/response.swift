@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TResponse: TResponseProtocol {
+public class Response {
     
     private let socket: GCDAsyncSocket?
     private var statusLine: String = ""
@@ -22,11 +22,10 @@ public class TResponse: TResponseProtocol {
     public var bodyString: String? {
     didSet {
         if headers["Content-Type"] == nil {
-            headers["Content-Type"] = Taylor.FileTypes.get("txt")
+            headers["Content-Type"] = FileTypes.get("txt")
         }
     }
     }
-    
     
     private let http_protocol: String = "HTTP/1.1"
     internal var codes = [

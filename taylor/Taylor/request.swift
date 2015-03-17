@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TRequest: TRequestProtocol {
+public class Request {
     
     public var path: String {
 

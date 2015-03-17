@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TFileTypes {
+public class FileTypes {
     
     class func get(key: String) -> String {
         

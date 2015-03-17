@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class TMiddleware {
+public class Middleware {
     
-    public class func bodyParser() -> Taylor.Handler {
+    public class func bodyParser() -> Handler {
         
         return {
             
@@ -49,7 +49,7 @@ public class TMiddleware {
         }
     }
     
-    public class func staticDirectory(path: String, directory: String) -> Taylor.Handler {
+    public class func staticDirectory(path: String, directory: String) -> Handler {
         
         let tempComponents = path.componentsSeparatedByString("/")
         var components = [String]()
@@ -111,7 +111,7 @@ public class TMiddleware {
                     //TODO: Make it asyncronous
                     var fileData = NSData(contentsOfFile: filePath)
                     if let data = fileData {
-                        response.sendFile(data, fileType: Taylor.FileTypes.get(filePath.pathExtension))
+                        response.sendFile(data, fileType: FileTypes.get(filePath.pathExtension))
                     }
                     
                 }
@@ -123,7 +123,7 @@ public class TMiddleware {
         }
     }
     
-    public class func requestLogger() -> Taylor.Handler {
+    public class func requestLogger() -> Handler {
         
         return {
             
