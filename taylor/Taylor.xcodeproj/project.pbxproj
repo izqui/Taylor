@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1D6FAC11AB5E91700399154 /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D6FAC01AB5E91700399154 /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1D6FAC71AB5E91700399154 /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D6FABB1AB5E91700399154 /* Taylor.framework */; };
+		E1D6FAE11AB5E95900399154 /* fileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAD81AB5E95900399154 /* fileTypes.swift */; };
+		E1D6FAE21AB5E95900399154 /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAD91AB5E95900399154 /* middleware.swift */; };
+		E1D6FAE31AB5E95900399154 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADA1AB5E95900399154 /* request.swift */; };
+		E1D6FAE41AB5E95900399154 /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADB1AB5E95900399154 /* response.swift */; };
+		E1D6FAE51AB5E95900399154 /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADC1AB5E95900399154 /* route.swift */; };
+		E1D6FAE61AB5E95900399154 /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADD1AB5E95900399154 /* router.swift */; };
+		E1D6FAE71AB5E95900399154 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADE1AB5E95900399154 /* server.swift */; };
+		E1D6FAE81AB5E95900399154 /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADF1AB5E95900399154 /* taylor.swift */; };
+		E1D6FAEA1AB5E96C00399154 /* Taylor_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAE91AB5E96C00399154 /* Taylor_Tests.swift */; };
+		E1D6FAEF1AB5E98D00399154 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D6FAEC1AB5E98D00399154 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1D6FAF01AB5E98D00399154 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAED1AB5E98D00399154 /* GCDAsyncSocket.m */; };
+		E1D6FAF31AB5EA2100399154 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D6FAF21AB5EA2100399154 /* Security.framework */; };
+		E1D6FAF51AB5EA2700399154 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D6FAF41AB5EA2700399154 /* CFNetwork.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1D6FAC81AB5E91700399154 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1D6FAB21AB5E91600399154 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1D6FABA1AB5E91700399154;
+			remoteInfo = Taylor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E1D6FABB1AB5E91700399154 /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D6FABF1AB5E91700399154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1D6FAC01AB5E91700399154 /* Taylor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Taylor.h; sourceTree = "<group>"; };
+		E1D6FAC61AB5E91700399154 /* TaylorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaylorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D6FACC1AB5E91700399154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1D6FAD81AB5E95900399154 /* fileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fileTypes.swift; sourceTree = "<group>"; };
+		E1D6FAD91AB5E95900399154 /* middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = middleware.swift; sourceTree = "<group>"; };
+		E1D6FADA1AB5E95900399154 /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		E1D6FADB1AB5E95900399154 /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = response.swift; sourceTree = "<group>"; };
+		E1D6FADC1AB5E95900399154 /* route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = route.swift; sourceTree = "<group>"; };
+		E1D6FADD1AB5E95900399154 /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
+		E1D6FADE1AB5E95900399154 /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
+		E1D6FADF1AB5E95900399154 /* taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taylor.swift; sourceTree = "<group>"; };
+		E1D6FAE91AB5E96C00399154 /* Taylor_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taylor_Tests.swift; sourceTree = "<group>"; };
+		E1D6FAEC1AB5E98D00399154 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		E1D6FAED1AB5E98D00399154 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		E1D6FAF21AB5EA2100399154 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E1D6FAF41AB5EA2700399154 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1D6FAB71AB5E91700399154 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D6FAF51AB5EA2700399154 /* CFNetwork.framework in Frameworks */,
+				E1D6FAF31AB5EA2100399154 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1D6FAC31AB5E91700399154 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D6FAC71AB5E91700399154 /* Taylor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1D6FAB11AB5E91600399154 = {
+			isa = PBXGroup;
+			children = (
+				E1D6FABD1AB5E91700399154 /* Taylor */,
+				E1D6FACA1AB5E91700399154 /* TaylorTests */,
+				E1D6FABC1AB5E91700399154 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1D6FABC1AB5E91700399154 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1D6FABB1AB5E91700399154 /* Taylor.framework */,
+				E1D6FAC61AB5E91700399154 /* TaylorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1D6FABD1AB5E91700399154 /* Taylor */ = {
+			isa = PBXGroup;
+			children = (
+				E1D6FAC01AB5E91700399154 /* Taylor.h */,
+				E1D6FAD81AB5E95900399154 /* fileTypes.swift */,
+				E1D6FAD91AB5E95900399154 /* middleware.swift */,
+				E1D6FADA1AB5E95900399154 /* request.swift */,
+				E1D6FADB1AB5E95900399154 /* response.swift */,
+				E1D6FADC1AB5E95900399154 /* route.swift */,
+				E1D6FADD1AB5E95900399154 /* router.swift */,
+				E1D6FADE1AB5E95900399154 /* server.swift */,
+				E1D6FADF1AB5E95900399154 /* taylor.swift */,
+				E1D6FAEB1AB5E98D00399154 /* dependencies */,
+				E1D6FABE1AB5E91700399154 /* Supporting Files */,
+			);
+			path = Taylor;
+			sourceTree = "<group>";
+		};
+		E1D6FABE1AB5E91700399154 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1D6FABF1AB5E91700399154 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1D6FACA1AB5E91700399154 /* TaylorTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1D6FAE91AB5E96C00399154 /* Taylor_Tests.swift */,
+				E1D6FACB1AB5E91700399154 /* Supporting Files */,
+			);
+			path = TaylorTests;
+			sourceTree = "<group>";
+		};
+		E1D6FACB1AB5E91700399154 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1D6FACC1AB5E91700399154 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1D6FAEB1AB5E98D00399154 /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E1D6FAF41AB5EA2700399154 /* CFNetwork.framework */,
+				E1D6FAF21AB5EA2100399154 /* Security.framework */,
+				E1D6FAEC1AB5E98D00399154 /* GCDAsyncSocket.h */,
+				E1D6FAED1AB5E98D00399154 /* GCDAsyncSocket.m */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E1D6FAB81AB5E91700399154 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D6FAC11AB5E91700399154 /* Taylor.h in Headers */,
+				E1D6FAEF1AB5E98D00399154 /* GCDAsyncSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E1D6FABA1AB5E91700399154 /* Taylor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1D6FAD11AB5E91700399154 /* Build configuration list for PBXNativeTarget "Taylor" */;
+			buildPhases = (
+				E1D6FAB61AB5E91700399154 /* Sources */,
+				E1D6FAB71AB5E91700399154 /* Frameworks */,
+				E1D6FAB81AB5E91700399154 /* Headers */,
+				E1D6FAB91AB5E91700399154 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taylor;
+			productName = Taylor;
+			productReference = E1D6FABB1AB5E91700399154 /* Taylor.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E1D6FAC51AB5E91700399154 /* TaylorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1D6FAD41AB5E91700399154 /* Build configuration list for PBXNativeTarget "TaylorTests" */;
+			buildPhases = (
+				E1D6FAC21AB5E91700399154 /* Sources */,
+				E1D6FAC31AB5E91700399154 /* Frameworks */,
+				E1D6FAC41AB5E91700399154 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1D6FAC91AB5E91700399154 /* PBXTargetDependency */,
+			);
+			name = TaylorTests;
+			productName = TaylorTests;
+			productReference = E1D6FAC61AB5E91700399154 /* TaylorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1D6FAB21AB5E91600399154 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = izqui;
+				TargetAttributes = {
+					E1D6FABA1AB5E91700399154 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					E1D6FAC51AB5E91700399154 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = E1D6FAB51AB5E91600399154 /* Build configuration list for PBXProject "Taylor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E1D6FAB11AB5E91600399154;
+			productRefGroup = E1D6FABC1AB5E91700399154 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1D6FABA1AB5E91700399154 /* Taylor */,
+				E1D6FAC51AB5E91700399154 /* TaylorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1D6FAB91AB5E91700399154 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1D6FAC41AB5E91700399154 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1D6FAB61AB5E91700399154 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D6FAE41AB5E95900399154 /* response.swift in Sources */,
+				E1D6FAE71AB5E95900399154 /* server.swift in Sources */,
+				E1D6FAE81AB5E95900399154 /* taylor.swift in Sources */,
+				E1D6FAE11AB5E95900399154 /* fileTypes.swift in Sources */,
+				E1D6FAE61AB5E95900399154 /* router.swift in Sources */,
+				E1D6FAE51AB5E95900399154 /* route.swift in Sources */,
+				E1D6FAF01AB5E98D00399154 /* GCDAsyncSocket.m in Sources */,
+				E1D6FAE21AB5E95900399154 /* middleware.swift in Sources */,
+				E1D6FAE31AB5E95900399154 /* request.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1D6FAC21AB5E91700399154 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D6FAEA1AB5E96C00399154 /* Taylor_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1D6FAC91AB5E91700399154 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1D6FABA1AB5E91700399154 /* Taylor */;
+			targetProxy = E1D6FAC81AB5E91700399154 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E1D6FACF1AB5E91700399154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E1D6FAD01AB5E91700399154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E1D6FAD21AB5E91700399154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Taylor/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1D6FAD31AB5E91700399154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Taylor/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E1D6FAD51AB5E91700399154 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TaylorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E1D6FAD61AB5E91700399154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TaylorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1D6FAB51AB5E91600399154 /* Build configuration list for PBXProject "Taylor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1D6FACF1AB5E91700399154 /* Debug */,
+				E1D6FAD01AB5E91700399154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1D6FAD11AB5E91700399154 /* Build configuration list for PBXNativeTarget "Taylor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1D6FAD21AB5E91700399154 /* Debug */,
+				E1D6FAD31AB5E91700399154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1D6FAD41AB5E91700399154 /* Build configuration list for PBXNativeTarget "TaylorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1D6FAD51AB5E91700399154 /* Debug */,
+				E1D6FAD61AB5E91700399154 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1D6FAB21AB5E91600399154 /* Project object */;
+}
