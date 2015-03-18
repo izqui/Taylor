@@ -97,7 +97,7 @@ public class Middleware {
                 if let b = bundle {
                     
                     let last = pathComponents.removeLast()
-                    pathComponents.removeRange(0...pathComponents.count-components.count)
+                    pathComponents.removeRange(0..<components.count)
                     response.setFile(b.URLForResource(last.lastPathComponent.stringByDeletingPathExtension, withExtension: last.pathExtension, subdirectory:NSString.pathWithComponents(pathComponents)))
                     callback(.Send(request, response))
                     

@@ -5,7 +5,7 @@ import XCPlayground
 import Taylor
 
 let server = Taylor.Server()
-    
+
 server.addHandler(Middleware.staticDirectory("/files", bundle: NSBundle.mainBundle()))
 
 server.get("/") {
@@ -40,7 +40,7 @@ server.get("/hola/:name/adios") {
 
 server.addPostRequestHandler(Middleware.requestLogger(printer: {XCPCaptureValue("Requests", $0)}))
 
-let port = 3002
+let port = 3000
 server.startListening(port: port, forever: true) {
     result in
     switch result {
