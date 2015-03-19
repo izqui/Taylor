@@ -141,4 +141,10 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         
         self.router.addRoute(Route(m: .POST, path: p, handlers: c))
     }
+    
+    public func put(p: String, _ c: Handler...) {
+        
+        self.router.addRoute(Route(m: .PUT, path: p, handlers: c))
+    }
+
 }

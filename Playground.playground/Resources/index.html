@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+            
+            <title>Taylor - Swift Summit</title>
+            
+            <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+                <meta name="author" content="Hakim El Hattab">
+                    
+                    <meta name="apple-mobile-web-app-capable" content="yes" />
+                    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+                    
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+                        
+                        <link rel="stylesheet" href="css/reveal.css">
+                            <link rel="stylesheet" href="css/theme/black.css" id="theme">
+                                
+                                <!-- Code syntax highlighting -->
+                                <link rel="stylesheet" href="lib/css/zenburn.css">
+                                    
+                                    <!-- Printing and PDF exports -->
+                                    <script>
+                                        var link = document.createElement( 'link' );
+                                        link.rel = 'stylesheet';
+                                        link.type = 'text/css';
+                                        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+                                        document.getElementsByTagName( 'head' )[0].appendChild( link );
+                                        </script>
+                                    
+                                    <!--[if lt IE 9]>
+                                     <script src="lib/js/html5shiv.js"></script>
+                                     <![endif]-->
+                                    </head>
+    
+    <body>
+        
+        <div class="reveal">
+            
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Taylor</h1>
+                    <h3>Perhaps the Most Un-Googleable Swift Library</h3>
+                    <p>
+                    <small>Jorge Izquierdo (@izqui9) - Swift Summit - March 2015</small>
+                    </p>
+                </section>
+                <section>
+                    <img src="https://pbs.twimg.com/profile_images/449256202262704128/KJCvViJI_400x400.png">
+                    <h2>Hacker School</h2>
+                </section>
+                <section>
+                    <h2>HTTP/1.1</h2>
+                   <img src="images/http.png">
+                </section>
+                <section>
+                    <h2>Flow</h2>
+                   <img src="images/flow.png">
+                </section>
+                <section>
+                    <h2>Swift types</h2>
+                    <pre><code class="swift" data-trim contenteditable style="font-size: 18px;">
+enum Callback { // Looking for a better term
+    case Continue(Request, Response)
+    case Send(Request, Response)
+}
+
+typealias Handler = (Request, Response, (Callback) -> ()) -> ()
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Handler example</h2>
+                    <pre><code class="swift" data-trim contenteditable style="font-size: 18px;">
+let printer: (String) -> () = println
+
+let requestLogger: Handler = {
+    request, response, callback in
+                        
+    let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
+    let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
+                        
+    printer(text)
+                        
+    callback(.Continue(request, response))
+}
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <h2>Take a Moment</h2>
+                    <p>
+                    Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+                    </p>
+                </section>
+                
+                <section>
+                    <h1>Play time</h1>
+                    <a href=""><img src="http://fileinfo.com/images/icons/files/128/playground-9516.png"></a>
+                </section>
+                
+                <section style="text-align: left;">
+                    <h1>THE END</h1>
+                    <h3><a href="https://github.com/izqui/taylor">github.com/izqui/taylor</a></h3>
+                    <ul>
+                        <li>@izqui9</li>
+                        <li>jorge@izqui.me</li>
+                    </ul>
+                    </p>
+                </section>
+                
+            </div>
+            
+        </div>
+        
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        
+        <script>
+            
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                              controls: true,
+                              progress: true,
+                              history: true,
+                              center: true,
+                              
+                              transition: 'slide', // none/fade/slide/convex/concave/zoom
+                              
+                              // Optional reveal.js plugins
+                              dependencies: [
+                                             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                                             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                                             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                                             { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                                             { src: 'plugin/zoom-js/zoom.js', async: true },
+                                             { src: 'plugin/notes/notes.js', async: true }
+                                             ]
+                              });
+                              
+            </script>
+        
+    </body>
+</html>

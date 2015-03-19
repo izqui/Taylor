@@ -138,17 +138,16 @@ public class Middleware {
     }
 
 
-public class func requestLogger(printer: ((String) -> ())? = nil) -> Handler {
+    public class func requestLogger(printer: ((String) -> ())) -> Handler {
     
-    return {
+        return {
+            request, response, callback in
         
-        request, response, callback in
+            let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
+            let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
         
-        let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
-        let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
-        
-        (printer != nil ? printer : println)!(text)
-        callback(.Continue(request, response))
+            printer(text)
+            callback(.Continue(request, response))
+        }
     }
-}
 }
