@@ -47,10 +47,12 @@
                     <small>Jorge Izquierdo (@izqui9) - Swift Summit - March 2015</small>
                     </p>
                 </section>
+                <!---
                 <section>
                     <img src="https://pbs.twimg.com/profile_images/449256202262704128/KJCvViJI_400x400.png">
                     <h2>Hacker School</h2>
                 </section>
+                -->
                 <section>
                     <h2>HTTP/1.1</h2>
                    <img src="images/http.png">
@@ -77,9 +79,11 @@ let printer: (String) -> () = println
 
 let requestLogger: Handler = {
     request, response, callback in
-                        
-    let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
-    let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
+    
+    let timeDelta = CACurrentMediaTime()-request.start
+    let timeString = NSString(format: "%.02f", timeDelta*1000)
+    let text = "\(response.statusCode) \(request.method.rawValue)
+    \(request.path) \(timeString)ms"
                         
     printer(text)
                         
@@ -89,15 +93,55 @@ let requestLogger: Handler = {
                 </section>
                 
                 <section>
-                    <h2>Take a Moment</h2>
-                    <p>
-                    Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-                    </p>
+                    <h2>Routes</h2>
+                    <pre><code class="swift" data-trim contenteditable style="font-size: 18px;">
+server.post("/hi/:name", Taylor.Middleware.bodyParser(), {
+    request, response, callback in
+
+    if let name = request.parameters["name"],
+       let age = request.body["age"] {
+        
+        response.bodyString = "\(name) is \(age) years old"
+    }
+
+    callback(.Send(request, response))
+})
+                    </code></pre>
                 </section>
                 
                 <section>
                     <h1>Play time</h1>
                     <a href=""><img src="http://fileinfo.com/images/icons/files/128/playground-9516.png"></a>
+                </section>
+                <section>
+                    <h2>In conclusion</h2>
+                    <h3 style="text-align:left">Cool things</h3>
+                    <ul style="text-align:left">
+                        <li>Use awesome Apple Frameworks (SceneKit, CoreImage...)</li>
+                        <li>Live code your HTTP server in a Playground</li>
+                    </ul>
+                    <br>
+                    <br>
+                    <br>
+                    <h3 style="text-align:left">Not that cool</h3>
+                    <ul style="text-align:left">
+                        <li style="text-align:left">Only works on (OSX >= 10.9 || iOS >= 7.0)</li>
+                        <li style="color:transparent">HACK wesome Apple Frameworks (SceneKit, CoreImage...)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Credits</h2>
+                    <h3 style="text-align:left">Open Source Components</h3>
+                    <ul style="text-align:left">
+                        <li style="text-align:left"><a href="https://github.com/robbiehanson/CocoaAsyncSocket">CocoaAsyncSocket</a></li>
+                         <li style="color:transparent">HACK wesome Apple Frameworks (SceneKit, CoreImage...)</li>
+                    </ul>
+                    <h3 style="text-align:left">Inspiration</h3>
+                    <ul style="text-align:left">
+                        <li style="text-align:left"><a href="http://expressjs.com">ExpressJS</a></li>
+                        <li style="text-align:left"><a href="http://martini.codegangsta.io">Go's Martini</a></li>
+                         <li style="color:transparent">HACK wesome Apple Frameworks (SceneKit, CoreImage...)</li>
+                    </ul>
                 </section>
                 
                 <section style="text-align: left;">

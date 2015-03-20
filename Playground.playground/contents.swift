@@ -1,17 +1,24 @@
 //: Playground - noun: a place where people can play
 
 import Cocoa
+import SceneKit
 import XCPlayground
+import QuartzCore
 import Taylor
 
 let server = Taylor.Server()
 
 server.addHandler(Middleware.staticDirectory("/talk", bundle: NSBundle.mainBundle()))
-server.get("/hi") {
-    req, res, cb in
-    res.bodyString = "Hello my friend!"
-    cb(.Send(req, res))
-}
+
+server.post("/hi/:name", Taylor.Middleware.bodyParser(), {
+    request, response, cb in
+    if let name = request.parameters["name"],
+       let age = request.body["age"] {
+        
+        response.bodyString = "\(name) is \(age) years old"
+    }
+    cb(.Send(request, response))
+})
 
 server.addPostRequestHandler(Middleware.requestLogger({XCPCaptureValue("Requests", $0)}))
 
@@ -27,6 +34,7 @@ server.startListening(port: port, forever: true) {
 }
 
 XCPSetExecutionShouldContinueIndefinitely(continueIndefinitely: true)
+
 /*
 server.get("/post") {
 req, res, cb in

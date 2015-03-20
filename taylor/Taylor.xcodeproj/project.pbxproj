@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		E1D6FAC11AB5E91700399154 /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D6FAC01AB5E91700399154 /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1D6FAC71AB5E91700399154 /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D6FABB1AB5E91700399154 /* Taylor.framework */; };
-		E1D6FAE11AB5E95900399154 /* fileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAD81AB5E95900399154 /* fileTypes.swift */; };
-		E1D6FAE21AB5E95900399154 /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAD91AB5E95900399154 /* middleware.swift */; };
-		E1D6FAE31AB5E95900399154 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADA1AB5E95900399154 /* request.swift */; };
-		E1D6FAE41AB5E95900399154 /* response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADB1AB5E95900399154 /* response.swift */; };
-		E1D6FAE51AB5E95900399154 /* route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADC1AB5E95900399154 /* route.swift */; };
-		E1D6FAE61AB5E95900399154 /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADD1AB5E95900399154 /* router.swift */; };
-		E1D6FAE71AB5E95900399154 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADE1AB5E95900399154 /* server.swift */; };
-		E1D6FAE81AB5E95900399154 /* taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADF1AB5E95900399154 /* taylor.swift */; };
+		E1D6FAE11AB5E95900399154 /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAD81AB5E95900399154 /* FileTypes.swift */; };
+		E1D6FAE21AB5E95900399154 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAD91AB5E95900399154 /* Middleware.swift */; };
+		E1D6FAE31AB5E95900399154 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADA1AB5E95900399154 /* Request.swift */; };
+		E1D6FAE41AB5E95900399154 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADB1AB5E95900399154 /* Response.swift */; };
+		E1D6FAE51AB5E95900399154 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADC1AB5E95900399154 /* Route.swift */; };
+		E1D6FAE61AB5E95900399154 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADD1AB5E95900399154 /* Router.swift */; };
+		E1D6FAE81AB5E95900399154 /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FADF1AB5E95900399154 /* Taylor.swift */; };
 		E1D6FAEA1AB5E96C00399154 /* Taylor_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAE91AB5E96C00399154 /* Taylor_Tests.swift */; };
 		E1D6FAEF1AB5E98D00399154 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D6FAEC1AB5E98D00399154 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1D6FAF01AB5E98D00399154 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D6FAED1AB5E98D00399154 /* GCDAsyncSocket.m */; };
@@ -40,14 +39,13 @@
 		E1D6FAC01AB5E91700399154 /* Taylor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Taylor.h; sourceTree = "<group>"; };
 		E1D6FAC61AB5E91700399154 /* TaylorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaylorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D6FACC1AB5E91700399154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1D6FAD81AB5E95900399154 /* fileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fileTypes.swift; sourceTree = "<group>"; };
-		E1D6FAD91AB5E95900399154 /* middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = middleware.swift; sourceTree = "<group>"; };
-		E1D6FADA1AB5E95900399154 /* request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
-		E1D6FADB1AB5E95900399154 /* response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = response.swift; sourceTree = "<group>"; };
-		E1D6FADC1AB5E95900399154 /* route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = route.swift; sourceTree = "<group>"; };
-		E1D6FADD1AB5E95900399154 /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
-		E1D6FADE1AB5E95900399154 /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
-		E1D6FADF1AB5E95900399154 /* taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taylor.swift; sourceTree = "<group>"; };
+		E1D6FAD81AB5E95900399154 /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileTypes.swift; sourceTree = "<group>"; };
+		E1D6FAD91AB5E95900399154 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
+		E1D6FADA1AB5E95900399154 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E1D6FADB1AB5E95900399154 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		E1D6FADC1AB5E95900399154 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		E1D6FADD1AB5E95900399154 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E1D6FADF1AB5E95900399154 /* Taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taylor.swift; sourceTree = "<group>"; };
 		E1D6FAE91AB5E96C00399154 /* Taylor_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taylor_Tests.swift; sourceTree = "<group>"; };
 		E1D6FAEC1AB5E98D00399154 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		E1D6FAED1AB5E98D00399154 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
@@ -98,14 +96,13 @@
 			isa = PBXGroup;
 			children = (
 				E1D6FAC01AB5E91700399154 /* Taylor.h */,
-				E1D6FADF1AB5E95900399154 /* taylor.swift */,
-				E1D6FAD91AB5E95900399154 /* middleware.swift */,
-				E1D6FAD81AB5E95900399154 /* fileTypes.swift */,
-				E1D6FADA1AB5E95900399154 /* request.swift */,
-				E1D6FADB1AB5E95900399154 /* response.swift */,
-				E1D6FADC1AB5E95900399154 /* route.swift */,
-				E1D6FADD1AB5E95900399154 /* router.swift */,
-				E1D6FADE1AB5E95900399154 /* server.swift */,
+				E1D6FADF1AB5E95900399154 /* Taylor.swift */,
+				E1D6FADA1AB5E95900399154 /* Request.swift */,
+				E1D6FADB1AB5E95900399154 /* Response.swift */,
+				E1D6FADD1AB5E95900399154 /* Router.swift */,
+				E1D6FADC1AB5E95900399154 /* Route.swift */,
+				E1D6FAD91AB5E95900399154 /* Middleware.swift */,
+				E1D6FAD81AB5E95900399154 /* FileTypes.swift */,
 				E1D6FAEB1AB5E98D00399154 /* dependencies */,
 				E1D6FABE1AB5E91700399154 /* Supporting Files */,
 			);
@@ -256,15 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1D6FAE41AB5E95900399154 /* response.swift in Sources */,
-				E1D6FAE71AB5E95900399154 /* server.swift in Sources */,
-				E1D6FAE81AB5E95900399154 /* taylor.swift in Sources */,
-				E1D6FAE11AB5E95900399154 /* fileTypes.swift in Sources */,
-				E1D6FAE61AB5E95900399154 /* router.swift in Sources */,
-				E1D6FAE51AB5E95900399154 /* route.swift in Sources */,
+				E1D6FAE41AB5E95900399154 /* Response.swift in Sources */,
+				E1D6FAE81AB5E95900399154 /* Taylor.swift in Sources */,
+				E1D6FAE11AB5E95900399154 /* FileTypes.swift in Sources */,
+				E1D6FAE61AB5E95900399154 /* Router.swift in Sources */,
+				E1D6FAE51AB5E95900399154 /* Route.swift in Sources */,
 				E1D6FAF01AB5E98D00399154 /* GCDAsyncSocket.m in Sources */,
-				E1D6FAE21AB5E95900399154 /* middleware.swift in Sources */,
-				E1D6FAE31AB5E95900399154 /* request.swift in Sources */,
+				E1D6FAE21AB5E95900399154 /* Middleware.swift in Sources */,
+				E1D6FAE31AB5E95900399154 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
