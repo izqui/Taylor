@@ -148,7 +148,6 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         self.handleRequest(sock, request: request, response: response)
     }
     
-    
     public func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
     }
     

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello</title>
+	<title>Image test</title>
 </head>
 <body>
-<form action="/post" method="POST">
-    Name: <input type="text" name="name"><br>
-    Number: <input type="number" name="number">
+    <img src="/talk/image.jpg">
+<form action="/image" method="POST" id="hola">
+<select name="filter" form="hola">
+    <option value="0">CIPhotoEffectChrome</option>
+    <option value="1">CIPhotoEffectNoir</option>
+    <option value="2">CIPhotoEffectMono</option>
+    <option value="3">CIPhotoEffectProcess</option>
+</select>
 	<input type="submit">
 </form>
+
 </body>
 </html>
