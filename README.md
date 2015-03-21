@@ -7,48 +7,50 @@ Taylor is a library which allows you to create web server applications in [Swift
 
 ## Status
 
-At this moment, Taylor only supports GET and POST HTTP requests.
-It relies on `xcodebuild` to compile the binary, that's the reason of the existance of the `Taylor.xcodeproj` file
+At this moment, Taylor only supports GET, POST and PUT HTTP requests.
+Better documentation is on the way.
 
 ## Demo
 
+You can use Taylor from the command line using [Rome](https://github.com/neonichu/Rome) or [Carthage](https://github.com/Carthage/Carthage) as dependency managers, or just compiling the Framework within the `.xcworkspace`
+
+Credits to [Ayaka Nonaka](https://twitter.com/ayanonagon)'s [Swift Summit](http://swiftsummit.com) talk for sharing this method for doing Scripting in Swift
+
 ```.swift
+#!/usr/bin/env xcrun swift -F Rome
 
-let taylor = Taylor(port: 5000)
+import Taylor
 
-taylor.get("/") {
+let server = Taylor.Server()
+server.addPostRequestHandler(Middleware.requestLogger(println))
 
-   request, response in
+server.get("/") {
+    request, response, callback in
 
-    response.stringBody = "Hello World"
-    response.send()
+    response.bodyString  = "Hello World!"
 
-    return nil
+    callback(.Send(request, response))
 }
 
-taylor.startListening(forever: true)
-
+server.startListening(port: 4000, forever: true) {
+    result in
+    switch result {
+    case .Success:
+        println("Up and running")
+    case .Error(let e):
+        println("Server start failed \(e)")
+    }
+}
 ```
 
-## Setup
-
-You need to be running xCode 6 beta 2 or latest
 ```.sh
-$ git clone http://github.com/izqui/Taylor taylor-server
-$ cd taylor-server
-# edit main.swift
-$ ./run 3000
+chmod +x server.swift
+./server.swift
 ```
-
-Open [localhost:3000](http://localhost:3000)
-
-## Documentation
-
-Coming soon
 
 ## Dependencies
 
-Right now Taylor relies on an Objective-C library called [GCDAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket/). I want to do my own implementation in Swift in the future.
+Right now Taylor relies on an Objective-C library called [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket/).
 
 ## Inspiration
 
