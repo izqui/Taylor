@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
 
-  s.source_files = 'taylor/*.swift'
+  s.source_files = 'taylor/Taylor/*.swift'
 
   s.requires_arc = true
 
