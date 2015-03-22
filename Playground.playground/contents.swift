@@ -12,23 +12,12 @@ server.addHandler(Middleware.staticDirectory("/talk", bundle: NSBundle.mainBundl
 
 server.addPostRequestHandler(Middleware.requestLogger({XCPCaptureValue("Requests", $0)}))
 
-let port = 3001
-server.startListening(port: port, forever: true) {
-    result in
-    switch result {
-    case .Success:
-        println("Up and running on \(getIPAddress()):\(port)")
-    case .Error(let e):
-        println("Server start failed \(e)")
-    }
+server.get("/") {
+    r, s, cb in
+    s.bodyString = "Helo  alex"
+    cb(.Send(r, s))
 }
 
-XCPSetExecutionShouldContinueIndefinitely(continueIndefinitely: true)
-
-
-
-
-/*
 server.get("/image") {
     req, res, cb in
     res.setFile(NSBundle.mainBundle().URLForResource("test", withExtension: "html"))
@@ -48,4 +37,23 @@ server.post("/image", Taylor.Middleware.bodyParser(), {
     }
     cb(.Send(req, res))
 })
+
+
+let port = 3001
+server.startListening(port: port, forever: true) {
+    result in
+    switch result {
+    case .Success:
+        println("Up and running on \(getIPAddress()):\(port)")
+    case .Error(let e):
+        println("Server start failed \(e)")
+    }
+}
+
+XCPSetExecutionShouldContinueIndefinitely(continueIndefinitely: true)
+
+
+
+
+/*
 */
