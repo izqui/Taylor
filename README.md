@@ -2,6 +2,7 @@ Taylor
 ======
 
 Disclaimer: It is a work in progress, it may break. Use it at your own risk.
+
 Disclaimer 2: A major refactor is coming after everything learned at Swift Summit.
 
 Taylor is a library which allows you to create web server applications in [Swift](https://developer.apple.com/swift/)
