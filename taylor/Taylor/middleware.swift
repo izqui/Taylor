@@ -67,9 +67,7 @@ public class Middleware {
             }
             
             let fileComponents = requestComponents[dirComponents.count..<requestComponents.count] // matched comps after dirComponents
-            println(fileComponents)
             var filePath = directory.stringByExpandingTildeInPath.stringByAppendingPathComponent(join("/", fileComponents))
-            println(filePath)
             
             let fileManager = NSFileManager.defaultManager()
             var isDir: ObjCBool = false
