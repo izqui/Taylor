@@ -10,11 +10,11 @@ let server = Taylor.Server()
 
 server.addHandler(Middleware.staticDirectory("/talk", bundle: NSBundle.mainBundle()))
 
-server.addPostRequestHandler(Middleware.requestLogger({XCPCaptureValue("Requests", $0)}))
+server.addPostRequestHandler(Middleware.requestLogger({XCPCaptureValue("Requests", value: $0)}))
 
 server.get("/") {
     r, s, cb in
-    s.bodyString = "Helo  alex"
+    s.bodyString = "Hello, world!"
     cb(.Send(r, s))
 }
 
@@ -25,8 +25,8 @@ server.get("/image") {
 }
 server.post("/image", Taylor.Middleware.bodyParser(), {
     req, res, cb in
-    
-    if let f = req.body["filter"], let i = f.toInt() {
+
+    if let f = req.body["filter"], let i = Int(f) {
         
         res.body = filteredImage(filters[(i<filters.count ? i : 0)])
         res.headers["Content-type"] = "image/jpg"
@@ -44,13 +44,13 @@ server.startListening(port: port, forever: true) {
     result in
     switch result {
     case .Success:
-        println("Up and running on \(getIPAddress()):\(port)")
+        print("Up and running on \(getIPAddress()):\(port)")
     case .Error(let e):
-        println("Server start failed \(e)")
+        print("Server start failed \(e)")
     }
 }
 
-XCPSetExecutionShouldContinueIndefinitely(continueIndefinitely: true)
+XCPSetExecutionShouldContinueIndefinitely(true)
 
 
 

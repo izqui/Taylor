@@ -56,14 +56,14 @@ public class Request {
     private func parseRequest(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
-        var string = NSString(data: d, encoding: NSUTF8StringEncoding)
-        var http: [String] = string!.componentsSeparatedByString("\r\n") as! [String]
+        let string = NSString(data: d, encoding: NSUTF8StringEncoding)
+        var http: [String] = string!.componentsSeparatedByString("\r\n") as [String]
         
         //Parse method
         if http.count > 0 {
 
             // The delimiter can be any number of blank spaces
-            var startLineArr: [String] = split(http[0], maxSplit: Int.max, allowEmptySlices: false) { $0 == " "}
+            var startLineArr: [String] = split(http[0].characters, maxSplit: Int.max, allowEmptySlices: false) { $0 == " "}.map { String($0) }
             
             if startLineArr.count > 0 {
                 
@@ -76,14 +76,14 @@ public class Request {
             //Parse URL
             if startLineArr.count > 1 {
                 
-                var url = startLineArr[1]
+                let url = startLineArr[1]
                 var urlElements: [String] = url.componentsSeparatedByString("?") as [String]
                 
                 self.path = urlElements[0]
                 
                 if urlElements.count == 2 {
                     
-                    var args = urlElements[1].componentsSeparatedByString("&") as [String]
+                    let args = urlElements[1].componentsSeparatedByString("&") as [String]
                     
                     for a in args {
                         
@@ -113,7 +113,7 @@ public class Request {
     
         while ++i < http.count {
             
-            var content = http[i]
+            let content = http[i]
             
             if content == "" {
                 // This newline means headers have ended and body started (New line already got parsed ("\r\n"))
@@ -129,7 +129,7 @@ public class Request {
         if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
             
             
-            var str = NSMutableString()
+            let str = NSMutableString()
             while ++i < http.count {
                 
                 str.appendString("\(http[i])\n")

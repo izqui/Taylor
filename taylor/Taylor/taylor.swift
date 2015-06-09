@@ -59,16 +59,19 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         
         var err: NSError?
         
-        if socket.acceptOnInterface(nil, port: UInt16(p), error: &err) {
+        do {
+            try socket.acceptOnInterface(nil, port: UInt16(p))
             
             callback?(.Success)
             
             //Should find a better location for this
             self.addHandler(self.router.handler())
-        }
-        else if err != nil {
+        } catch var error as NSError {
+            err = error
+            if err != nil {
             
-            callback?(.Error(err!))
+                callback?(.Error(err!))
+            }
         }
         
         if awake {
@@ -108,7 +111,7 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
                     self.postRequestHandlers[j](req, res, postRequest)
                 }
             case .Send(let req, let res):
-                println("Attempting to send a response twice")
+                print("Attempting to send a response twice")
             }
         }
         
@@ -142,8 +145,8 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
     
     public func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         
-        var request = Request(data: data)
-        var response = Response(socket: sock)
+        let request = Request(data: data)
+        let response = Response(socket: sock)
         
         self.handleRequest(sock, request: request, response: response)
     }
