@@ -6,19 +6,21 @@ import Cocoa
 import QuartzCore
 
 public let filters = ["CIPhotoEffectChrome", "CIPhotoEffectNoir", "CIPhotoEffectMono", "CIPhotoEffectProcess"]
+@available(OSX 10.10, *)
 public func filteredImage(filterName: String) -> NSData? {
     let imageURL = NSBundle.mainBundle().URLForResource("image", withExtension: "jpg")
-    let image = CIImage(contentsOfURL: imageURL)
+    let image = CIImage(contentsOfURL: imageURL!)
     let filter = CIFilter(name: filterName)
-    filter.setValue(image, forKey: kCIInputImageKey)
-    let imageRep = NSBitmapImageRep(CIImage: filter.outputImage)
+    filter!.setValue(image, forKey: kCIInputImageKey)
+    let imageRep = NSBitmapImageRep(CIImage: filter!.outputImage)
     return imageRep.representationUsingType(.NSJPEGFileType, properties: [NSImageCompressionFactor:0.3])
 }
 public func getIPAddress() -> String {
-    if let addresses = NSHost.currentHost().addresses {
-        if addresses.count > 1 {
-            return addresses[1] as! String
-        }
+    
+    var addresses = NSHost.currentHost().addresses
+    if addresses.count > 1 {
+        return addresses[1]
     }
+    
     return "127.0.0.1"
 }

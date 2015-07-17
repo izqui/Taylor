@@ -45,7 +45,7 @@ public class Route {
                 
             } else {
                 
-                println("INCORRECT ROUTE SYNTAX for \(self.path)")
+                print("INCORRECT ROUTE SYNTAX for \(self.path)")
                 return
             }
             

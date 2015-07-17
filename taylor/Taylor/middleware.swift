@@ -18,15 +18,15 @@ public class Middleware {
             
             if request.bodyString != nil && request.headers["Content-Type"] != nil {
                 
-                var h: NSString = request.headers["Content-Type"]! as NSString
+                let h: NSString = request.headers["Content-Type"]! as NSString
                 
-                var notfound: Bool = (Int(NSIntegerMax) == h.rangeOfString("application/x-www-form-urlencoded").location)
+                let notfound: Bool = (Int(NSIntegerMax) == h.rangeOfString("application/x-www-form-urlencoded").location)
                 
                 if !notfound {
                     
                     if let b = request.bodyString {
                         
-                        var args = b.componentsSeparatedByString("&") as! [String]
+                        let args = b.componentsSeparatedByString("&") as [String]
                         
                         for a in args {
                             
@@ -67,7 +67,7 @@ public class Middleware {
             }
             
             let fileComponents = requestComponents[dirComponents.count..<requestComponents.count] // matched comps after dirComponents
-            var filePath = directory.stringByExpandingTildeInPath.stringByAppendingPathComponent(join("/", fileComponents))
+            var filePath = directory.stringByExpandingTildeInPath.stringByAppendingPathComponent("/".join(fileComponents))
             
             let fileManager = NSFileManager.defaultManager()
             var isDir: ObjCBool = false
@@ -86,8 +86,8 @@ public class Middleware {
         }
     }
     
-    private class func matchPaths(#requestPath: [String], inPath dirPath: [String]) -> Bool {
-        return requestPath.count >= dirPath.count && equal(requestPath[0..<dirPath.count], dirPath)
+    private class func matchPaths(requestPath requestPath: [String], inPath dirPath: [String]) -> Bool {
+        return requestPath.count >= dirPath.count && requestPath[0..<dirPath.count].elementsEqual(dirPath)
     }
 
 

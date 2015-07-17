@@ -103,7 +103,7 @@ public class Response {
             headers["Content-Length"] = String(bodyData.length)
         }
         
-        var startLine = "\(self.http_protocol) \(String(self.statusCode)) \(self.statusLine)\r\n"
+        let startLine = "\(self.http_protocol) \(String(self.statusCode)) \(self.statusLine)\r\n"
         
         var headersStr = ""
         for (k, v) in self.headers {
@@ -112,9 +112,9 @@ public class Response {
         }
         
         headersStr += "\r\n"
-        var finalStr = String(format: startLine+headersStr)
+        let finalStr = String(format: startLine+headersStr)
         
-        var data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+        let data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
         data.appendData(bodyData)
 
         return data as NSData

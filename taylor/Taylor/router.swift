@@ -62,7 +62,7 @@ public class Router {
                 
                 for i in 0..<compCount {
                     
-                    var isParameter = route.pathComponents[i].isParameter
+                    let isParameter = route.pathComponents[i].isParameter
                     if !(isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
                         
                         request.parameters = [:]
