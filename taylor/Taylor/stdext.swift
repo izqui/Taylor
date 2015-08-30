@@ -7,4 +7,8 @@ extension String {
     var taylor_pathComponents: [String] {
         return self.componentsSeparatedByString("/").filter { $0 != "" }
     }
+    
+    var NS: NSString {
+        return self as NSString
+    }
 }
