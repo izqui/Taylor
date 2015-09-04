@@ -12,7 +12,7 @@ public func filteredImage(filterName: String) -> NSData? {
     let image = CIImage(contentsOfURL: imageURL!)
     let filter = CIFilter(name: filterName)
     filter!.setValue(image, forKey: kCIInputImageKey)
-    let imageRep = NSBitmapImageRep(CIImage: filter!.outputImage)
+    let imageRep = NSBitmapImageRep(CIImage: filter!.outputImage!)
     return imageRep.representationUsingType(.NSJPEGFileType, properties: [NSImageCompressionFactor:0.3])
 }
 public func getIPAddress() -> String {
