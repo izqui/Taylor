@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaAsyncSocket
+import CocoaAsyncSocketMac
 
 public enum Callback {
     case Continue(Request, Response)

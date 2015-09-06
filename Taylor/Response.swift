@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaAsyncSocket
+import CocoaAsyncSocketMac
 
 public class Response {
     
