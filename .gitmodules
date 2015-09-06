@@ -1,3 +1,3 @@
 [submodule "Carthage/Checkouts/CocoaAsyncSocket"]
-	url = https://github.com/izqui/CocoaAsyncSocket.git
+	url = file:///Users/izqui/Code/CocoaAsyncSocket
 	path = Carthage/Checkouts/CocoaAsyncSocket
