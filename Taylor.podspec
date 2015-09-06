@@ -28,5 +28,5 @@ DESC
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'CocoaAsyncSocket'
+  s.dependency 'CocoaAsyncSocket', '~> 7.4.2' 
 end
