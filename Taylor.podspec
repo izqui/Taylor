@@ -21,7 +21,7 @@ DESC
   s.source           = { :git => "https://github.com/izqui/Taylor.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/izqui9'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :osx, '10.10'
   s.requires_arc = true
 
   s.source_files = 'Taylor/**/*'
