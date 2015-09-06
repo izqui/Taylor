@@ -1,6 +1,0 @@
-framework module Taylor {
-  umbrella header "Taylor-umbrella.h"
-
-  export *
-  module * { export * }
-}
