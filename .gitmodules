@@ -1,0 +1,2 @@
+[submodule "Carthage/Checkouts/CocoaAsyncSocket"]
+	url = https://github.com/robbiehanson/CocoaAsyncSocket.git
