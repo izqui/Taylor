@@ -63,8 +63,7 @@ public class Request {
         if http.count > 0 {
 
             // The delimiter can be any number of blank spaces
-            var startLineArr: [String] = split(http[0].characters, maxSplit: Int.max, allowEmptySlices: false) { $0 == " "}.map { String($0) }
-            
+            var startLineArr: [String] = http[0].characters.split { $0 == " " }.map { String($0) }
             if startLineArr.count > 0 {
                 
                 if let m = Taylor.HTTPMethod(rawValue: startLineArr[0]) {
@@ -96,7 +95,7 @@ public class Request {
                         }
                         
                         // Adding the values removing the %20 bullshit and stuff
-                        self.arguments.updateValue(value.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!, forKey: arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!)
+                        self.arguments.updateValue(value.stringByRemovingPercentEncoding!, forKey: arg[0].stringByRemovingPercentEncoding!)
                     }
                 }
             }

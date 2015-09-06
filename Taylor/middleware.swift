@@ -38,8 +38,8 @@ public class Middleware {
                                 val = arg[1]
                             }
                             
-                            let key = arg[0].stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
-                            let value = val.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let key = arg[0].NS.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let value = val.NS.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
                             
                             request.body[key] = value.stringByReplacingOccurrencesOfString("\n", withString: "", options: .LiteralSearch, range: nil)
                         }
@@ -67,15 +67,15 @@ public class Middleware {
             }
             
             let fileComponents = requestComponents[dirComponents.count..<requestComponents.count] // matched comps after dirComponents
-            var filePath = directory.stringByExpandingTildeInPath.stringByAppendingPathComponent("/".join(fileComponents))
+            var filePath = directory.NS.stringByExpandingTildeInPath.NS.stringByAppendingPathComponent(fileComponents.joinWithSeparator("/"))
             
             let fileManager = NSFileManager.defaultManager()
             var isDir: ObjCBool = false
             
             if fileManager.fileExistsAtPath(filePath, isDirectory: &isDir){
                 // In case it is a directory, we look for a index.html file inside
-                if Bool(isDir) && fileManager.fileExistsAtPath(filePath.stringByAppendingPathComponent("index.html")) {
-                    filePath = filePath.stringByAppendingPathComponent("index.html")
+                if Bool(isDir) && fileManager.fileExistsAtPath(filePath.NS.stringByAppendingPathComponent("index.html")) {
+                    filePath = filePath.NS.stringByAppendingPathComponent("index.html")
                 }
                 
                 response.setFile(NSURL(fileURLWithPath: filePath))
@@ -89,16 +89,16 @@ public class Middleware {
     private class func matchPaths(requestPath requestPath: [String], inPath dirPath: [String]) -> Bool {
         return requestPath.count >= dirPath.count && requestPath[0..<dirPath.count].elementsEqual(dirPath)
     }
-
-
-    public class func requestLogger(printer: ((String) -> ())) -> Handler {
     
+    
+    public class func requestLogger(printer: ((String) -> ())) -> Handler {
+        
         return {
             request, response, callback in
-        
+            
             let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
             let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
-        
+            
             printer(text)
             callback(.Continue(request, response))
         }

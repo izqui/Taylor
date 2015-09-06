@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
-  Taylor: f51117d8a225a2fdd2d85752de2202bf0e7a61fb
+  Taylor: 3e4e3e287bec59dfb4d5389be2bd0b651d8de491
 
 COCOAPODS: 0.38.2
