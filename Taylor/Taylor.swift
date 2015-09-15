@@ -17,11 +17,6 @@ public enum Callback {
 public typealias Handler = (Request, Response, (Callback) -> ()) -> ()
 internal typealias PathComponent = (value: String, isParameter: Bool)
 
-public enum Result {
-    case Success
-    case Error(NSError)
-}
-
 public enum HTTPMethod: String {
         
     case GET = "GET"
@@ -30,11 +25,10 @@ public enum HTTPMethod: String {
     case UNDEFINED = "UNDEFINED" // it will never match
 }
 
-public class Server: NSObject, GCDAsyncSocketDelegate {
+public class Server {
     
-    private var socket: GCDAsyncSocket
+    private var socket: SocketServer = AsyncSocketServer()
     
-    private var sockets: [GCDAsyncSocket] = [GCDAsyncSocket]()
     private var handlers: [Handler]
     private var postRequestHandlers: [Handler]
     
@@ -45,37 +39,25 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
     }
     var router: Router
     
-    public override init(){
+    public init(){
         
         router = Router()
         self.handlers = []
         self.postRequestHandlers = []
-        
-        socket = GCDAsyncSocket()
     }
     
-    public func startListening(port p: Int, forever awake: Bool, callback:((Result)->())?){
+    public func serveHTTP(port p: Int, forever: Bool) throws {
         
-        socket.setDelegate(self, delegateQueue: dispatch_get_main_queue())
-        
-        var err: NSError?
-        
-        do {
-            try socket.acceptOnInterface(nil, port: UInt16(p))
-            
-            callback?(.Success)
+        socket.receivedDataCallback = {
+            data, socket in
+            self.handleRequest(socket, request: Request(data: data), response: Response())
+            return true
+        }
+        try socket.startOnPort(p)
             
             //Should find a better location for this
-            self.addHandler(self.router.handler())
-        } catch let error as NSError {
-            err = error
-            if err != nil {
-            
-                callback?(.Error(err!))
-            }
-        }
-        
-        if awake {
+        self.addHandler(self.router.handler())
+        if forever {
             
             // So the program doesn't end
             while true {
@@ -99,7 +81,7 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
         self.postRequestHandlers.append(handler)
     }
     
-    internal func handleRequest(socket: GCDAsyncSocket, request: Request, response: Response) {
+    internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
         var j = -1
         var postRequest: ((Callback)->())!
@@ -129,30 +111,12 @@ public class Server: NSObject, GCDAsyncSocketDelegate {
                     self.notFoundHandler(req, res, cb)
                 }
             case .Send(let req, let res):
-                socket.writeData(res.generateResponse(), withTimeout: 10, tag: 1)
-                socket.disconnectAfterWriting()
+                socket.sendData(res.generateResponse())
                 postRequest(.Continue(req, res))
             }
         }
         
         cb(.Continue(request, response))
-    }
-    
-    // GCDAsyncSocketDelegate methods
-    public func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
-        
-        newSocket.readDataWithTimeout(10, tag: 1)
-    }
-    
-    public func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
-        
-        let request = Request(data: data)
-        let response = Response(socket: sock)
-        
-        self.handleRequest(sock, request: request, response: response)
-    }
-    
-    public func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
     }
     
     //Convenience methods

@@ -12,8 +12,6 @@ import Taylor
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         
@@ -25,23 +23,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             cb(.Send(r, s))
         }
                
-        let port = 3001
-        server.startListening(port: port, forever: false) {
-            result in
-            switch result {
-            case .Success:
-                print("Up and running on: \(port)")
-            case .Error(let e):
-                print("Server start failed \(e)")
-            }
+        let port = 3002
+        do {
+            try server.serveHTTP(port: port, forever: false)
+            print("Up and running on: \(port)")
+        } catch let e {
+            print("Server start failed \(e)")
         }
-
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-
-
 }
 
