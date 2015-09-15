@@ -1,4 +1,6 @@
-Taylor
+
+
+Taylor [![Version](https://img.shields.io/cocoapods/v/Taylor.svg?style=flat)](http://cocoapods.org/pods/Taylor) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ======
 
 Swift 2.0 required. Working with xCode 7.0 GM.
@@ -36,6 +38,20 @@ do {
 }
 
 ```
+
+## Playground
+
+The easiest way to try out Taylor is using a playground.
+
+For this, you need to have Carthage installed in your computer, is what it is used for fetching the dependencies.
+
+```.sh
+$ git clone git@github.com:izqui/Taylor.git -b playground
+$ cd taylor/
+$ sh setup.sh
+```
+
+And that's it, you should be good to go. Have fun!
 
 ## Usage
 
