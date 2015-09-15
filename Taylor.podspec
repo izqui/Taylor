@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Taylor"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "HTTP server written in Swift."
   s.description      = <<-DESC
                        A HTTP server written in Swift
