@@ -24,9 +24,9 @@ DESC
   s.platform     = :osx, '10.10'
   s.requires_arc = true
 
-  s.source_files = 'Taylor/**/*'
+  s.source_files = 'Taylor/**/*.swift'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'CocoaAsyncSocket', '~> 7.4.2' 
+  s.dependency 'CocoaAsyncSocket', '~> 7.4.2'
 end
