@@ -50,9 +50,9 @@ github "izqui/taylor"
 
 And then run:
 
-```
-carthage update
-xcrun swift -F Carthage/Build/Mac yourfile.swift
+```.sh
+$ carthage update
+$ xcrun swift -F Carthage/Build/Mac yourfile.swift
 ```
 
 #### CocoaPods Rome
@@ -63,13 +63,13 @@ platform :osx, '10.10'
 
 plugin 'cocoapods-rome'
 
-pod 'Taylor', :git => "http://github.com/izqui/taylor.git"
+pod 'Taylor'
 ```
 
 And then run:
-```
-pod install
-xcrun swift -F Rome yourfile.swift
+```.sh
+$ pod install
+$ xcrun swift -F Rome yourfile.swift
 ```
 
 Credits to [Ayaka Nonaka](https://twitter.com/ayanonagon)'s [Swift Summit](http://swiftsummit.com) talk for sharing this method for doing Scripting in Swift
@@ -85,8 +85,8 @@ For the development of the Taylor framework we use Carthage for managining depen
 
 To contribute to Taylor, clone the project on your local machine and run:
 
-```
-carthage bootstarp
+```.sh
+$ carthage bootstarp
 ```
 
 Then you can open `Taylor.xcodeproj` and start developing.
