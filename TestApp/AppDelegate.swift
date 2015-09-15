@@ -25,8 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                
         let port = 3002
         do {
+            print("Staring server on port: \(port)")
             try server.serveHTTP(port: port, forever: false)
-            print("Up and running on: \(port)")
         } catch let e {
             print("Server start failed \(e)")
         }
