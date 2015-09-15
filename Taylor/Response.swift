@@ -7,11 +7,9 @@
 //
 
 import Foundation
-import CocoaAsyncSocket
 
 public class Response {
     
-    private let socket: GCDAsyncSocket?
     private var statusLine: String = ""
     
     public var statusCode: Int = 200
@@ -46,18 +44,7 @@ public class Response {
     502: "Bad Gateway",
     503: "Service Unavailable"
     ]
-    
-    convenience init(){
-        
-        self.init(socket: nil)
-    }
 
-    
-    init(socket s: GCDAsyncSocket?){
-        
-        socket = s
-    }
-    
     public func redirect(url u: String) {
         
         self.statusCode = 302
