@@ -63,7 +63,7 @@ platform :osx, '10.10'
 
 plugin 'cocoapods-rome'
 
-pod 'Taylor'
+pod 'Taylor', :git => "http://github.com/izqui/taylor.git" 
 ```
 
 And then run:
