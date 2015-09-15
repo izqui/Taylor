@@ -1,29 +1,99 @@
-# Taylor
+Taylor
+======
 
-[![CI Status](http://img.shields.io/travis/Jorge Izquierdo/Taylor.svg?style=flat)](https://travis-ci.org/Jorge Izquierdo/Taylor)
-[![Version](https://img.shields.io/cocoapods/v/Taylor.svg?style=flat)](http://cocoapods.org/pods/Taylor)
-[![License](https://img.shields.io/cocoapods/l/Taylor.svg?style=flat)](http://cocoapods.org/pods/Taylor)
-[![Platform](https://img.shields.io/cocoapods/p/Taylor.svg?style=flat)](http://cocoapods.org/pods/Taylor)
+Swift 2.0 required. Working with xCode 7.0 GM.
+
+Disclaimer: It is a work in progress, it may break. Use it at your own risk.
+
+Taylor is a library which allows you to create web server applications in [Swift](https://developer.apple.com/swift/)
+
+## Status
+
+At this moment, Taylor only supports GET, POST and PUT HTTP requests.
+Better documentation is on the way.
+
+## Hello World
+
+```.swift
+
+import Taylor
+
+let server = Taylor.Server()
+
+server.get("/") {
+    req, res, cb in
+
+    res.bodyString = "Hello, world!"
+    cb(.Send(req, res))
+}
+
+let port = 3002
+do {
+   print("Staring server on port: \(port)")
+   try server.serveHTTP(port: port, forever: true)
+} catch let e {
+   print("Server start failed \(e)")
+}
+
+```
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+You can use Taylor from the command line using [Cocoapods Rome](https://github.com/neonichu/Rome) or [Carthage](https://github.com/Carthage/Carthage) as dependency managers.
 
-## Requirements
+#### Carthage
 
-## Installation
-
-Taylor is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "Taylor"
+Create a `Cartfile`:
+```
+github "izqui/taylor"
 ```
 
-## Author
+And then run:
 
-Jorge Izquierdo, jorge@izqui.me
+```
+carthage update
+xcrun swift -F Carthage/Build/Mac yourfile.swift
+```
 
-## License
+#### CocoaPods Rome
 
-Taylor is available under the MIT license. See the LICENSE file for more info.
+Create a `Podfile`:
+```
+platform :osx, '10.10'
+
+plugin 'cocoapods-rome'
+
+pod 'Taylor'
+```
+
+And then run:
+```
+pod install
+xcrun swift -F Rome yourfile.swift
+```
+
+Credits to [Ayaka Nonaka](https://twitter.com/ayanonagon)'s [Swift Summit](http://swiftsummit.com) talk for sharing this method for doing Scripting in Swift
+
+
+## Dependencies
+
+Right now Taylor relies on an Objective-C library called [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket/).
+
+## Development
+
+For the development of the Taylor framework we use Carthage for managining dependencies.
+
+To contribute to Taylor, clone the project on your local machine and run:
+
+```
+carthage bootstarp
+```
+
+Then you can open `Taylor.xcodeproj` and start developing.
+
+The reason there is a Mac app inside the project is for testing purposes given that you cannot have frameworks linked with a Command Line application in xCode using Carthage. See [here](https://github.com/Carthage/Carthage/issues/287).
+
+## Inspiration
+
+* [Go's Martini](https://github.com/go-martini/martini)
+* [Barista](https://github.com/SteveStreza/barista)
