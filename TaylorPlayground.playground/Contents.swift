@@ -1,6 +1,10 @@
 //: Playground - noun: a place where people can play
 
 import Taylor
+import XCPlayground
+
+XCPSetExecutionShouldContinueIndefinitely()
+
 let server = Taylor.Server()
 
 server.get("/") {
