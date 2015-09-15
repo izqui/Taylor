@@ -1,6 +1,7 @@
 Pods/
 Example/Pods/
-Carthage/Build/
+Carthage/
+Cartfile.resolved
 # OS X
 .DS_Store
 
