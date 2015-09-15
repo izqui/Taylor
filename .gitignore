@@ -2,6 +2,7 @@ Pods/
 Example/Pods/
 Carthage/
 Cartfile.resolved
+
 # OS X
 .DS_Store
 
