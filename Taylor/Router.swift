@@ -58,7 +58,7 @@ public class Router {
             
             request.parameters = Dictionary<String, String>()
             let compCount = route.pathComponents.count
-            if route.method == request.method && compCount == request.pathComponents.count {
+            if (route.method == request.method || (route.method == .GET && request.method == .HEAD)) && compCount == request.pathComponents.count {
                 
                 for i in 0..<compCount {
                     

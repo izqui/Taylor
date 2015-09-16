@@ -111,7 +111,9 @@ public class Server {
                     self.notFoundHandler(req, res, cb)
                 }
             case .Send(let req, let res):
-                socket.sendData(res.generateResponse(req.method))
+                let data = res.generateResponse(req.method)
+                
+                socket.sendData(data)
                 postRequest(.Continue(req, res))
             }
         }
