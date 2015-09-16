@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Carthage/Checkouts/taylor/Taylor.xcodeproj">
+      location = "group:Carthage/Checkouts/CocoaAsyncSocket/CocoaAsyncSocket.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Carthage/Checkouts/CocoaAsyncSocket/CocoaAsyncSocket.xcodeproj">
+      location = "group:Carthage/Checkouts/taylor/Taylor.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:TaylorPlayground.playground">
