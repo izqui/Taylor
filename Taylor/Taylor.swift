@@ -21,6 +21,7 @@ public enum HTTPMethod: String {
     case GET = "GET"
     case POST = "POST"
     case PUT = "PUT"
+    case HEAD = "HEAD"
     case UNDEFINED = "UNDEFINED" // it will never match
 }
 
@@ -110,7 +111,7 @@ public class Server {
                     self.notFoundHandler(req, res, cb)
                 }
             case .Send(let req, let res):
-                socket.sendData(res.generateResponse())
+                socket.sendData(res.generateResponse(req.method))
                 postRequest(.Continue(req, res))
             }
         }

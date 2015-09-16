@@ -12,3 +12,10 @@ extension String {
         return self as NSString
     }
 }
+
+func + (lhs: NSData, rhs: NSData) -> NSData {
+    
+    let data = NSMutableData(data: lhs)
+    data.appendData(rhs)
+    return data
+}

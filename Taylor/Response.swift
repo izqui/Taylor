@@ -17,34 +17,44 @@ public class Response {
     
     public var body: NSData?
     public var bodyString: String? {
-    didSet {
-        if headers["Content-Type"] == nil {
-            headers["Content-Type"] = FileTypes.get("txt")
+        didSet {
+            if headers["Content-Type"] == nil {
+                headers["Content-Type"] = FileTypes.get("txt")
+            }
         }
     }
+    
+    var bodyData: NSData {
+        if let b = body {
+            return b
+        } else if bodyString != nil {
+            return NSData(data: bodyString!.dataUsingEncoding(NSUTF8StringEncoding)!)
+        }
+        
+        return NSData()
     }
     
     private let http_protocol: String = "HTTP/1.1"
     internal var codes = [
-    200: "OK",
-    201: "Created",
-    202: "Accepted",
-    
-    300: "Multiple Choices",
-    301: "Moved Permanently",
-    302: "Found",
-    303: "See other",
-    
-    400: "Bad TRequest",
-    401: "Unauthorized",
-    403: "Forbidden",
-    404: "Not Found",
-    
-    500: "Internal Server Error",
-    502: "Bad Gateway",
-    503: "Service Unavailable"
+        200: "OK",
+        201: "Created",
+        202: "Accepted",
+        
+        300: "Multiple Choices",
+        301: "Moved Permanently",
+        302: "Found",
+        303: "See other",
+        
+        400: "Bad TRequest",
+        401: "Unauthorized",
+        403: "Forbidden",
+        404: "Not Found",
+        
+        500: "Internal Server Error",
+        502: "Bad Gateway",
+        503: "Service Unavailable"
     ]
-
+    
     public func redirect(url u: String) {
         
         self.statusCode = 302
@@ -72,19 +82,11 @@ public class Response {
         }
     }
     
-    internal func generateResponse() -> NSData {
+    func headerData() -> NSData {
         
         if let a = self.codes[self.statusCode]{
             
             self.statusLine = a
-        }
-        
-        var bodyData: NSData = NSData()
-        
-        if body != nil {
-            bodyData = body!
-        } else if bodyString != nil {
-            bodyData = NSData(data: bodyString!.dataUsingEncoding(NSUTF8StringEncoding)!)
         }
         
         if headers["Content-Length"] == nil{
@@ -102,9 +104,15 @@ public class Response {
         headersStr += "\r\n"
         let finalStr = String(format: startLine+headersStr)
         
-        let data: NSMutableData = NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
-        data.appendData(bodyData)
-
-        return data as NSData
+        return NSMutableData(data: finalStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+    }
+    
+    internal func generateResponse(method: HTTPMethod) -> NSData {
+        
+        let headerData = self.headerData()
+        
+        guard method != .HEAD else { return headerData }
+        return headerData + self.bodyData
+        
     }
 }
