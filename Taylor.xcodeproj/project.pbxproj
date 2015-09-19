@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90C4453B1BAD949E004CEECF /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4453A1BAD949E004CEECF /* Application.swift */; settings = {ASSET_TAGS = (); }; };
+		90C4453D1BAD9608004CEECF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4453C1BAD9608004CEECF /* Configuration.swift */; settings = {ASSET_TAGS = (); }; };
+		90C4453F1BAD9864004CEECF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C4453E1BAD9864004CEECF /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		E12077421B9CC3C40064268A /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */; settings = {ASSET_TAGS = (); }; };
 		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; settings = {ASSET_TAGS = (); }; };
 		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
@@ -54,6 +57,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		90C4453A1BAD949E004CEECF /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		90C4453C1BAD9608004CEECF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		90C4453E1BAD9864004CEECF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		E16034A51BA737C000F3C9CF /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
 		E177A44E1B9CCBA700D1ED6B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */,
+				90C4453A1BAD949E004CEECF /* Application.swift */,
+				90C4453C1BAD9608004CEECF /* Configuration.swift */,
+				90C4453E1BAD9864004CEECF /* MainViewController.swift */,
 				E177A4541B9CCBA700D1ED6B /* Assets.xcassets */,
 				E177A4561B9CCBA700D1ED6B /* Main.storyboard */,
 				E177A4591B9CCBA700D1ED6B /* Info.plist */,
@@ -257,7 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90C4453F1BAD9864004CEECF /* MainViewController.swift in Sources */,
+				90C4453D1BAD9608004CEECF /* Configuration.swift in Sources */,
 				E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */,
+				90C4453B1BAD949E004CEECF /* Application.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

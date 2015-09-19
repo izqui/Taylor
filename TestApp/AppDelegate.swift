@@ -11,25 +11,10 @@ import Taylor
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        
-        let server = Taylor.Server()
-        
-        server.get("/") {
-            r, s, cb in
-            s.bodyString = "Hello, world!"
-            cb(.Send(r, s))
-        }
-               
-        let port = 3002
-        do {
-            print("Staring server on port: \(port)")
-            try server.serveHTTP(port: port, forever: false)
-        } catch let e {
-            print("Server start failed \(e)")
-        }
+        Application.sharedInstance.runOnPort(Configuration.port)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

@@ -15,7 +15,7 @@ protocol SocketServer {
     
     func startOnPort(p: Int) throws
     func disconnect()
-    
+    var port: Int? { get set }
     var receivedDataCallback: ((NSData, Socket) -> Bool)? { get set }
 }
 
@@ -41,16 +41,18 @@ class AsyncSocketServer: GCDAsyncSocketDelegate, SocketServer {
     static var sharedSocket = AsyncSocketServer() //I'm really sorry about this and really looking for a better solution. Please sumbit an issue/PR. Reason: https://github.com/robbiehanson/CocoaAsyncSocket/issues/248
     let socket = GCDAsyncSocket()
     var sockets: [GCDAsyncSocket] = []
+    var port: Int?
     
     var receivedDataCallback: ((NSData, Socket) -> Bool)?
-    func startOnPort(p: Int) throws {
-        
+    func startOnPort(port: Int) throws {
+        self.port = port
         socket.setDelegate(AsyncSocketServer.sharedSocket, delegateQueue: dispatch_get_main_queue())
         AsyncSocketServer.sharedSocket.receivedDataCallback = self.receivedDataCallback
-        try socket.acceptOnPort(UInt16(p))
+        try socket.acceptOnPort(UInt16(port))
     }
     
     func disconnect() {
+        self.port = nil
         socket.disconnect()
     }
     

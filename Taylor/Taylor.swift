@@ -32,6 +32,12 @@ public class Server {
     private var handlers: [Handler]
     private var postRequestHandlers: [Handler]
     
+    public var port: Int? {
+        get {
+            return socket.port
+        }
+    }
+    
     public var notFoundHandler: Handler = {
         req, res, cb in
         res.setError(404)
@@ -46,28 +52,25 @@ public class Server {
         self.postRequestHandlers = []
     }
     
-    public func serveHTTP(port p: Int, forever: Bool) throws {
+    public func serveHTTP(port port: Int, forever: Bool = true) throws {
         
         socket.receivedDataCallback = {
             data, socket in
             self.handleRequest(socket, request: Request(data: data), response: Response())
             return true
         }
-        try socket.startOnPort(p)
+        try socket.startOnPort(port)
             
             //Should find a better location for this
         self.addHandler(self.router.handler())
         if forever {
-            
             // So the program doesn't end
             while true {
-                
                 NSRunLoop.mainRunLoop().run()
             }
         }
     }
     public func stopListening() {
-        
         socket.disconnect()
     }
     

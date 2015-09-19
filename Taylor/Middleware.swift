@@ -78,7 +78,6 @@ public class Middleware {
                 if Bool(isDir) && fileManager.fileExistsAtPath(filePath.NS.stringByAppendingPathComponent("index.html")) {
                     filePath = filePath.NS.stringByAppendingPathComponent("index.html")
                 }
-                
                 response.setFile(NSURL(fileURLWithPath: filePath))
                 callback(.Send(request, response))
             } else {
