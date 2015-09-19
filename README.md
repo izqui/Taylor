@@ -102,7 +102,7 @@ For the development of the Taylor framework we use Carthage for managining depen
 To contribute to Taylor, clone the project on your local machine and run:
 
 ```.sh
-$ carthage bootstarp
+$ carthage bootstrap
 ```
 
 Then you can open `Taylor.xcodeproj` and start developing.
