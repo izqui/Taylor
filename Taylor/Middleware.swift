@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jorge Izquierdo. All rights reserved.
 //
 
-import QuartzCore
+import Foundation
 
 public class Middleware {
     
@@ -90,11 +90,11 @@ public class Middleware {
     
     
     public class func requestLogger(printer: ((String) -> ())) -> Handler {
-        
+
         return {
             request, response, callback in
 
-            let time = String(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
+            let time = String(format: "%.02f", NSDate().timeIntervalSinceDate(request.startTime) * 1000)
             let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
             
             printer(text)

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jorge Izquierdo. All rights reserved.
 //
 
-import QuartzCore
+import Foundation
 
 public class Request {
     
@@ -35,7 +35,7 @@ public class Request {
     public var bodyString: String?
     public var body = [String:String]()
     
-    internal var startTime: Double = CACurrentMediaTime()
+    internal var startTime = NSDate()
     var _protocol: String?
     
     convenience init(){
