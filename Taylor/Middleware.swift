@@ -36,8 +36,8 @@ public class Middleware {
                                 val = arg[1]
                             }
                             
-                            let key = arg[0].NS.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
-                            let value = val.NS.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let key = arg[0].stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                            let value = val.stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
                             
                             request.body[key] = value.stringByReplacingOccurrencesOfString("\n", withString: "", options: .LiteralSearch, range: nil)
                         }
@@ -93,8 +93,8 @@ public class Middleware {
         
         return {
             request, response, callback in
-            
-            let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
+
+            let time = String(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
             let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
             
             printer(text)

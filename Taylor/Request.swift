@@ -56,7 +56,7 @@ public class Request {
     private func parseRequest(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
-        let string = NSString(data: d, encoding: NSUTF8StringEncoding)
+        let string = String(data: d, encoding: NSUTF8StringEncoding)
         var http: [String] = string!.componentsSeparatedByString("\r\n") as [String]
         
         //Parse method
