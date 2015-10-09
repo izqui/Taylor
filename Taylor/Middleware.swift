@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Jorge Izquierdo. All rights reserved.
 //
 
-import Foundation
 import QuartzCore
 
 public class Middleware {
