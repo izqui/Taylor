@@ -18,11 +18,9 @@ public class Middleware {
             
             if request.bodyString != nil && request.headers["Content-Type"] != nil {
                 
-                let h: NSString = request.headers["Content-Type"]! as NSString
+                let h = request.headers["Content-Type"]!
                 
-                let notfound: Bool = (Int(NSIntegerMax) == h.rangeOfString("application/x-www-form-urlencoded").location)
-                
-                if !notfound {
+                if h.rangeOfString("application/x-www-form-urlencoded") != nil {
                     
                     if let b = request.bodyString {
                         

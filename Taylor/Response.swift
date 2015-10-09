@@ -13,7 +13,7 @@ public class Response {
     private var statusLine: String = ""
     
     public var statusCode: Int = 200
-    public var headers: Dictionary<String, String> = Dictionary<String, String>()
+    public var headers = [String:String]()
     
     public var body: NSData?
     public var bodyString: String? {
