@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Taylor"
-  s.version          = "0.2.0"
+  s.version          = "0.2.1"
   s.summary          = "HTTP server written in Swift."
   s.description      = <<-DESC
                        A HTTP server written in Swift
@@ -22,6 +22,7 @@ DESC
   s.social_media_url = 'https://twitter.com/izqui9'
 
   s.platform     = :osx, '10.10'
+  s.platform = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Taylor/**/*.swift'
