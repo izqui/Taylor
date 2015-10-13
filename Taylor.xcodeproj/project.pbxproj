@@ -17,6 +17,10 @@
 		E177A46F1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E177A4701B9CCC6700D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; };
 		E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1938CD01BCD72810068F88E /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; settings = {ASSET_TAGS = (); }; };
+		E1938CD11BCD72880068F88E /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; settings = {ASSET_TAGS = (); }; };
+		E1938CD21BCD7FC50068F88E /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; };
+		E1938CD31BCD7FC50068F88E /* ARISockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */; settings = {ASSET_TAGS = (); }; };
 		E1ED7D181B9CA97800D7E37E /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D101B9CA97800D7E37E /* Middleware.swift */; settings = {ASSET_TAGS = (); }; };
 		E1ED7D191B9CA97800D7E37E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D111B9CA97800D7E37E /* Request.swift */; settings = {ASSET_TAGS = (); }; };
@@ -25,7 +29,6 @@
 		E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D141B9CA97800D7E37E /* Router.swift */; settings = {ASSET_TAGS = (); }; };
 		E1ED7D1D1B9CA97800D7E37E /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D151B9CA97800D7E37E /* stdext.swift */; settings = {ASSET_TAGS = (); }; };
 		E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D161B9CA97800D7E37E /* Taylor.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D3B1B9CB1C900D7E37E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1ED7D3A1B9CB1C900D7E37E /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E1938CD31BCD7FC50068F88E /* ARISockets.framework in Embed Frameworks */,
 				E177A46F1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Embed Frameworks */,
 				E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */,
 			);
@@ -61,6 +65,7 @@
 		E177A4541B9CCBA700D1ED6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E177A4571B9CCBA700D1ED6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E177A4591B9CCBA700D1ED6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1938CCF1BCD72810068F88E /* ARISockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARISockets.framework; path = Carthage/Build/Mac/ARISockets.framework; sourceTree = "<group>"; };
 		E1ED7D041B9CA92600D7E37E /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Taylor/FileTypes.swift; sourceTree = SOURCE_ROOT; };
 		E1ED7D101B9CA97800D7E37E /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Taylor/Middleware.swift; sourceTree = SOURCE_ROOT; };
@@ -79,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1938CD11BCD72880068F88E /* ARISockets.framework in Frameworks */,
+				E1938CD21BCD7FC50068F88E /* ARISockets.framework in Frameworks */,
 				E177A4701B9CCC6700D1ED6B /* Taylor.framework in Frameworks */,
 				E177A46E1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Frameworks */,
 				E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */,
@@ -89,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1938CD01BCD72810068F88E /* ARISockets.framework in Frameworks */,
 				E12077421B9CC3C40064268A /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +118,7 @@
 		E1ED7CFA1B9CA92600D7E37E = {
 			isa = PBXGroup;
 			children = (
+				E1938CCF1BCD72810068F88E /* ARISockets.framework */,
 				E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */,
 				E1ED7D3E1B9CB29800D7E37E /* QuartzCore.framework */,
 				E1ED7D061B9CA92600D7E37E /* Taylor */,
@@ -246,7 +255,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1ED7D3B1B9CB1C900D7E37E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

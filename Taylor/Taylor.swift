@@ -8,6 +8,8 @@
 
 import Foundation
 
+let CurrentSocket: Void -> SocketServer = { SwiftSocketServer() }
+
 public enum Callback {
     case Continue(Request, Response)
     case Send(Request, Response)
@@ -25,9 +27,10 @@ public enum HTTPMethod: String {
     case UNDEFINED = "UNDEFINED" // it will never match
 }
 
+
 public class Server {
     
-    private var socket: SocketServer = AsyncSocketServer()
+    private var socket: SocketServer = CurrentSocket()
     
     private var handlers: [Handler]
     private var postRequestHandlers: [Handler]
