@@ -22,6 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             s.bodyString = "Hello, world!"
             cb(.Send(r, s))
         }
+        
+        server.addPostRequestHandler(Middleware.requestLogger({print($0)}))
                
         let port = 3002
         do {

@@ -12,7 +12,7 @@ enum SocketErrors: ErrorType {
 }
 
 protocol SocketServer {
-    
+
     func startOnPort(p: Int) throws
     func disconnect()
     
