@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Jorge Izquierdo. All rights reserved.
 //
 
-import Foundation
-
 public class FileTypes {
     
     class func get(key: String) -> String {

@@ -61,7 +61,7 @@ public class Server {
             
             // So the program doesn't end
             while true {
-                
+                // need to get rid of this somehow...
                 NSRunLoop.mainRunLoop().run()
             }
         }

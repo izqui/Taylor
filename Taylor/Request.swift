@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import QuartzCore
 
 public class Request {
     
@@ -26,17 +25,17 @@ public class Request {
     }
     public var pathComponents: [String] = [String]()
     
-    public var arguments: Dictionary<String, String> = Dictionary<String, String>() // ?hello=world -> arguments["hello"]
-    public var parameters: Dictionary<String, String> = Dictionary<String, String>() // /:something -> parameters["something"]
+    public var arguments = [String:String]() // ?hello=world -> arguments["hello"]
+    public var parameters = [String:String]() // /:something -> parameters["something"]
     
     public var method: Taylor.HTTPMethod = .UNDEFINED
-    public var headers: Dictionary<String, String> = Dictionary<String, String>()
+    public var headers = [String:String]()
     
     //var bodyData: NSData?
-    public var bodyString: NSString?
-    public var body: Dictionary<String, String> = Dictionary<String, String>()
+    public var bodyString: String?
+    public var body = [String:String]()
     
-    internal var startTime: Double = CACurrentMediaTime()
+    internal var startTime = NSDate()
     var _protocol: String?
     
     convenience init(){
@@ -57,7 +56,7 @@ public class Request {
     private func parseRequest(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
-        let string = NSString(data: d, encoding: NSUTF8StringEncoding)
+        let string = String(data: d, encoding: NSUTF8StringEncoding)
         var http: [String] = string!.componentsSeparatedByString("\r\n") as [String]
         
         //Parse method
@@ -128,11 +127,10 @@ public class Request {
         
         if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
             
-            
-            let str = NSMutableString()
+            var str = String()
             while ++i < http.count {
                 
-                str.appendString("\(http[i])\n")
+                str += "\(http[i])\n"
             }
             
             self.bodyString = str
