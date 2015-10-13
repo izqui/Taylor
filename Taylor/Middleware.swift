@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import QuartzCore
 
 public class Middleware {
     
@@ -19,11 +18,9 @@ public class Middleware {
             
             if request.bodyString != nil && request.headers["Content-Type"] != nil {
                 
-                let h: NSString = request.headers["Content-Type"]! as NSString
+                let h = request.headers["Content-Type"]!
                 
-                let notfound: Bool = (Int(NSIntegerMax) == h.rangeOfString("application/x-www-form-urlencoded").location)
-                
-                if !notfound {
+                if h.rangeOfString("application/x-www-form-urlencoded") != nil {
                     
                     if let b = request.bodyString {
                         
@@ -39,8 +36,8 @@ public class Middleware {
                                 val = arg[1]
                             }
                             
-                            let key = arg[0].NS.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
-                            let value = val.NS.stringByReplacingPercentEscapesUsingEncoding(NSASCIIStringEncoding)!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil) as String
+                            let key = arg[0].stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
+                            let value = val.stringByRemovingPercentEncoding!.stringByReplacingOccurrencesOfString("+", withString: " ", options: .LiteralSearch, range: nil)
                             
                             request.body[key] = value.stringByReplacingOccurrencesOfString("\n", withString: "", options: .LiteralSearch, range: nil)
                         }
@@ -93,11 +90,11 @@ public class Middleware {
     
     
     public class func requestLogger(printer: ((String) -> ())) -> Handler {
-        
+
         return {
             request, response, callback in
-            
-            let time = NSString(format: "%.02f", (CACurrentMediaTime()-request.startTime)*1000)
+
+            let time = String(format: "%.02f", NSDate().timeIntervalSinceDate(request.startTime) * 1000)
             let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
             
             printer(text)
