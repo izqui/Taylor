@@ -60,6 +60,7 @@ class SwiftSocketServer: SocketServer {
             }
         }
         
+        socket.isNonBlocking = false
         self.socket = socket
     }
     
