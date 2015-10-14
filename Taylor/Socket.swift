@@ -25,6 +25,8 @@ protocol Socket {
 
 // Mark: SwiftSocket Implementation of the Socket and SocketServer protocol
 
+#if os(OSX) // Change for Linux platform when ready
+    
 import ARISockets
 
 struct SwiftSocket: Socket {
@@ -73,8 +75,9 @@ class SwiftSocketServer: SocketServer {
     }
 }
 
+#else
 // Mark: Cocoa Async Implementation of the Socket and SocketServer protocol
-
+    
 import CocoaAsyncSocket
 
 struct AsyncSocket: Socket {
@@ -131,3 +134,5 @@ class AsyncSocketServer: GCDAsyncSocketDelegate, SocketServer {
         
     }
 }
+
+#endif

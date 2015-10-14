@@ -8,7 +8,13 @@
 
 import Foundation
 
-let CurrentSocket: Void -> SocketServer = { SwiftSocketServer() }
+let CurrentSocket: Void -> SocketServer = {
+    #if os(OSX) // Change for Linux platform when ready
+        return SwiftSocketServer()
+    #else
+        return AsyncSocketServer()
+    #endif
+}
 
 public enum Callback {
     case Continue(Request, Response)
