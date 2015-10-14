@@ -58,7 +58,6 @@ class SwiftSocketServer: SocketServer {
                 socket.isNonBlocking = true
                 
                 let (size, data, error) = newsock.read()
-                print("error \(error) data length \(size) ")
                 
                 if error >= 0 {
                     let d = NSData(bytes: data, length: size)
