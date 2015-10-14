@@ -217,7 +217,7 @@ public class ActiveSocket<T: SocketAddress>: Socket<T> {
 extension ActiveSocket : OutputStreamType { // writing
   
   // no let in extensions: let debugAsyncWrites = false
-  var debugAsyncWrites : Bool { return false }
+  var debugAsyncWrites : Bool { return true }
   
   public var canWrite : Bool {
     guard isValid else {
