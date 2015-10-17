@@ -33,7 +33,7 @@ public class Request {
     public var headers: Dictionary<String, String> = Dictionary<String, String>()
     
     //var bodyData: NSData?
-    public var bodyString: NSString?
+    public var bodyString: String?
     public var body: Dictionary<String, String> = Dictionary<String, String>()
     
     internal var startTime: Double = CACurrentMediaTime()
@@ -128,11 +128,10 @@ public class Request {
         
         if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
             
-            
-            let str = NSMutableString()
+            var str = ""
             while ++i < http.count {
                 
-                str.appendString("\(http[i])\n")
+                str += "\(http[i])\n"
             }
             
             self.bodyString = str
