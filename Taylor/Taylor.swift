@@ -8,6 +8,14 @@
 
 import Foundation
 
+let CurrentSocket: Void -> SocketServer = {
+    #if os(OSX) // Change for Linux platform when ready
+        return SwiftSocketServer()
+    #else
+        return AsyncSocketServer()
+    #endif
+}
+
 public enum Callback {
     case Continue(Request, Response)
     case Send(Request, Response)
@@ -25,9 +33,10 @@ public enum HTTPMethod: String {
     case UNDEFINED = "UNDEFINED" // it will never match
 }
 
+
 public class Server {
     
-    private var socket: SocketServer = AsyncSocketServer()
+    private var socket: SocketServer = CurrentSocket()
     
     private var handlers: [Handler]
     private var postRequestHandlers: [Handler]

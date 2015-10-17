@@ -23,8 +23,60 @@ protocol Socket {
     func sendData(data: NSData)
 }
 
-// Mark: Cocoa Async Implementation of the Socket and SocketServer protocol
+// Mark: SwiftSocket Implementation of the Socket and SocketServer protocol
 
+#if os(OSX) // Change for Linux platform when ready
+    
+import ARISockets
+
+struct SwiftSocket: Socket {
+    
+    let socket: ActiveSocketIPv4
+    
+    func sendData(data: NSData) {
+        
+        socket.write(dispatch_data_create(data.bytes, data.length, dispatch_get_main_queue(), nil))
+        socket.close()
+    }
+}
+
+class SwiftSocketServer: SocketServer {
+    
+    var socket: PassiveSocketIPv4!
+    
+    var receivedDataCallback: ((NSData, Socket) -> Bool)?
+    
+    func startOnPort(p: Int) throws {
+        
+        guard let socket = PassiveSocketIPv4(address: sockaddr_in(port: p)) else { throw SocketErrors.ListenError }
+        socket.listen(dispatch_get_global_queue(0, 0)) {
+            socket in
+            
+            socket.onRead {
+                newsock, _ in
+                
+                socket.isNonBlocking = true
+                
+                let (size, data, error) = newsock.read()
+                
+                if error >= 0 {
+                    let d = NSData(bytes: data, length: size)
+                    self.receivedDataCallback?(d, SwiftSocket(socket: socket))
+                }
+            }
+        }
+        
+        self.socket = socket
+    }
+    
+    func disconnect() {
+        self.socket.close()
+    }
+}
+
+#else
+// Mark: Cocoa Async Implementation of the Socket and SocketServer protocol
+    
 import CocoaAsyncSocket
 
 struct AsyncSocket: Socket {
@@ -81,3 +133,5 @@ class AsyncSocketServer: GCDAsyncSocketDelegate, SocketServer {
         
     }
 }
+
+#endif

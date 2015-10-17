@@ -19,12 +19,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         server.get("/") {
             r, s, cb in
-            s.bodyString = "Hello, world!"
+            s.bodyString = "<html><body><form method=\"POST\">Name: <input type=\"text\" name=\"name\"/><input type=\"submit\"/></form></body></html>"
+            s.headers["Content-Type"] = "text/html"
             cb(.Send(r, s))
         }
-        
-        server.addPostRequestHandler(Middleware.requestLogger({print($0)}))
                
+        server.post("/", Middleware.bodyParser(), {
+            r, s, cb in
+            
+            let name = r.body["name"] ?? "<unknown>"
+            s.bodyString = "Hi \(name)"
+            cb(.Send(r, s))
+        })
+       
         let port = 3002
         do {
             print("Staring server on port: \(port)")
