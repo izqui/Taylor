@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Taylor"
-  s.version          = "0.2.1"
+  s.version          = "0.3.0"
   s.summary          = "HTTP server written in Swift."
   s.description      = <<-DESC
                        A HTTP server written in Swift
@@ -30,4 +30,5 @@ DESC
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'CocoaAsyncSocket', '~> 7.4.2'
+  s.dependency 'SwiftSockets', :git => "https://github.com/izqui/SwiftSockets.git"
 end
