@@ -57,9 +57,9 @@ public class Server {
     
     public func serveHTTP(port p: Int, forever: Bool) throws {
         
-        socket.receivedDataCallback = {
-            data, socket in
-            self.handleRequest(socket, request: Request(data: data), response: Response())
+        socket.receivedRequestCallback = {
+            request, socket in
+            self.handleRequest(socket, request: request, response: Response())
             return true
         }
         try socket.startOnPort(p)

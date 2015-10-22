@@ -38,22 +38,15 @@ public class Request {
     internal var startTime = NSDate()
     var _protocol: String?
     
-    convenience init(){
-        
-        self.init(data: nil)
-    }
 
-    init(data d: NSData?){
+
+    init(headerData: NSData){
         
         self.path = String()
-        //Parsing data from socket to build a HTTP request
-        if d != nil {
-            
-            self.parseRequest(d!)
-        }
+        self.parseHeaderData(headerData)
     }
     
-    private func parseRequest(d: NSData){
+    private func parseHeaderData(d: NSData){
         
         //TODO: Parse data line by line, so if body content is not UTF8 encoded, this doesn't crash
         let string = String(data: d, encoding: NSUTF8StringEncoding)
@@ -124,16 +117,11 @@ public class Request {
                 self.headers.updateValue(header[1], forKey: header[0])
             }
         }
-        
-        if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
-            
-            var str = String()
-            while ++i < http.count {
-                
-                str += "\(http[i])\n"
-            }
-            
-            self.bodyString = str
+    }
+    
+    func parseBodyData(d: NSData?){
+        if let data = d {
+            bodyString = String(data: data, encoding: NSUTF8StringEncoding)
         }
     }
 }

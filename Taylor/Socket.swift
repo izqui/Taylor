@@ -6,6 +6,8 @@
 //  Copyright © 2015 Jorge Izquierdo. All rights reserved.
 //
 
+typealias ReceivedRequestCallback = ((Request, Socket) -> Bool)
+
 enum SocketErrors: ErrorType {
     case ListenError
     case PortUsedError
@@ -16,7 +18,7 @@ protocol SocketServer {
     func startOnPort(p: Int) throws
     func disconnect()
     
-    var receivedDataCallback: ((NSData, Socket) -> Bool)? { get set }
+    var receivedRequestCallback: ReceivedRequestCallback? { get set }
 }
 
 protocol Socket {
@@ -44,7 +46,7 @@ class SwiftSocketServer: SocketServer {
     
     var socket: PassiveSocketIPv4!
     
-    var receivedDataCallback: ((NSData, Socket) -> Bool)?
+    var receivedRequestCallback: ReceivedRequestCallback?
     
     func startOnPort(p: Int) throws {
         
@@ -53,15 +55,30 @@ class SwiftSocketServer: SocketServer {
             socket in
             
             socket.onRead {
-                newsock, _ in
+                newsock, length in
                 
                 socket.isNonBlocking = true
                 
-                let (size, data, error) = newsock.read()
+                var headerData: NSData?
+                var bodyData: NSData?
                 
-                if error >= 0 {
-                    let d = NSData(bytes: data, length: size)
-                    self.receivedDataCallback?(d, SwiftSocket(socket: socket))
+                let (hSize, hData, _) = newsock.read()
+                
+                if hSize > 0 {
+                    headerData = NSData(bytes: hData, length: hSize)
+                }
+                
+                if let headerData = headerData {
+                    let request = Request(headerData: headerData)
+                    
+                    let (bSize, bData, _) = newsock.read()
+                    
+                    if bSize > 0 {
+                        bodyData = NSData(bytes: bData, length: bSize)
+                        request.parseBodyData(bodyData)
+                    }
+                    
+                    self.receivedRequestCallback?(request, SwiftSocket(socket: socket))
                 }
             }
         }
@@ -79,26 +96,27 @@ class SwiftSocketServer: SocketServer {
     
 import CocoaAsyncSocket
 
-struct AsyncSocket: Socket {
-    let socket: GCDAsyncSocket
+class AsyncSocket: GCDAsyncSocket, Socket {
+    
+    var request: Request?
     
     func sendData(data: NSData) {
-        self.socket.writeData(data, withTimeout: 10, tag: 1)
-        self.socket.disconnectAfterWriting()
+        self.writeData(data, withTimeout: 10, tag: 1)
+        self.disconnectAfterWriting()
     }
 }
 
 class AsyncSocketServer: GCDAsyncSocketDelegate, SocketServer {
     
     static var sharedSocket = AsyncSocketServer() //I'm really sorry about this and really looking for a better solution. Please sumbit an issue/PR. Reason: https://github.com/robbiehanson/CocoaAsyncSocket/issues/248
-    let socket = GCDAsyncSocket()
-    var sockets: [GCDAsyncSocket] = []
+    let socket = AsyncSocket()
+    var sockets: [AsyncSocket] = []
     
-    var receivedDataCallback: ((NSData, Socket) -> Bool)?
+    var receivedRequestCallback: ReceivedRequestCallback?
     func startOnPort(p: Int) throws {
         
         socket.setDelegate(AsyncSocketServer.sharedSocket, delegateQueue: dispatch_get_main_queue())
-        AsyncSocketServer.sharedSocket.receivedDataCallback = self.receivedDataCallback
+        AsyncSocketServer.sharedSocket.receivedRequestCallback = self.receivedRequestCallback
         try socket.acceptOnPort(UInt16(p))
     }
     
@@ -109,17 +127,40 @@ class AsyncSocketServer: GCDAsyncSocketDelegate, SocketServer {
     // GCDAsyncSocketDelegate methods
     @objc func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
         
-        sockets.append(newSocket)
-        newSocket.readDataWithTimeout(10, tag: 1)
+        if let socket = newSocket as? AsyncSocket {
+            sockets.append(socket)
+            
+            // Always stop at the end of the request headers to handle cases where body may not exist yet
+            let responseData = "\r\n\r\n".dataUsingEncoding(NSASCIIStringEncoding)
+            newSocket.readDataToData(responseData, withTimeout: 10, tag: 1)
+        }
     }
     
     @objc func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
         
-        self.receivedDataCallback?(data, AsyncSocket(socket: sock))
+        guard let socket = sock as? AsyncSocket else {
+            return
+        }
+        
+        if tag == 1 { // Header Data
+            socket.request = Request(headerData: data)
+            if  let lengthString = socket.request?.headers["Content-Length"],
+                let length = UInt(lengthString) where length > 0 {
+                    
+                    sock.readDataToLength(length, withTimeout: 3, tag: 2)
+            }
+            else {
+                self.receivedRequestCallback?(socket.request!, socket)
+            }
+        }
+        else if tag == 2 { // Body Data
+            socket.request!.parseBodyData(data)
+            self.receivedRequestCallback?(socket.request!, socket)
+        }
     }
     
     @objc func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
-        if let i = sockets.indexOf(sock) {
+        if let socket = sock as? AsyncSocket, let i = sockets.indexOf(socket) {
             sockets.removeAtIndex(i)
         }
     }
