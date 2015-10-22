@@ -117,6 +117,19 @@ public class Request {
                 self.headers.updateValue(header[1], forKey: header[0])
             }
         }
+        
+        if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
+            
+            var str = ""
+            while ++i < http.count {
+                
+                if !http[i].isEmpty {
+                    str += "\(http[i])\n"
+                }
+            }
+            
+            self.bodyString = str.isEmpty ? nil : str
+        }
     }
     
     func parseBodyData(d: NSData?){

@@ -59,23 +59,31 @@ class SwiftSocketServer: SocketServer {
                 
                 socket.isNonBlocking = true
                 
-                var headerData: NSData?
+                var initialData: NSData?
                 var bodyData: NSData?
                 
-                let (hSize, hData, _) = newsock.read()
+                let (size, data, _) = newsock.read()
                 
-                if hSize > 0 {
-                    headerData = NSData(bytes: hData, length: hSize)
+                if size > 0 {
+                    initialData = NSData(bytes: data, length: size)
+                    let string = String(data: initialData!, encoding: NSUTF8StringEncoding)
+                    print("Raw: \(string)")
                 }
                 
-                if let headerData = headerData {
-                    let request = Request(headerData: headerData)
+                if let initialData = initialData {
+                    let request = Request(headerData: initialData)
                     
-                    let (bSize, bData, _) = newsock.read()
-                    
-                    if bSize > 0 {
-                        bodyData = NSData(bytes: bData, length: bSize)
-                        request.parseBodyData(bodyData)
+                    // Initial data may not contain body
+                    // Check if request contains a body, and that it hasn't been read yet
+                    if  let lengthString = request.headers["Content-Length"],
+                        let length = UInt(lengthString) where length > 0 && request.bodyString == nil {
+                            
+                            let (bSize, bData, _) = newsock.read()
+                            
+                            if bSize > 0 {
+                                bodyData = NSData(bytes: bData, length: bSize)
+                                request.parseBodyData(bodyData)
+                            }
                     }
                     
                     self.receivedRequestCallback?(request, SwiftSocket(socket: socket))
