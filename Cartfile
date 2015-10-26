@@ -1,2 +1,2 @@
 github "robbiehanson/CocoaAsyncSocket" "master"
-github "AlwaysRightInstitute/SwiftSockets" "develop"
+github "izqui/SwiftSockets" "naming" 

@@ -13,15 +13,15 @@
 		E8305D77194B06E20073740A /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305D72194B06E20073740A /* Socket.swift */; };
 		E8305D78194B06E20073740A /* SocketAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305D73194B06E20073740A /* SocketAddress.swift */; };
 		E8305D79194B06E20073740A /* UnixUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8305D74194B06E20073740A /* UnixUtils.swift */; };
-		E8312C93196C019200162EF7 /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88984B4194A751E00A831A3 /* ARISockets.framework */; };
+		E8312C93196C019200162EF7 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88984B4194A751E00A831A3 /* SwiftSockets.framework */; };
 		E83305A5195B92D100CCBDF5 /* UnixBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = E83305A4195B92D100CCBDF5 /* UnixBridge.c */; };
-		E85D5FDD194B8C6200ECC32A /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88984B4194A751E00A831A3 /* ARISockets.framework */; };
+		E85D5FDD194B8C6200ECC32A /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88984B4194A751E00A831A3 /* SwiftSockets.framework */; };
 		E85D5FE9194B917900ECC32A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D5FE8194B917900ECC32A /* main.swift */; };
 		E85D5FEB194B917900ECC32A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D5FEA194B917900ECC32A /* AppDelegate.swift */; };
 		E85D5FED194B917900ECC32A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85D5FEC194B917900ECC32A /* Images.xcassets */; };
 		E85D5FF0194B917900ECC32A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E85D5FEE194B917900ECC32A /* MainMenu.xib */; };
 		E86B8F64194B83FC000B0368 /* EchoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B8F63194B83FC000B0368 /* EchoServer.swift */; };
-		E88984BA194A751E00A831A3 /* ARISockets.h in Headers */ = {isa = PBXBuildFile; fileRef = E88984B9194A751E00A831A3 /* ARISockets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E88984BA194A751E00A831A3 /* SwiftSockets.h in Headers */ = {isa = PBXBuildFile; fileRef = E88984B9194A751E00A831A3 /* SwiftSockets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E88984ED194A760300A831A3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88984EC194A760300A831A3 /* main.swift */; };
 		E88984EF194A760300A831A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88984EE194A760300A831A3 /* AppDelegate.swift */; };
 		E88984F1194A760300A831A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88984F0194A760300A831A3 /* Images.xcassets */; };
@@ -62,9 +62,9 @@
 		E85D5FEC194B917900ECC32A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E85D5FEF194B917900ECC32A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E86B8F63194B83FC000B0368 /* EchoServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoServer.swift; sourceTree = "<group>"; };
-		E88984B4194A751E00A831A3 /* ARISockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARISockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E88984B4194A751E00A831A3 /* SwiftSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88984B8194A751E00A831A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E88984B9194A751E00A831A3 /* ARISockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARISockets.h; sourceTree = "<group>"; };
+		E88984B9194A751E00A831A3 /* SwiftSockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSockets.h; sourceTree = "<group>"; };
 		E88984E8194A760300A831A3 /* ARIEchoServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARIEchoServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88984EB194A760300A831A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E88984EC194A760300A831A3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8312C93196C019200162EF7 /* ARISockets.framework in Frameworks */,
+				E8312C93196C019200162EF7 /* SwiftSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E85D5FDD194B8C6200ECC32A /* ARISockets.framework in Frameworks */,
+				E85D5FDD194B8C6200ECC32A /* SwiftSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				E83FFF33197DF00E00A51E6F /* README.md */,
-				E88984B6194A751E00A831A3 /* ARISockets */,
+				E88984B6194A751E00A831A3 /* SwiftSockets */,
 				E88984E9194A760300A831A3 /* ARIEchoServer */,
 				E85D5FE5194B917900ECC32A /* ARIFetch */,
 				E88984B5194A751E00A831A3 /* Products */,
@@ -135,17 +135,17 @@
 		E88984B5194A751E00A831A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E88984B4194A751E00A831A3 /* ARISockets.framework */,
+				E88984B4194A751E00A831A3 /* SwiftSockets.framework */,
 				E88984E8194A760300A831A3 /* ARIEchoServer.app */,
 				E85D5FE4194B917900ECC32A /* ARIFetch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E88984B6194A751E00A831A3 /* ARISockets */ = {
+		E88984B6194A751E00A831A3 /* SwiftSockets */ = {
 			isa = PBXGroup;
 			children = (
-				E88984B9194A751E00A831A3 /* ARISockets.h */,
+				E88984B9194A751E00A831A3 /* SwiftSockets.h */,
 				E8305D72194B06E20073740A /* Socket.swift */,
 				E8305D73194B06E20073740A /* SocketAddress.swift */,
 				E8305D71194B06E20073740A /* PassiveSocket.swift */,
@@ -156,6 +156,7 @@
 				E83305A4195B92D100CCBDF5 /* UnixBridge.c */,
 				E88984B7194A751E00A831A3 /* Supporting Files */,
 			);
+			name = SwiftSockets;
 			path = ARISockets;
 			sourceTree = "<group>";
 		};
@@ -195,7 +196,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E88984BA194A751E00A831A3 /* ARISockets.h in Headers */,
+				E88984BA194A751E00A831A3 /* SwiftSockets.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,9 +221,9 @@
 			productReference = E85D5FE4194B917900ECC32A /* ARIFetch.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E88984B3194A751E00A831A3 /* ARISockets */ = {
+		E88984B3194A751E00A831A3 /* SwiftSockets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E88984C8194A751E00A831A3 /* Build configuration list for PBXNativeTarget "ARISockets" */;
+			buildConfigurationList = E88984C8194A751E00A831A3 /* Build configuration list for PBXNativeTarget "SwiftSockets" */;
 			buildPhases = (
 				E88984AF194A751E00A831A3 /* Sources */,
 				E88984B0194A751E00A831A3 /* Frameworks */,
@@ -233,9 +234,9 @@
 			);
 			dependencies = (
 			);
-			name = ARISockets;
+			name = SwiftSockets;
 			productName = ARISockets;
-			productReference = E88984B4194A751E00A831A3 /* ARISockets.framework */;
+			productReference = E88984B4194A751E00A831A3 /* SwiftSockets.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E88984E7194A760300A831A3 /* ARIEchoServer */ = {
@@ -289,7 +290,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E88984B3194A751E00A831A3 /* ARISockets */,
+				E88984B3194A751E00A831A3 /* SwiftSockets */,
 				E88984E7194A760300A831A3 /* ARIEchoServer */,
 				E85D5FE3194B917900ECC32A /* ARIFetch */,
 			);
@@ -364,12 +365,12 @@
 /* Begin PBXTargetDependency section */
 		E85D5FDF194B90C000ECC32A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E88984B3194A751E00A831A3 /* ARISockets */;
+			target = E88984B3194A751E00A831A3 /* SwiftSockets */;
 			targetProxy = E85D5FDE194B90C000ECC32A /* PBXContainerItemProxy */;
 		};
 		E864F2E1194B925A0070CA3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E88984B3194A751E00A831A3 /* ARISockets */;
+			target = E88984B3194A751E00A831A3 /* SwiftSockets */;
 			targetProxy = E864F2E0194B925A0070CA3A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -545,7 +546,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.alwaysrightinstitute.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = de.alwaysrightinstitute.SwiftSockets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -595,7 +596,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.alwaysrightinstitute.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = de.alwaysrightinstitute.SwiftSockets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -714,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E88984C8194A751E00A831A3 /* Build configuration list for PBXNativeTarget "ARISockets" */ = {
+		E88984C8194A751E00A831A3 /* Build configuration list for PBXNativeTarget "SwiftSockets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E88984C9194A751E00A831A3 /* Debug */,

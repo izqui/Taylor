@@ -21,7 +21,7 @@ DESC
   s.source           = { :git => "https://github.com/izqui/Taylor.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/izqui9'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.10'
   
   s.requires_arc = true
@@ -29,5 +29,5 @@ DESC
   s.source_files = 'Taylor/**/*.swift'
 
   s.dependency 'CocoaAsyncSocket', '~> 7.4.2'
-  # s.dependency 'SwiftSockets', :git => "https://github.com/izqui/SwiftSockets.git"
+  s.dependency 'SwiftSockets', '~> 0.20'
 end

@@ -295,7 +295,7 @@ extension sockaddr_un: SocketAddress {
 
 /* DNS */
 
-extension addrinfo {
+public extension addrinfo {
   
   public init() {
     ai_flags     = 0 // AI_CANONNAME, AI_PASSIVE, AI_NUMERICHOST
@@ -439,7 +439,7 @@ extension addrinfo : SequenceType {
   }
 }
 
-extension sa_family_t { // Swift 2 : CustomStringConvertible, already imp?!
+public extension sa_family_t { // Swift 2 : CustomStringConvertible, already imp?!
   
   // TBD: does Swift 2 still pick this up?
   public var description : String {

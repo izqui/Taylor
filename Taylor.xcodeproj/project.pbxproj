@@ -7,20 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E12077421B9CC3C40064268A /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */; settings = {ASSET_TAGS = (); }; };
 		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; settings = {ASSET_TAGS = (); }; };
 		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
 		E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E177A4541B9CCBA700D1ED6B /* Assets.xcassets */; };
 		E177A4581B9CCBA700D1ED6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E177A4561B9CCBA700D1ED6B /* Main.storyboard */; };
 		E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ASSET_TAGS = (); }; };
-		E177A46E1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */; };
-		E177A46F1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E177A4701B9CCC6700D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; };
 		E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E1938CD01BCD72810068F88E /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; settings = {ASSET_TAGS = (); }; };
-		E1938CD11BCD72880068F88E /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; settings = {ASSET_TAGS = (); }; };
-		E1938CD21BCD7FC50068F88E /* ARISockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; };
-		E1938CD31BCD7FC50068F88E /* ARISockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1938CCF1BCD72810068F88E /* ARISockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ASSET_TAGS = (); }; };
+		E18846831BDE36BB00720B26 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846821BDE36BB00720B26 /* CocoaAsyncSocket.framework */; settings = {ASSET_TAGS = (); }; };
+		E18846841BDE372100720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
+		E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
+		E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */; settings = {ASSET_TAGS = (); }; };
 		E1ED7D181B9CA97800D7E37E /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D101B9CA97800D7E37E /* Middleware.swift */; settings = {ASSET_TAGS = (); }; };
 		E1ED7D191B9CA97800D7E37E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D111B9CA97800D7E37E /* Request.swift */; settings = {ASSET_TAGS = (); }; };
@@ -48,9 +45,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E1938CD31BCD7FC50068F88E /* ARISockets.framework in Embed Frameworks */,
-				E177A46F1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Embed Frameworks */,
 				E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */,
+				E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,14 +54,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		E16034A51BA737C000F3C9CF /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
 		E177A44E1B9CCBA700D1ED6B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E177A4541B9CCBA700D1ED6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E177A4571B9CCBA700D1ED6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E177A4591B9CCBA700D1ED6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1938CCF1BCD72810068F88E /* ARISockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARISockets.framework; path = Carthage/Build/Mac/ARISockets.framework; sourceTree = "<group>"; };
+		E18846801BDE362700720B26 /* SwiftSockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSockets.framework; path = Carthage/Build/Mac/SwiftSockets.framework; sourceTree = "<group>"; };
+		E18846821BDE36BB00720B26 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		E1ED7D041B9CA92600D7E37E /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Taylor/FileTypes.swift; sourceTree = SOURCE_ROOT; };
 		E1ED7D101B9CA97800D7E37E /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Taylor/Middleware.swift; sourceTree = SOURCE_ROOT; };
@@ -76,7 +72,6 @@
 		E1ED7D151B9CA97800D7E37E /* stdext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stdext.swift; path = Taylor/stdext.swift; sourceTree = SOURCE_ROOT; };
 		E1ED7D161B9CA97800D7E37E /* Taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Taylor.swift; path = Taylor/Taylor.swift; sourceTree = SOURCE_ROOT; };
 		E1ED7D3A1B9CB1C900D7E37E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Taylor/Info.plist; sourceTree = SOURCE_ROOT; };
-		E1ED7D3E1B9CB29800D7E37E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1938CD11BCD72880068F88E /* ARISockets.framework in Frameworks */,
-				E1938CD21BCD7FC50068F88E /* ARISockets.framework in Frameworks */,
-				E177A4701B9CCC6700D1ED6B /* Taylor.framework in Frameworks */,
-				E177A46E1B9CCC6700D1ED6B /* CocoaAsyncSocket.framework in Frameworks */,
+				E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */,
 				E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */,
+				E18846841BDE372100720B26 /* SwiftSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,8 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1938CD01BCD72810068F88E /* ARISockets.framework in Frameworks */,
-				E12077421B9CC3C40064268A /* CocoaAsyncSocket.framework in Frameworks */,
+				E18846831BDE36BB00720B26 /* CocoaAsyncSocket.framework in Frameworks */,
+				E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,9 +111,8 @@
 		E1ED7CFA1B9CA92600D7E37E = {
 			isa = PBXGroup;
 			children = (
-				E1938CCF1BCD72810068F88E /* ARISockets.framework */,
-				E12077411B9CC3C40064268A /* CocoaAsyncSocket.framework */,
-				E1ED7D3E1B9CB29800D7E37E /* QuartzCore.framework */,
+				E18846821BDE36BB00720B26 /* CocoaAsyncSocket.framework */,
+				E18846801BDE362700720B26 /* SwiftSockets.framework */,
 				E1ED7D061B9CA92600D7E37E /* Taylor */,
 				E177A44F1B9CCBA700D1ED6B /* TestApp */,
 				E1ED7D051B9CA92600D7E37E /* Products */,
@@ -440,6 +432,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/Taylor/Info.plist";
@@ -465,6 +458,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/Taylor/Info.plist";

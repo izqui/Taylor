@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let port = Int(self.port.intValue)
     print("Connect \(host):\(port) ...")
     
-    let ok = s.connect(sockaddr_in(address:host, port:port)) {
+    let ok = s.connect(sockaddr_in(address:host, port:port)) { s in
       print("connected \(s)")
       s.isNonBlocking = true
       

@@ -147,7 +147,7 @@ public class ActiveSocket<T: SocketAddress>: Socket<T> {
   
   /* connect */
   
-  public func connect(address: T, onConnect: () -> Void) -> Bool {
+  public func connect(address: T, onConnect: ( ActiveSocket<T> ) -> Void) -> Bool {
     // FIXME: make connect() asynchronous via GCD
     
     guard !isConnected else {
@@ -172,7 +172,7 @@ public class ActiveSocket<T: SocketAddress>: Socket<T> {
     }
     
     remoteAddress = addr
-    onConnect()
+    onConnect(self)
     
     return true
   }
@@ -213,8 +213,19 @@ public class ActiveSocket<T: SocketAddress>: Socket<T> {
   }
 }
 
-
 extension ActiveSocket : OutputStreamType { // writing
+  
+  public func write(string: String) {
+    string.withCString { (cstr: UnsafePointer<Int8>) -> Void in
+      let len = Int(strlen(cstr))
+      if len > 0 {
+        self.asyncWrite(cstr, length: len)
+      }
+    }
+  }
+}
+
+public extension ActiveSocket { // writing
   
   // no let in extensions: let debugAsyncWrites = false
   var debugAsyncWrites : Bool { return false }
@@ -315,19 +326,10 @@ extension ActiveSocket : OutputStreamType { // writing
     return writeCount
   }
   
-  public func write(string: String) {
-    string.withCString { (cstr: UnsafePointer<Int8>) -> Void in
-      let len = Int(strlen(cstr))
-      if len > 0 {
-        self.asyncWrite(cstr, length: len)
-      }
-    }
-  }
-  
 }
 
 
-extension ActiveSocket { // Reading
+public extension ActiveSocket { // Reading
   
   // Note: Swift doesn't allow the readBuffer in here.
   
@@ -407,7 +409,7 @@ extension ActiveSocket { // Reading
   
 }
 
-extension ActiveSocket { // ioctl
+public extension ActiveSocket { // ioctl
   
   var numberOfBytesAvailableForReading : Int? {
     return fd.numberOfBytesAvailableForReading

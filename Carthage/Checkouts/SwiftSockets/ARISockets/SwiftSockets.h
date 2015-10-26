@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 //! Project version number for ARISockets.
-FOUNDATION_EXPORT double ARISocketsVersionNumber;
+FOUNDATION_EXPORT double SwiftSocketsVersionNumber;
 
 //! Project version string for ARISockets.
-FOUNDATION_EXPORT const unsigned char ARISocketsVersionString[];
+FOUNDATION_EXPORT const unsigned char SwiftSocketsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ARISockets/PublicHeader.h>
 

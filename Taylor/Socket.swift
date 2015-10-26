@@ -29,7 +29,7 @@ protocol Socket {
 
 #if os(OSX) // Change for Linux platform when ready
     
-import ARISockets
+import SwiftSockets
 
 struct SwiftSocket: Socket {
     

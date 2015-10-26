@@ -1,3 +1,2 @@
-github "robbiehanson/CocoaAsyncSocket" "fe716222f72811e66de02809eae8db77dacb6a83"
-github "AlwaysRightInstitute/SwiftSockets" "4303889c4019177543a5fc961bde318c3aa8927d"
-
+github "robbiehanson/CocoaAsyncSocket" "6e018ddf7c456106f898efae66ea5e5c94737a96"
+github "izqui/SwiftSockets" "fbcce96a193d8ef657fbad435c0e92c44a5a14a4"
