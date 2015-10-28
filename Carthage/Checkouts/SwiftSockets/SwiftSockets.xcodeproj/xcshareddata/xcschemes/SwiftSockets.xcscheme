@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E88984E7194A760300A831A3"
-               BuildableName = "ARIEchoServer.app"
-               BlueprintName = "ARIEchoServer"
-               ReferencedContainer = "container:ARISockets.xcodeproj">
+               BlueprintIdentifier = "E88984B3194A751E00A831A3"
+               BuildableName = "SwiftSockets.framework"
+               BlueprintName = "SwiftSockets"
+               ReferencedContainer = "container:SwiftSockets.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E88984E7194A760300A831A3"
-            BuildableName = "ARIEchoServer.app"
-            BlueprintName = "ARIEchoServer"
-            ReferencedContainer = "container:ARISockets.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E88984E7194A760300A831A3"
-            BuildableName = "ARIEchoServer.app"
-            BlueprintName = "ARIEchoServer"
-            ReferencedContainer = "container:ARISockets.xcodeproj">
+            BlueprintIdentifier = "E88984B3194A751E00A831A3"
+            BuildableName = "SwiftSockets.framework"
+            BlueprintName = "SwiftSockets"
+            ReferencedContainer = "container:SwiftSockets.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E88984E7194A760300A831A3"
-            BuildableName = "ARIEchoServer.app"
-            BlueprintName = "ARIEchoServer"
-            ReferencedContainer = "container:ARISockets.xcodeproj">
+            BlueprintIdentifier = "E88984B3194A751E00A831A3"
+            BuildableName = "SwiftSockets.framework"
+            BlueprintName = "SwiftSockets"
+            ReferencedContainer = "container:SwiftSockets.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

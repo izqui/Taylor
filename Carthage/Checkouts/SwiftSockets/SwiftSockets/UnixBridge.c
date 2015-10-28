@@ -1,8 +1,9 @@
 //
 //  UnixBridge.c
-//  ARISockets
+//  SwiftSockets
 //
 //  Created by Helge Heß on 6/26/14.
+//  Copyright (c) 2014-2015 Always Right Institute. All rights reserved.
 //
 
 #include <fcntl.h>

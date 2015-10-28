@@ -19,13 +19,13 @@ Any suggestions on how to improve the code are welcome. I expect lots and lots
 Updated for Swift 0.2 (aka Xcode 7.0).
 
 The project includes three targets:
-- ARISockets
+- SwiftSockets
 - ARIEchoServer
 - ARIFetch
 
 I suggest you start out looking at the ARIEchoServer.
 
-####ARISockets
+####SwiftSockets
 
 A framework containing the socket classes and relevant extensions. It takes a
 bit of inspiration from the [SOPE](http://sope.opengroupware.org) NGStreams
@@ -164,4 +164,4 @@ wrapped Objective-C? :-)
 
 [@helje5](http://twitter.com/helje5) | helge@alwaysrightinstitute.com
 
-![](http://www.alwaysrightinstitute.com/ARI.png)
+![](http://www.alwaysrightinstitute.com/images/ARI-symbol-logo.png)

@@ -1,9 +1,9 @@
 //
 //  ActiveSocket.swift
-//  ARISockets
+//  SwiftSockets
 //
 //  Created by Helge Hess on 6/11/14.
-//  Copyright (c) 2014 Always Right Institute. All rights reserved.
+//  Copyright (c) 2014-2015 Always Right Institute. All rights reserved.
 //
 
 import Darwin

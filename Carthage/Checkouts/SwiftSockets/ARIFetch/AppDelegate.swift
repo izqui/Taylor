@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import ARISockets
+import SwiftSockets
 
 class AppDelegate: NSObject, NSApplicationDelegate {
                             

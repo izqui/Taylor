@@ -35,14 +35,14 @@
 			containerPortal = E88984A9194A74C400A831A3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E88984B3194A751E00A831A3;
-			remoteInfo = ARISockets;
+			remoteInfo = SwiftSockets;
 		};
 		E864F2E0194B925A0070CA3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E88984A9194A74C400A831A3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E88984B3194A751E00A831A3;
-			remoteInfo = ARISockets;
+			remoteInfo = SwiftSockets;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -61,6 +61,7 @@
 		E85D5FEA194B917900ECC32A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E85D5FEC194B917900ECC32A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E85D5FEF194B917900ECC32A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E862B87B1BDFB70B002A4EA5 /* SwiftSockets.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftSockets.podspec; sourceTree = "<group>"; };
 		E86B8F63194B83FC000B0368 /* EchoServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoServer.swift; sourceTree = "<group>"; };
 		E88984B4194A751E00A831A3 /* SwiftSockets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSockets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88984B8194A751E00A831A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				E83FFF33197DF00E00A51E6F /* README.md */,
+				E862B87B1BDFB70B002A4EA5 /* SwiftSockets.podspec */,
 				E88984B6194A751E00A831A3 /* SwiftSockets */,
 				E88984E9194A760300A831A3 /* ARIEchoServer */,
 				E85D5FE5194B917900ECC32A /* ARIFetch */,
@@ -156,8 +158,7 @@
 				E83305A4195B92D100CCBDF5 /* UnixBridge.c */,
 				E88984B7194A751E00A831A3 /* Supporting Files */,
 			);
-			name = SwiftSockets;
-			path = ARISockets;
+			path = SwiftSockets;
 			sourceTree = "<group>";
 		};
 		E88984B7194A751E00A831A3 /* Supporting Files */ = {
@@ -235,7 +236,7 @@
 			dependencies = (
 			);
 			name = SwiftSockets;
-			productName = ARISockets;
+			productName = SwiftSockets;
 			productReference = E88984B4194A751E00A831A3 /* SwiftSockets.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -277,7 +278,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E88984AC194A74C400A831A3 /* Build configuration list for PBXProject "ARISockets" */;
+			buildConfigurationList = E88984AC194A74C400A831A3 /* Build configuration list for PBXProject "SwiftSockets" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -540,14 +541,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ARISockets/Info.plist;
+				INFOPLIST_FILE = SwiftSockets/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = de.alwaysrightinstitute.SwiftSockets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.alwaysrightinstitute.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = SwiftSockets;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -591,13 +592,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = ARISockets/Info.plist;
+				INFOPLIST_FILE = SwiftSockets/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = de.alwaysrightinstitute.SwiftSockets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.alwaysrightinstitute.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = SwiftSockets;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -706,7 +707,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E88984AC194A74C400A831A3 /* Build configuration list for PBXProject "ARISockets" */ = {
+		E88984AC194A74C400A831A3 /* Build configuration list for PBXProject "SwiftSockets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E88984AD194A74C400A831A3 /* Debug */,

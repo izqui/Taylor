@@ -1,9 +1,9 @@
 //
 //  FileDescriptor.swift
-//  ARISockets
+//  SwiftSockets
 //
 //  Created by Helge Hess on 13/07/15.
-//
+//  Copyright (c) 2014-2015 Always Right Institute. All rights reserved.
 //
 
 import Darwin
