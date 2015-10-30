@@ -7,25 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; settings = {ASSET_TAGS = (); }; };
+		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; };
 		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
 		E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E177A4541B9CCBA700D1ED6B /* Assets.xcassets */; };
 		E177A4581B9CCBA700D1ED6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E177A4561B9CCBA700D1ED6B /* Main.storyboard */; };
-		E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ASSET_TAGS = (); }; };
+		E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; };
 		E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ASSET_TAGS = (); }; };
-		E18846831BDE36BB00720B26 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846821BDE36BB00720B26 /* CocoaAsyncSocket.framework */; settings = {ASSET_TAGS = (); }; };
+		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
 		E18846841BDE372100720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
 		E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
 		E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D181B9CA97800D7E37E /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D101B9CA97800D7E37E /* Middleware.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D191B9CA97800D7E37E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D111B9CA97800D7E37E /* Request.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D1A1B9CA97800D7E37E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D121B9CA97800D7E37E /* Response.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D1B1B9CA97800D7E37E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D131B9CA97800D7E37E /* Route.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D141B9CA97800D7E37E /* Router.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D1D1B9CA97800D7E37E /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D151B9CA97800D7E37E /* stdext.swift */; settings = {ASSET_TAGS = (); }; };
-		E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D161B9CA97800D7E37E /* Taylor.swift */; settings = {ASSET_TAGS = (); }; };
+		E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */; };
+		E1ED7D181B9CA97800D7E37E /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D101B9CA97800D7E37E /* Middleware.swift */; };
+		E1ED7D191B9CA97800D7E37E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D111B9CA97800D7E37E /* Request.swift */; };
+		E1ED7D1A1B9CA97800D7E37E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D121B9CA97800D7E37E /* Response.swift */; };
+		E1ED7D1B1B9CA97800D7E37E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D131B9CA97800D7E37E /* Route.swift */; };
+		E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D141B9CA97800D7E37E /* Router.swift */; };
+		E1ED7D1D1B9CA97800D7E37E /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D151B9CA97800D7E37E /* stdext.swift */; };
+		E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D161B9CA97800D7E37E /* Taylor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +60,6 @@
 		E177A4571B9CCBA700D1ED6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E177A4591B9CCBA700D1ED6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18846801BDE362700720B26 /* SwiftSockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSockets.framework; path = Carthage/Build/Mac/SwiftSockets.framework; sourceTree = "<group>"; };
-		E18846821BDE36BB00720B26 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		E1ED7D041B9CA92600D7E37E /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Taylor/FileTypes.swift; sourceTree = SOURCE_ROOT; };
 		E1ED7D101B9CA97800D7E37E /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Taylor/Middleware.swift; sourceTree = SOURCE_ROOT; };
@@ -89,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18846831BDE36BB00720B26 /* CocoaAsyncSocket.framework in Frameworks */,
 				E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +108,6 @@
 		E1ED7CFA1B9CA92600D7E37E = {
 			isa = PBXGroup;
 			children = (
-				E18846821BDE36BB00720B26 /* CocoaAsyncSocket.framework */,
 				E18846801BDE362700720B26 /* SwiftSockets.framework */,
 				E1ED7D061B9CA92600D7E37E /* Taylor */,
 				E177A44F1B9CCBA700D1ED6B /* TestApp */,
