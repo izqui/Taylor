@@ -28,6 +28,5 @@ DESC
 
   s.source_files = 'Taylor/**/*.swift'
 
-  s.dependency 'CocoaAsyncSocket', '~> 7.4.2'
   s.dependency 'SwiftSockets', '~> 0.20'
 end
