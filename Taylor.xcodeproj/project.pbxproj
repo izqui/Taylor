@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3784A70B1BE3E38B00429D4E /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3784A70A1BE3E38B00429D4E /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; };
 		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
 		E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E177A4541B9CCBA700D1ED6B /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3784A70A1BE3E38B00429D4E /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Taylor/Taylor.h; sourceTree = SOURCE_ROOT; };
 		E16034A51BA737C000F3C9CF /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
 		E177A44E1B9CCBA700D1ED6B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		E1ED7D061B9CA92600D7E37E /* Taylor */ = {
 			isa = PBXGroup;
 			children = (
+				3784A70A1BE3E38B00429D4E /* Taylor.h */,
 				E1ED7D161B9CA97800D7E37E /* Taylor.swift */,
 				E16034A51BA737C000F3C9CF /* Socket.swift */,
 				E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */,
@@ -147,6 +150,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3784A70B1BE3E38B00429D4E /* Taylor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
