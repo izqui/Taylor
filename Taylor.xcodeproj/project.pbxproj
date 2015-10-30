@@ -14,7 +14,6 @@
 		E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; };
 		E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
-		E18846841BDE372100720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
 		E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
 		E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */; };
@@ -79,7 +78,6 @@
 			files = (
 				E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */,
 				E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */,
-				E18846841BDE372100720B26 /* SwiftSockets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +197,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jorge Izquierdo";
 				TargetAttributes = {
 					E177A44D1B9CCBA700D1ED6B = {
