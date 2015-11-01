@@ -5,11 +5,13 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "D3DD74B60191554ED6B3AAAE6AC6269656A20779" : 0,
+    "45F06DA75D0F02B3093B29F565440E4C3B5D4FE4" : 0,
     "1C75F1C5CFCB95B3702F6F632FA05ED5244B519E" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3B288D80-7C70-44A3-81DF-4CB6351AD29B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "D3DD74B60191554ED6B3AAAE6AC6269656A20779" : "Taylor\/",
+    "45F06DA75D0F02B3093B29F565440E4C3B5D4FE4" : "Taylor\/Carthage\/Checkouts\/SwiftSockets\/",
     "1C75F1C5CFCB95B3702F6F632FA05ED5244B519E" : "Taylor\/Carthage\/Checkouts\/CocoaAsyncSocket\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "TaylorPlayground",
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/izqui\/CocoaAsyncSocket.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1C75F1C5CFCB95B3702F6F632FA05ED5244B519E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alwaysrightinstitute\/SwiftSockets.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "45F06DA75D0F02B3093B29F565440E4C3B5D4FE4"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:izqui\/taylor_test.git",
