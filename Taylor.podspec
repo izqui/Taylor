@@ -28,5 +28,5 @@ DESC
 
   s.source_files = 'Taylor/**/*.swift'
 
-  s.dependency 'SwiftSockets', '~> 0.20'
+  s.dependency 'SwiftSockets', '~> 0.20.2'
 end
