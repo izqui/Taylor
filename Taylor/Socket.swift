@@ -64,8 +64,6 @@ class SwiftSocketServer: SocketServer {
                 
                 if size > 0 {
                     initialData = NSData(bytes: data, length: size)
-                    let string = String(data: initialData!, encoding: NSUTF8StringEncoding)
-                    print("Raw: \(string)")
                 }
                 
                 if let initialData = initialData {
