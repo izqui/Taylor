@@ -27,8 +27,6 @@ protocol Socket {
 
 // Mark: SwiftSocket Implementation of the Socket and SocketServer protocol
 
-#if os(OSX) // Change for Linux platform when ready
-    
 import SwiftSockets
 
 struct SwiftSocket: Socket {
@@ -98,89 +96,3 @@ class SwiftSocketServer: SocketServer {
         self.socket.close()
     }
 }
-
-#else
-// Mark: Cocoa Async Implementation of the Socket and SocketServer protocol
-    
-import CocoaAsyncSocket
-
-class AsyncSocket: GCDAsyncSocket, Socket {
-    
-    var request: Request?
-    
-    func sendData(data: NSData) {
-        self.writeData(data, withTimeout: 10, tag: 1)
-        self.disconnectAfterWriting()
-    }
-}
-
-class AsyncSocketServer: GCDAsyncSocketDelegate, SocketServer {
-    
-    static var sharedSocket = AsyncSocketServer() //I'm really sorry about this and really looking for a better solution. Please sumbit an issue/PR. Reason: https://github.com/robbiehanson/CocoaAsyncSocket/issues/248
-    let socket = AsyncSocket()
-    var sockets: [AsyncSocket] = []
-    
-    var receivedRequestCallback: ReceivedRequestCallback?
-    func startOnPort(p: Int) throws {
-        
-        socket.setDelegate(AsyncSocketServer.sharedSocket, delegateQueue: dispatch_get_main_queue())
-        AsyncSocketServer.sharedSocket.receivedRequestCallback = self.receivedRequestCallback
-        try socket.acceptOnPort(UInt16(p))
-    }
-    
-    func disconnect() {
-        socket.disconnect()
-    }
-    
-    // GCDAsyncSocketDelegate methods
-    @objc func socket(socket: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket){
-        
-        if let socket = newSocket as? AsyncSocket {
-            sockets.append(socket)
-            
-            // Always stop at the end of the request headers to handle cases where body may not exist yet
-            let responseData = "\r\n\r\n".dataUsingEncoding(NSASCIIStringEncoding)
-            newSocket.readDataToData(responseData, withTimeout: 10, tag: 1)
-        }
-    }
-    
-    @objc func socket(sock: GCDAsyncSocket!, didReadData data: NSData!, withTag tag: Int) {
-        
-        guard let socket = sock as? AsyncSocket else {
-            return
-        }
-        
-        if tag == 1 { // Header Data
-            socket.request = Request(headerData: data)
-            if  let lengthString = socket.request?.headers["Content-Length"],
-                let length = UInt(lengthString) where length > 0 {
-                    
-                    sock.readDataToLength(length, withTimeout: 3, tag: 2)
-            }
-            else {
-                self.receivedRequestCallback?(socket.request!, socket)
-            }
-        }
-        else if tag == 2 { // Body Data
-            socket.request!.parseBodyData(data)
-            self.receivedRequestCallback?(socket.request!, socket)
-        }
-    }
-    
-    @objc func socketDidDisconnect(sock: GCDAsyncSocket, withError err: NSError){
-        if let socket = sock as? AsyncSocket, let i = sockets.indexOf(socket) {
-            sockets.removeAtIndex(i)
-        }
-    }
-    
-    @objc func newSocketQueueForConnectionFromAddress(address: NSData!, onSocket sock: GCDAsyncSocket!) -> dispatch_queue_t! {
-        
-        return dispatch_get_main_queue() //Maybe change to a background queue?
-    }
-    
-    @objc func socketDidCloseReadStream(sock: GCDAsyncSocket!) {
-        
-    }
-}
-
-#endif
