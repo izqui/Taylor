@@ -86,6 +86,10 @@ Credits to [Ayaka Nonaka](https://twitter.com/ayanonagon)'s [Swift Summit](http:
 Right now Taylor relies on an Swift library called [SwiftSockets](https://github.com/AlwaysRightInstitute/SwiftSockets/).
 
 ## Development
+
+Join our Slack
+[![Slack Status](https://taylor-framework.herokuapp.com/badge.svg)](https://taylor-framework.herokuapp.com)
+
 For the development of the Taylor framework we use Carthage for managing dependencies.
 
 To contribute to Taylor, clone the project on your local machine and run:
