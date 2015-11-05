@@ -1,0 +1,4 @@
+[submodule "Carthage/Checkouts/SwiftSockets"]
+	path = Carthage/Checkouts/SwiftSockets
+	url = https://github.com/alwaysrightinstitute/SwiftSockets.git
+

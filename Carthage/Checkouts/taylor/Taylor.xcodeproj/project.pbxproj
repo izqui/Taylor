@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3784A70B1BE3E38B00429D4E /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3784A70A1BE3E38B00429D4E /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; };
+		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
+		E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E177A4541B9CCBA700D1ED6B /* Assets.xcassets */; };
+		E177A4581B9CCBA700D1ED6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E177A4561B9CCBA700D1ED6B /* Main.storyboard */; };
+		E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; };
+		E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
+		E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
+		E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */; };
+		E1ED7D181B9CA97800D7E37E /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D101B9CA97800D7E37E /* Middleware.swift */; };
+		E1ED7D191B9CA97800D7E37E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D111B9CA97800D7E37E /* Request.swift */; };
+		E1ED7D1A1B9CA97800D7E37E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D121B9CA97800D7E37E /* Response.swift */; };
+		E1ED7D1B1B9CA97800D7E37E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D131B9CA97800D7E37E /* Route.swift */; };
+		E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D141B9CA97800D7E37E /* Router.swift */; };
+		E1ED7D1D1B9CA97800D7E37E /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D151B9CA97800D7E37E /* stdext.swift */; };
+		E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ED7D161B9CA97800D7E37E /* Taylor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E177A46C1B9CCC3300D1ED6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1ED7CFB1B9CA92600D7E37E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1ED7D031B9CA92600D7E37E;
+			remoteInfo = Taylor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E177A4721B9CCC6800D1ED6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */,
+				E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3784A70A1BE3E38B00429D4E /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Taylor/Taylor.h; sourceTree = SOURCE_ROOT; };
+		E16034A51BA737C000F3C9CF /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
+		E177A44E1B9CCBA700D1ED6B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E177A4541B9CCBA700D1ED6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E177A4571B9CCBA700D1ED6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E177A4591B9CCBA700D1ED6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E18846801BDE362700720B26 /* SwiftSockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSockets.framework; path = Carthage/Build/Mac/SwiftSockets.framework; sourceTree = "<group>"; };
+		E1ED7D041B9CA92600D7E37E /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Taylor/FileTypes.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D101B9CA97800D7E37E /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Taylor/Middleware.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D111B9CA97800D7E37E /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Taylor/Request.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D121B9CA97800D7E37E /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Taylor/Response.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D131B9CA97800D7E37E /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Taylor/Route.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D141B9CA97800D7E37E /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Taylor/Router.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D151B9CA97800D7E37E /* stdext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stdext.swift; path = Taylor/stdext.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D161B9CA97800D7E37E /* Taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Taylor.swift; path = Taylor/Taylor.swift; sourceTree = SOURCE_ROOT; };
+		E1ED7D3A1B9CB1C900D7E37E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Taylor/Info.plist; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E177A44B1B9CCBA700D1ED6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */,
+				E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1ED7D001B9CA92600D7E37E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E177A44F1B9CCBA700D1ED6B /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */,
+				E177A4541B9CCBA700D1ED6B /* Assets.xcassets */,
+				E177A4561B9CCBA700D1ED6B /* Main.storyboard */,
+				E177A4591B9CCBA700D1ED6B /* Info.plist */,
+			);
+			path = TestApp;
+			sourceTree = "<group>";
+		};
+		E1ED7CFA1B9CA92600D7E37E = {
+			isa = PBXGroup;
+			children = (
+				E18846801BDE362700720B26 /* SwiftSockets.framework */,
+				E1ED7D061B9CA92600D7E37E /* Taylor */,
+				E177A44F1B9CCBA700D1ED6B /* TestApp */,
+				E1ED7D051B9CA92600D7E37E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1ED7D051B9CA92600D7E37E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1ED7D041B9CA92600D7E37E /* Taylor.framework */,
+				E177A44E1B9CCBA700D1ED6B /* TestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1ED7D061B9CA92600D7E37E /* Taylor */ = {
+			isa = PBXGroup;
+			children = (
+				3784A70A1BE3E38B00429D4E /* Taylor.h */,
+				E1ED7D161B9CA97800D7E37E /* Taylor.swift */,
+				E16034A51BA737C000F3C9CF /* Socket.swift */,
+				E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */,
+				E1ED7D101B9CA97800D7E37E /* Middleware.swift */,
+				E1ED7D111B9CA97800D7E37E /* Request.swift */,
+				E1ED7D121B9CA97800D7E37E /* Response.swift */,
+				E1ED7D131B9CA97800D7E37E /* Route.swift */,
+				E1ED7D141B9CA97800D7E37E /* Router.swift */,
+				E1ED7D151B9CA97800D7E37E /* stdext.swift */,
+				E1ED7D3A1B9CB1C900D7E37E /* Info.plist */,
+			);
+			name = Taylor;
+			path = TaylorP;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E1ED7D011B9CA92600D7E37E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3784A70B1BE3E38B00429D4E /* Taylor.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E177A44D1B9CCBA700D1ED6B /* TestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E177A4651B9CCBA700D1ED6B /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildPhases = (
+				E177A44A1B9CCBA700D1ED6B /* Sources */,
+				E177A44B1B9CCBA700D1ED6B /* Frameworks */,
+				E177A44C1B9CCBA700D1ED6B /* Resources */,
+				E177A4721B9CCC6800D1ED6B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E177A46D1B9CCC3300D1ED6B /* PBXTargetDependency */,
+			);
+			name = TestApp;
+			productName = TestApp;
+			productReference = E177A44E1B9CCBA700D1ED6B /* TestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1ED7D031B9CA92600D7E37E /* Taylor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1ED7D0C1B9CA92600D7E37E /* Build configuration list for PBXNativeTarget "Taylor" */;
+			buildPhases = (
+				E1ED7CFF1B9CA92600D7E37E /* Sources */,
+				E1ED7D001B9CA92600D7E37E /* Frameworks */,
+				E1ED7D011B9CA92600D7E37E /* Headers */,
+				E1ED7D021B9CA92600D7E37E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taylor;
+			productName = TaylorP;
+			productReference = E1ED7D041B9CA92600D7E37E /* Taylor.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1ED7CFB1B9CA92600D7E37E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Jorge Izquierdo";
+				TargetAttributes = {
+					E177A44D1B9CCBA700D1ED6B = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					E1ED7D031B9CA92600D7E37E = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = E1ED7CFE1B9CA92600D7E37E /* Build configuration list for PBXProject "Taylor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1ED7CFA1B9CA92600D7E37E;
+			productRefGroup = E1ED7D051B9CA92600D7E37E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1ED7D031B9CA92600D7E37E /* Taylor */,
+				E177A44D1B9CCBA700D1ED6B /* TestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E177A44C1B9CCBA700D1ED6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */,
+				E177A4581B9CCBA700D1ED6B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1ED7D021B9CA92600D7E37E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E177A44A1B9CCBA700D1ED6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1ED7CFF1B9CA92600D7E37E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1ED7D1A1B9CA97800D7E37E /* Response.swift in Sources */,
+				E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */,
+				E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */,
+				E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */,
+				E1ED7D1B1B9CA97800D7E37E /* Route.swift in Sources */,
+				E16034A61BA737C000F3C9CF /* Socket.swift in Sources */,
+				E1ED7D181B9CA97800D7E37E /* Middleware.swift in Sources */,
+				E1ED7D1D1B9CA97800D7E37E /* stdext.swift in Sources */,
+				E1ED7D191B9CA97800D7E37E /* Request.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E177A46D1B9CCC3300D1ED6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1ED7D031B9CA92600D7E37E /* Taylor */;
+			targetProxy = E177A46C1B9CCC3300D1ED6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E177A4561B9CCBA700D1ED6B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E177A4571B9CCBA700D1ED6B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E177A4661B9CCBA700D1ED6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = TestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E177A4671B9CCBA700D1ED6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = TestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E1ED7D0A1B9CA92600D7E37E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E1ED7D0B1B9CA92600D7E37E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E1ED7D0D1B9CA92600D7E37E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Taylor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.Taylor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1ED7D0E1B9CA92600D7E37E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Taylor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.Taylor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E177A4651B9CCBA700D1ED6B /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E177A4661B9CCBA700D1ED6B /* Debug */,
+				E177A4671B9CCBA700D1ED6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1ED7CFE1B9CA92600D7E37E /* Build configuration list for PBXProject "Taylor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1ED7D0A1B9CA92600D7E37E /* Debug */,
+				E1ED7D0B1B9CA92600D7E37E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1ED7D0C1B9CA92600D7E37E /* Build configuration list for PBXNativeTarget "Taylor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1ED7D0D1B9CA92600D7E37E /* Debug */,
+				E1ED7D0E1B9CA92600D7E37E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1ED7CFB1B9CA92600D7E37E /* Project object */;
+}
