@@ -40,33 +40,6 @@ public class Router {
                     return .Send(req, res)
                 }
                 
-                // on .Continue (in there), if run out of handlers
-                // return .Continue (in here)
-                
-                
-                // on .Send (in there)
-                // return .Send (in here)
-                
-//                callbackHandler.onContinueWithNoHandlersLeft = { req, res, _ in
-//                    // outer callback (kind of confusing)
-//                    callback(.Continue(req, res))
-//                }
-//                callbackHandler.onSend = { req, res, _ in
-//                    // outer callback (kind of confusing)
-//                    callback(.Send(req, res))
-//                }
-//                
-//                callbackHandler.dispatch(request, response)
-//                callbackHandler.start(request, response)
-
-                
-//                handlerExecutor.onContinueWithNoHandlersLeft = { req, res -> Callback? in
-//                    
-//                }
-                
-//                let (req, res) = handlerExecutor.execute(request, response)
-                
-                
             } else {
                 return .Continue(request, response)
             }
