@@ -55,10 +55,14 @@ public class Router {
         for route in routes {
             
             request.parameters = Dictionary<String, String>()
-            let compCount = route.pathComponents.count
-            if (route.method == request.method || (route.method == .GET && request.method == .HEAD)) && compCount == request.pathComponents.count {
+
+            let compatibleMethods = (route.method == request.method) || (route.method == .GET && request.method == .HEAD)
+
+            let componentCount = route.pathComponents.count
+
+            if compatibleMethods && (componentCount == request.pathComponents.count) {
                 
-                for i in 0..<compCount {
+                for i in 0..<componentCount {
                     
                     let isParameter = route.pathComponents[i].isParameter
                     if !(isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
@@ -72,7 +76,7 @@ public class Router {
                         request.parameters[route.pathComponents[i].value] = request.pathComponents[i]
                     }
 
-                    if i == compCount - 1 {
+                    if i == componentCount - 1 {
                         return route
                     }
                 }
