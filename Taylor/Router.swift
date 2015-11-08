@@ -22,28 +22,20 @@ public class Router {
             
             request, response, callback in
             
-            if let route = self.detectRouteForRequest(request as Request){
+            if let route = self.detectRouteForRequest(request){
                 
-                //Execute all handlers
-                var cb: ((Callback)->())!
-                var i = -1
-                cb = {
-                    a in
-                    switch a {
-                    case .Continue(let req, let res):
-                        i = i+1
-                        if i < route.handlers.count {
-                            route.handlers[i](req, res, cb)
-                        } else {
-                            callback(.Continue(req, res))
-                        }
-                    case .Send(let req, let res):
-                        
-                        callback(.Send(req, res))
-                    }
+                let callbackHandler = CallbackHandler(handlers: route.handlers)
+                
+                callbackHandler.onContinueWithNoHandlersLeft = { req, res, _ in
+                    // outer callback (kind of confusing)
+                    callback(.Continue(req, res))
+                }
+                callbackHandler.onSend = { req, res, _ in
+                    // outer callback (kind of confusing)
+                    callback(.Send(req, res))
                 }
                 
-                cb(.Continue(request, response))
+                callbackHandler.start(request, response)
             } else {
                 callback(.Continue(request, response))
             }

@@ -35,7 +35,7 @@ public class Server {
     private var socket: SocketServer = CurrentSocket()
     
     internal var handlers: [Handler]
-    internal var postRequestHandlers: [Handler]
+    internal var hooks: [Handler]
     
     public var notFoundHandler: Handler = {
         req, res, cb in
@@ -48,7 +48,7 @@ public class Server {
         
         router = Router()
         self.handlers = []
-        self.postRequestHandlers = []
+        self.hooks = []
     }
     
     public func serveHTTP(port p: Int, forever: Bool) throws {
@@ -82,15 +82,29 @@ public class Server {
         self.handlers.append(handler)
     }
     
-    public func addPostRequestHandler(handler: Handler){
-        self.postRequestHandlers.append(handler)
+    public func addHook(handler: Handler){
+        self.hooks.append(handler)
     }
     
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
-        let handler = CallbackHandler(server: self, socket: socket)
+        let callbackHandler = CallbackHandler(handlers: self.handlers)
         
-        handler.start(request, response)
+        callbackHandler.onContinueWithNoHandlersLeft = notFoundHandler
+        callbackHandler.onSend = { req, res, cb in
+            let data = res.generateResponse(req.method)
+            socket.sendData(data)
+            
+            self.startHooks(request: request, response: response)
+        }
+        
+        callbackHandler.start(request, response)
+    }
+    
+    internal func startHooks(request request: Request, response: Response) {
+        let callbackHandler = CallbackHandler(handlers: hooks)
+        
+        callbackHandler.start(request, response)
     }
     
     //Convenience methods
