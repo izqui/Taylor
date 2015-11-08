@@ -34,8 +34,8 @@ public class Server {
     
     private var socket: SocketServer = CurrentSocket()
     
-    internal var handlers: [Handler]
-    internal var hooks: [Handler]
+    internal var handlers: [Handler] // Handlers modify request and response and eventually sent it
+    internal var hooks: [Handler] // Hooks are called after a response has been sent, useful for logging and profiling
     
     public var notFoundHandler: Handler = {
         req, res, cb in
@@ -60,7 +60,7 @@ public class Server {
         }
         try socket.startOnPort(p)
             
-            //Should find a better location for this
+        //Should find a better location for this
         self.addHandler(self.router.handler())
         if forever {
             
