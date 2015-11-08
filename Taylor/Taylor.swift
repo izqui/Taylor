@@ -34,8 +34,8 @@ public class Server {
     
     private var socket: SocketServer = CurrentSocket()
     
-    private var handlers: [Handler]
-    private var postRequestHandlers: [Handler]
+    internal var handlers: [Handler]
+    internal var postRequestHandlers: [Handler]
     
     public var notFoundHandler: Handler = {
         req, res, cb in
@@ -88,42 +88,9 @@ public class Server {
     
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
-        var j = -1
-        var postRequest: ((Callback)->())!
-        postRequest = {
-            a in
-            switch a {
-            case .Continue(let req, let res):
-                j = j+1
-                if j < self.postRequestHandlers.count {
-                    self.postRequestHandlers[j](req, res, postRequest)
-                }
-            case .Send(_, _):
-                print("Attempting to send a response twice")
-            }
-        }
+        let handler = CallbackHandler(server: self, socket: socket)
         
-        var cb: ((Callback)->())!
-        var i = -1
-        cb = {
-            a in
-            switch a {
-            case .Continue(let req, let res):
-                i = i+1
-                if i < self.handlers.count {
-                    self.handlers[i](req, res, cb)
-                } else {
-                    self.notFoundHandler(req, res, cb)
-                }
-            case .Send(let req, let res):
-                let data = res.generateResponse(req.method)
-                
-                socket.sendData(data)
-                postRequest(.Continue(req, res))
-            }
-        }
-        
-        cb(.Continue(request, response))
+        handler.start(request, response)
     }
     
     //Convenience methods

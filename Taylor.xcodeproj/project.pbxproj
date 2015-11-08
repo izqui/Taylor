@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3784A70B1BE3E38B00429D4E /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3784A70A1BE3E38B00429D4E /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37FD84BD1BEEBF58005CFA97 /* CallbackHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD84BC1BEEBF58005CFA97 /* CallbackHandler.swift */; };
 		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; };
 		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
 		E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E177A4541B9CCBA700D1ED6B /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		3784A70A1BE3E38B00429D4E /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Taylor/Taylor.h; sourceTree = SOURCE_ROOT; };
+		37FD84BC1BEEBF58005CFA97 /* CallbackHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallbackHandler.swift; path = Taylor/CallbackHandler.swift; sourceTree = SOURCE_ROOT; };
 		E16034A51BA737C000F3C9CF /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
 		E177A44E1B9CCBA700D1ED6B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				3784A70A1BE3E38B00429D4E /* Taylor.h */,
 				E1ED7D161B9CA97800D7E37E /* Taylor.swift */,
+				37FD84BC1BEEBF58005CFA97 /* CallbackHandler.swift */,
 				E16034A51BA737C000F3C9CF /* Socket.swift */,
 				E1ED7D0F1B9CA97800D7E37E /* FileTypes.swift */,
 				E1ED7D101B9CA97800D7E37E /* Middleware.swift */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ED7D1A1B9CA97800D7E37E /* Response.swift in Sources */,
+				37FD84BD1BEEBF58005CFA97 /* CallbackHandler.swift in Sources */,
 				E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */,
 				E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */,
 				E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */,
