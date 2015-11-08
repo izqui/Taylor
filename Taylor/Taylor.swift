@@ -17,7 +17,7 @@ public enum Callback {
     case Send(Request, Response)
 }
 
-public typealias Handler = (Request, Response, (Callback) -> ()) -> ()
+public typealias Handler = (Request, Response) -> Callback
 internal typealias PathComponent = (value: String, isParameter: Bool)
 
 public enum HTTPMethod: String {
@@ -38,9 +38,9 @@ public class Server {
     internal var hooks: [Handler] // Hooks are called after a response has been sent, useful for logging and profiling
     
     public var notFoundHandler: Handler = {
-        req, res, cb in
+        req, res in
         res.setError(404)
-        cb(.Send(req, res))
+        return .Send(req, res)
     }
     var router: Router
     
@@ -88,23 +88,36 @@ public class Server {
     
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
-        let callbackHandler = CallbackHandler(handlers: self.handlers)
+        let handlerExecutor = HandlerExecutor(handlers: self.handlers)
         
-        callbackHandler.onContinueWithNoHandlersLeft = notFoundHandler
-        callbackHandler.onSend = { req, res, cb in
-            let data = res.generateResponse(req.method)
-            socket.sendData(data)
-            
-            self.startHooks(request: request, response: response)
-        }
+        // on .Continue (in there), if run out of handlers
+        // .Send the notFoundHandler (in there)
+        handlerExecutor.onContinueWithNoHandlersLeft = notFoundHandler
         
-        callbackHandler.start(request, response)
+        // on .Send (in there)
+        // get the request and response and push it to the socket
+        let (req, res) = handlerExecutor.execute(request, response)
+        
+        let data = res.generateResponse(req.method)
+        
+        socket.sendData(data)
+        
+        startHooks(request: req, response: res)
     }
     
     internal func startHooks(request request: Request, response: Response) {
-        let callbackHandler = CallbackHandler(handlers: hooks)
         
-        callbackHandler.start(request, response)
+        let handlerExecutor = HandlerExecutor(handlers: hooks)
+
+        // on .Continue (in there), if run out of handlers
+        // do nothing
+        handlerExecutor.onContinueWithNoHandlersLeft = { req, res -> Callback? in
+            return nil
+        }
+        
+        // on .Send (in there), if run out of handlers
+        // do nothing (maybe print something)
+        handlerExecutor.execute(request, response)
     }
     
     //Convenience methods

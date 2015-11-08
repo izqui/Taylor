@@ -18,18 +18,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let server = Taylor.Server()
         
         server.get("/") {
-            r, s, cb in
+            r, s in
             s.bodyString = "<html><body><form method=\"POST\">Name: <input type=\"text\" name=\"name\"/><input type=\"submit\"/></form></body></html>"
             s.headers["Content-Type"] = "text/html"
-            cb(.Send(r, s))
+            return .Send(r, s)
         }
-               
+        
         server.post("/", Middleware.bodyParser(), {
-            r, s, cb in
+            r, s in
             
             let name = r.body["name"] ?? "<unknown>"
             s.bodyString = "Hi \(name)"
-            cb(.Send(r, s))
+            return .Send(r, s)
         })
        
         let port = 3002

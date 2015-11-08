@@ -20,24 +20,55 @@ public class Router {
         
         return {
             
-            request, response, callback in
+            request, response -> Callback in
             
             if let route = self.detectRouteForRequest(request){
                 
-                let callbackHandler = CallbackHandler(handlers: route.handlers)
+                let handlerExecutor = HandlerExecutor(handlers: route.handlers)
                 
-                callbackHandler.onContinueWithNoHandlersLeft = { req, res, _ in
-                    // outer callback (kind of confusing)
-                    callback(.Continue(req, res))
-                }
-                callbackHandler.onSend = { req, res, _ in
-                    // outer callback (kind of confusing)
-                    callback(.Send(req, res))
+                var didContinue = false
+                handlerExecutor.onContinueWithNoHandlersLeft = { req, res -> Callback? in
+                    didContinue = true
+                    return nil
                 }
                 
-                callbackHandler.start(request, response)
+                let (req, res) = handlerExecutor.execute(request, response)
+                
+                if didContinue {
+                    return .Continue(req, res)
+                } else {
+                    return .Send(req, res)
+                }
+                
+                // on .Continue (in there), if run out of handlers
+                // return .Continue (in here)
+                
+                
+                // on .Send (in there)
+                // return .Send (in here)
+                
+//                callbackHandler.onContinueWithNoHandlersLeft = { req, res, _ in
+//                    // outer callback (kind of confusing)
+//                    callback(.Continue(req, res))
+//                }
+//                callbackHandler.onSend = { req, res, _ in
+//                    // outer callback (kind of confusing)
+//                    callback(.Send(req, res))
+//                }
+//                
+//                callbackHandler.dispatch(request, response)
+//                callbackHandler.start(request, response)
+
+                
+//                handlerExecutor.onContinueWithNoHandlersLeft = { req, res -> Callback? in
+//                    
+//                }
+                
+//                let (req, res) = handlerExecutor.execute(request, response)
+                
+                
             } else {
-                callback(.Continue(request, response))
+                return .Continue(request, response)
             }
         }
     }
