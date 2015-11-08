@@ -7,11 +7,9 @@
 //
 
 class HandlerExecutor {
-    
-    typealias HandlerWithOptionalReturn = ((Request, Response) -> (Callback?))
 
     private let handlers: [Handler]
-    var onContinueWithNoHandlersLeft: HandlerWithOptionalReturn!
+    var onContinueWithNoHandlersLeft: Handler?
     
     init(handlers: [Handler]) {
         self.handlers = handlers
@@ -23,7 +21,7 @@ class HandlerExecutor {
     }
     
     private var requestCount = 0
-    private func handleCallback(callback: Callback) -> (Request, Response) {//-> Callback {
+    private func handleCallback(callback: Callback) -> Callback {//-> Callback {
         switch callback {
         case .Continue(let req, let res):
             
@@ -36,10 +34,10 @@ class HandlerExecutor {
                 let result = handler(req, res)
                 return handleCallback(result)
             } else {
-
+                
                 // usually means that it just needs result of the handlers (ex: hooks)
-                guard let result = onContinueWithNoHandlersLeft(req, res) else {
-                    return (req, res)
+                guard let result = onContinueWithNoHandlersLeft?(req, res) else {
+                    return .Continue(req, res)
                 }
                 
                 // usually just a .Send with a 404 not found page or something
@@ -49,7 +47,7 @@ class HandlerExecutor {
         case .Send(let req, let res):
             
             // give the data back for processing (usually ends up in a socket)
-            return (req, res)
+            return .Send(req, res)
         }
     }
 }

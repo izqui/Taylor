@@ -96,7 +96,11 @@ public class Server {
         
         // on .Send (in there)
         // get the request and response and push it to the socket
-        let (req, res) = handlerExecutor.execute(request, response)
+        let result = handlerExecutor.execute(request, response)
+        
+        guard case let Callback.Send(req, res) = result else {
+            return // it should never hit this - perhaps throw a fatalError()
+        }
         
         let data = res.generateResponse(req.method)
         
@@ -108,15 +112,7 @@ public class Server {
     internal func startHooks(request request: Request, response: Response) {
         
         let handlerExecutor = HandlerExecutor(handlers: hooks)
-
-        // on .Continue (in there), if run out of handlers
-        // do nothing
-        handlerExecutor.onContinueWithNoHandlersLeft = { req, res -> Callback? in
-            return nil
-        }
         
-        // on .Send (in there), if run out of handlers
-        // do nothing (maybe print something)
         handlerExecutor.execute(request, response)
     }
     

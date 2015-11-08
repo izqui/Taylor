@@ -26,17 +26,12 @@ public class Router {
                 
                 let handlerExecutor = HandlerExecutor(handlers: route.handlers)
                 
-                var didContinue = false
-                handlerExecutor.onContinueWithNoHandlersLeft = { req, res -> Callback? in
-                    didContinue = true
-                    return nil
-                }
+                let result = handlerExecutor.execute(request, response)
                 
-                let (req, res) = handlerExecutor.execute(request, response)
-                
-                if didContinue {
+                switch result {
+                case .Continue(let req, let res):
                     return .Continue(req, res)
-                } else {
+                case .Send(let req, let res):
                     return .Send(req, res)
                 }
                 
