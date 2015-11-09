@@ -6,75 +6,89 @@
 //  Copyright (c) 2014 Jorge Izquierdo. All rights reserved.
 //
 
-public class Router {
+public class Router: Routable {
     
-    private var routes: [Route] = [Route]()
+    public var path: Path
     
-    public func addRoute(route: Route) -> Bool {
+    public var beforeHooks: [Routable] = []
+    public var handlers: [Routable] = []
+    public var afterHooks: [Routable] = []
+    
+    public var notFoundHandler: Handler = {
+        req, res in
+        res.setError(404)
+        return .Send(req, res)
+    }
+    
+    init() {
+        self.path = Path(path: "")
+    }
+    
+    public func handleRequest(request: Request, response: Response) -> Callback {
         
-        routes.append(route)
+        // Call all matching beforeHooks
+        let before = beforeHooks.filter { (routable) -> Bool in
+            return routable.matchesRequest(request)
+        }
+        for routable in before {
+            // Always check result to see if we shoud return early
+            let result = routable.handleRequest(request, response: response)
+            if case .Send(_, _) = result {
+                return result
+            }
+        }
+        
+        // Call first matching route handler
+        var matching: Routable?
+        for route in handlers {
+            if route.matchesRequest(request) {
+                matching = route
+                break
+            }
+        }
+        if let matching = matching {
+            // Always check result to see if we shoud return early
+            let result = matching.handleRequest(request, response: response)
+            if case .Send(_, _) = result {
+                return result
+            }
+        }
+        
+        // If we didn't already return, we know to return .Continue
+        return .Continue(request, response)
+    }
+    
+    public func callAfterHooks(request: Request, response: Response) -> Callback {
+        // Call all matching afterHooks
+        let after = afterHooks.filter { (routable) -> Bool in
+            return routable.matchesRequest(request)
+        }
+        for routable in after {
+            // Always check result to see if we shoud return early
+            let result = routable.handleRequest(request, response: response)
+            if case .Send(_, _) = result {
+                return result
+            }
+        }
+        
+        // If we didn't already return, we know to return .Continue
+        return .Continue(request, response)
+    }
+    
+    
+    // Router Methods
+    public func addRoute(route: Routable) -> Bool {
+        handlers.append(route)
         return true
     }
     
-    public func handler() -> Handler {
-        
-        return {
-            
-            request, response -> Callback in
-            
-            if let route = self.detectRouteForRequest(request){
-                
-                let handlerExecutor = HandlerExecutor(handlers: route.handlers)
-                
-                let result = handlerExecutor.execute(request, response)
-                
-                switch result {
-                case .Continue(let req, let res):
-                    return .Continue(req, res)
-                case .Send(let req, let res):
-                    return .Send(req, res)
-                }
-                
-            } else {
-                return .Continue(request, response)
-            }
-        }
+    public func addBeforeHook(hook: Routable) -> Bool {
+        beforeHooks.append(hook)
+        return true
     }
     
-    private func detectRouteForRequest(request: Request) -> Route? {
-        
-        for route in routes {
-            
-            request.parameters = Dictionary<String, String>()
-
-            let compatibleMethods = (route.method == request.method) || (route.method == .GET && request.method == .HEAD)
-
-            let componentCount = route.pathComponents.count
-
-            if compatibleMethods && (componentCount == request.pathComponents.count) {
-                
-                for i in 0..<componentCount {
-                    
-                    let isParameter = route.pathComponents[i].isParameter
-                    if !(isParameter || route.pathComponents[i].value == request.pathComponents[i]) {
-                        
-                        request.parameters = [:]
-                        break
-                    }
-                    
-                    if isParameter {
-                        
-                        request.parameters[route.pathComponents[i].value] = request.pathComponents[i]
-                    }
-
-                    if i == componentCount - 1 {
-                        return route
-                    }
-                }
-            }
-        }
-        
-        return nil
+    public func addAfterHook(hook: Routable) -> Bool {
+        afterHooks.append(hook)
+        return true
     }
-    
 }

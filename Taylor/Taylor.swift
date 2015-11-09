@@ -18,10 +18,9 @@ public enum Callback {
 }
 
 public typealias Handler = (Request, Response) -> Callback
-internal typealias PathComponent = (value: String, isParameter: Bool)
 
 public enum HTTPMethod: String {
-        
+    
     case GET = "GET"
     case POST = "POST"
     case PUT = "PUT"
@@ -29,26 +28,13 @@ public enum HTTPMethod: String {
     case UNDEFINED = "UNDEFINED" // it will never match
 }
 
-
 public class Server {
     
     private var socket: SocketServer = CurrentSocket()
-    
-    internal var handlers: [Handler] // Handlers modify request and response and eventually sent it
-    internal var hooks: [Handler] // Hooks are called after a response has been sent, useful for logging and profiling
-    
-    public var notFoundHandler: Handler = {
-        req, res in
-        res.setError(404)
-        return .Send(req, res)
-    }
-    var router: Router
+    var router: Router = Router()
     
     public init(){
         
-        router = Router()
-        self.handlers = []
-        self.hooks = []
     }
     
     public func serveHTTP(port p: Int, forever: Bool) throws {
@@ -59,9 +45,7 @@ public class Server {
             return true
         }
         try socket.startOnPort(p)
-            
-        //Should find a better location for this
-        self.addHandler(self.router.handler())
+        
         if forever {
             
             // So the program doesn't end
@@ -76,44 +60,22 @@ public class Server {
         socket.disconnect()
     }
     
-    public func addHandler(handler: Handler){
-        
-        //Should check if middleare has already been added, but it's difficult since it is a clousure and not an object
-        self.handlers.append(handler)
-    }
-    
-    public func addHook(handler: Handler){
-        self.hooks.append(handler)
-    }
-    
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
-        let handlerExecutor = HandlerExecutor(handlers: self.handlers)
-        
-        // on .Continue (in there), if run out of handlers
-        // .Send the notFoundHandler (in there)
-        handlerExecutor.onContinueWithNoHandlersLeft = notFoundHandler
-        
-        // on .Send (in there)
-        // get the request and response and push it to the socket
-        let result = handlerExecutor.execute(request, response)
-        
-        guard case let Callback.Send(req, res) = result else {
-            return // it should never hit this - perhaps throw a fatalError()
+        let result = self.router.handleRequest(request, response: response)
+        switch result {
+        case .Continue(_, _):
+            // Nothing left to call, send 404
+            self.router.notFoundHandler(request, response)
+            print("")
+        case .Send(_, _):
+            print("")
         }
         
-        let data = res.generateResponse(req.method)
-        
+        let data = response.generateResponse(request.method)
         socket.sendData(data)
         
-        startHooks(request: req, response: res)
-    }
-    
-    internal func startHooks(request request: Request, response: Response) {
-        
-        let handlerExecutor = HandlerExecutor(handlers: hooks)
-        
-        handlerExecutor.execute(request, response)
+        self.router.callAfterHooks(request, response: response)
     }
     
     //Convenience methods
@@ -130,6 +92,10 @@ public class Server {
     public func put(p: String, _ c: Handler...) {
         
         self.router.addRoute(Route(m: .PUT, path: p, handlers: c))
+    }
+    
+    public func use(p: String, _ c: Handler...) {
+        self.router.addBeforeHook(Middleware(path: p, handlers: c))
     }
     
 }
