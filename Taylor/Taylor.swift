@@ -62,7 +62,7 @@ public class Server {
     
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
-        let result = self.router.handleRequest(request, response: response)
+        let result = router.handleRequest(request, response: response)
         switch result {
         case .Continue(_, _):
             // Nothing left to call, send 404
@@ -75,27 +75,31 @@ public class Server {
         let data = response.generateResponse(request.method)
         socket.sendData(data)
         
-        self.router.callAfterHooks(request, response: response)
+        router.callAfterHooks(request, response: response)
     }
     
     //Convenience methods
     public func get(p: String, _ c: Handler...) {
         
-        self.router.addRoute(Route(m: .GET, path: p, handlers: c))
+        router.addRoute(Route(m: .GET, path: p, handlers: c))
     }
     
     public func post(p: String, _ c: Handler...) {
         
-        self.router.addRoute(Route(m: .POST, path: p, handlers: c))
+        router.addRoute(Route(m: .POST, path: p, handlers: c))
     }
     
     public func put(p: String, _ c: Handler...) {
         
-        self.router.addRoute(Route(m: .PUT, path: p, handlers: c))
+        router.addRoute(Route(m: .PUT, path: p, handlers: c))
     }
     
     public func use(p: String, _ c: Handler...) {
-        self.router.addBeforeHook(Middleware(path: p, handlers: c))
+        router.addBeforeHook(Middleware(path: p, handlers: c))
+    }
+    
+    public func useAfter(p: String, _ c: Handler...) {
+        router.addAfterHook(Middleware(path: p, handlers: c))
     }
     
 }

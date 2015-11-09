@@ -8,14 +8,12 @@
 
 import Foundation
 
-public class Middleware: Routable {
+public class Middleware: Routable, RoutableEndPoint {
     
     public let path: Path
-    
-    // The handlers passed in are guaranteed to always be called, so handlers is ignored
     public let handlers: [Routable] = []
     
-    // Instead, we store just the closures and iterate through them in handleRequest()
+    // Required by RoutableEndPoint, called from handleRequest()
     public let handlerClosures: [Handler]
     
     public required init(path p: String, handlers s: [Handler]){
@@ -28,16 +26,7 @@ public class Middleware: Routable {
     }
     
     public func handleRequest(request: Request, response: Response) -> Callback {
-        for handler in handlerClosures {
-            // Always check result to see if we shoud return early
-            let result = handler(request, response)
-            if case .Send(_, _) = result {
-                return result
-            }
-        }
-        
-        // If we didn't already return, we know to return .Continue
-        return .Continue(request, response)
+        return executeHandlerClosures(forRequest: request, response: response)
     }
     
     public class func bodyParser() -> Handler {
