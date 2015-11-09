@@ -15,39 +15,41 @@ class HandlerExecutor {
         self.handlers = handlers
     }
     
-    func execute(request: Request, _ response: Response) -> (Request, Response) {
-        // Start handler chain
-        return handleCallback(.Continue(request, response))
-    }
-    
-    private var requestCount = 0
-    private func handleCallback(callback: Callback) -> Callback {//-> Callback {
-        switch callback {
-        case .Continue(let req, let res):
+    func execute(request: Request, _ response: Response) -> Callback {
+        
+        var request = request
+        var response = response
+        for (i, handler) in handlers.enumerate() {
             
-            if self.requestCount < handlers.count {
-                // this concerns me...
-                let handler = handlers[requestCount]
-                requestCount++
+            let result = handler(request, response)
+            
+            switch result {
+            case .Continue(let req, let res):
+                request = req
+                response = res
                 
-                // recursion!
-                let result = handler(req, res)
-                return handleCallback(result)
-            } else {
-                
-                // usually means that it just needs result of the handlers (ex: hooks)
-                guard let result = onContinueWithNoHandlersLeft?(req, res) else {
-                    return .Continue(req, res)
+                if i == (handlers.count - 1) {
+                    
+                    guard let result = onContinueWithNoHandlersLeft?(request, response) else {
+                        // usually means that no actual response
+                        // is being sent (ex: hooks)
+                        return .Continue(request, response)
+                    }
+                    
+                    // usually a .Send with a 404 page or something
+                    return result
                 }
                 
-                // usually just a .Send with a 404 not found page or something
-                return handleCallback(result)
-
+            case .Send(let req, let res):
+                return .Send(req, res)
             }
-        case .Send(let req, let res):
-            
-            // give the data back for processing (usually ends up in a socket)
-            return .Send(req, res)
         }
+        
+        if handlers.count == 0 {
+            return .Continue(request, response)
+        }
+        
+        // if it hit this, something went wrong
+        fatalError()
     }
 }
