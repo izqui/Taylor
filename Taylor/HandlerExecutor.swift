@@ -33,7 +33,7 @@ class HandlerExecutor {
                     guard let result = onContinueWithNoHandlersLeft?(request, response) else {
                         // usually means that no actual response
                         // is being sent (ex: hooks)
-                        return .Continue(request, response)
+                        return .Send(request, response)
                     }
                     
                     // usually a .Send with a 404 page or something
