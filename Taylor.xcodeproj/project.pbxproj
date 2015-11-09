@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7995901BF074F8005555F5 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A79958F1BF074F8005555F5 /* RouteHandler.swift */; };
 		0A7F42431BF01C3C00C8AC31 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F42421BF01C3C00C8AC31 /* Routable.swift */; };
 		3784A70B1BE3E38B00429D4E /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = 3784A70A1BE3E38B00429D4E /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16034A61BA737C000F3C9CF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16034A51BA737C000F3C9CF /* Socket.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A79958F1BF074F8005555F5 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteHandler.swift; path = Taylor/RouteHandler.swift; sourceTree = SOURCE_ROOT; };
 		0A7F42421BF01C3C00C8AC31 /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Routable.swift; path = Taylor/Routable.swift; sourceTree = SOURCE_ROOT; };
 		3784A70A1BE3E38B00429D4E /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Taylor/Taylor.h; sourceTree = SOURCE_ROOT; };
 		E16034A51BA737C000F3C9CF /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
@@ -138,6 +140,7 @@
 				E1ED7D121B9CA97800D7E37E /* Response.swift */,
 				0A7F42421BF01C3C00C8AC31 /* Routable.swift */,
 				E1ED7D131B9CA97800D7E37E /* Route.swift */,
+				0A79958F1BF074F8005555F5 /* RouteHandler.swift */,
 				E1ED7D141B9CA97800D7E37E /* Router.swift */,
 				E1ED7D151B9CA97800D7E37E /* stdext.swift */,
 				E1ED7D3A1B9CB1C900D7E37E /* Info.plist */,
@@ -269,6 +272,7 @@
 				E1ED7D1A1B9CA97800D7E37E /* Response.swift in Sources */,
 				E1ED7D171B9CA97800D7E37E /* FileTypes.swift in Sources */,
 				E1ED7D1E1B9CA97800D7E37E /* Taylor.swift in Sources */,
+				0A7995901BF074F8005555F5 /* RouteHandler.swift in Sources */,
 				E1ED7D1C1B9CA97800D7E37E /* Router.swift in Sources */,
 				E1ED7D1B1B9CA97800D7E37E /* Route.swift in Sources */,
 				E16034A61BA737C000F3C9CF /* Socket.swift in Sources */,

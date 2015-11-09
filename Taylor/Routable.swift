@@ -23,38 +23,13 @@ extension Routable {
     }
     
     public func handleRequest(request: Request, response: Response) -> Callback {
-        let toHandle = handlers.filter { (routable) -> Bool in
-            return routable.matchesRequest(request)
-        }
-        return executeHandlers(toHandle, request: request, response: response)
+        return executeHandlers(handlers, request: request, response: response)
     }
     
     public func executeHandlers(handlers: [Routable], request: Request, response: Response) -> Callback {
         for routable in handlers {
             // Always check result to see if we shoud return early
             let result = routable.handleRequest(request, response: response)
-            if case .Send(_, _) = result {
-                return result
-            }
-        }
-        
-        // If we didn't already return, we know to return .Continue
-        return .Continue(request, response)
-    }
-}
-
-
-// Used for Routables that will never call other Routables, like Route and Middleware
-public protocol RoutableEndPoint {
-    var handlerClosures: [Handler] { get }
-    func executeHandlerClosures(forRequest request: Request, response: Response) -> Callback
-}
-
-extension RoutableEndPoint {
-    public func executeHandlerClosures(forRequest request: Request, response: Response) -> Callback {
-        for handler in handlerClosures {
-            // Always check result to see if we shoud return early
-            let result = handler(request, response)
             if case .Send(_, _) = result {
                 return result
             }

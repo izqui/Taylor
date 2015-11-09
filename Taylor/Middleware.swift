@@ -8,25 +8,25 @@
 
 import Foundation
 
-public class Middleware: Routable, RoutableEndPoint {
+public class Middleware: Routable {
     
     public let path: Path
-    public let handlers: [Routable] = []
-    
-    // Required by RoutableEndPoint, called from handleRequest()
-    public let handlerClosures: [Handler]
+    public var handlers: [Routable] = []
     
     public required init(path p: String, handlers s: [Handler]){
-        self.handlerClosures = s
+//        self.handlers = s.map({ (handler) -> RouteHandler in
+//            return RouteHandler(handler: handler)
+//        })
+        
+        for handler in s {
+            self.handlers.append(RouteHandler(handler: handler))
+        }
         self.path = Path(path: p)
     }
     
+    // This can be removed once wildcard routes are implemented
     public func matchesRequest(request: Request) -> Bool {
         return true
-    }
-    
-    public func handleRequest(request: Request, response: Response) -> Callback {
-        return executeHandlerClosures(forRequest: request, response: response)
     }
     
     public class func bodyParser() -> Handler {
