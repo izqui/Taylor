@@ -63,13 +63,8 @@ public class Server {
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
         let result = router.handleRequest(request, response: response)
-        switch result {
-        case .Continue(_, _):
-            // Nothing left to call, send 404
+        if case .Continue(_, _) = result {
             self.router.notFoundHandler(request, response)
-            print("")
-        case .Send(_, _):
-            print("")
         }
         
         let data = response.generateResponse(request.method)
@@ -81,25 +76,32 @@ public class Server {
     //Convenience methods
     public func get(p: String, _ c: Handler...) {
         
-        router.addRoute(Route(m: .GET, path: p, handlers: c))
+        self.router.addRoute(Route(m: .GET, path: p, handlers: c))
     }
     
     public func post(p: String, _ c: Handler...) {
         
-        router.addRoute(Route(m: .POST, path: p, handlers: c))
+        self.router.addRoute(Route(m: .POST, path: p, handlers: c))
     }
     
     public func put(p: String, _ c: Handler...) {
         
-        router.addRoute(Route(m: .PUT, path: p, handlers: c))
+        self.router.addRoute(Route(m: .PUT, path: p, handlers: c))
     }
     
     public func use(p: String, _ c: Handler...) {
-        router.addBeforeHook(Middleware(path: p, handlers: c))
+        
+        self.router.addBeforeHook(Middleware(path: p, handlers: c))
+    }
+    
+    public func use(router: Routable) {
+        
+        self.router.addBeforeHook(router)
     }
     
     public func useAfter(p: String, _ c: Handler...) {
-        router.addAfterHook(Middleware(path: p, handlers: c))
+        
+        self.router.addAfterHook(Middleware(path: p, handlers: c))
     }
     
 }

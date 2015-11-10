@@ -28,7 +28,7 @@ extension Routable {
     
     public func executeHandlers(handlers: [Routable], request: Request, response: Response) -> Callback {
         for routable in handlers {
-            // Always check result to see if we shoud return early
+            // Always check result to see if we should return early
             let result = routable.handleRequest(request, response: response)
             if case .Send(_, _) = result {
                 return result
@@ -50,7 +50,7 @@ public struct Path {
     let rawPath: String
     var components: [PathComponent]
     
-    init(path: String) {
+    public init(path: String) {
         self.rawPath = path
         self.components = []
         
@@ -64,7 +64,6 @@ public struct Path {
             
             if compArr.count == 1 {
                 self.components.append(.Static(compArr[0]))
-                
             } else if compArr.count == 2 {
                 self.components.append(.Parameter(compArr[1]))
             } else {

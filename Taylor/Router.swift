@@ -20,8 +20,12 @@ public class Router: Routable {
         return .Send(req, res)
     }
     
-    init() {
-        self.path = Path(path: "")
+    public convenience init() {
+        self.init(pathString: "/*")
+    }
+    
+    public required init(pathString: String) {
+        self.path = Path(path: pathString)
     }
     
     public func handleRequest(request: Request, response: Response) -> Callback {

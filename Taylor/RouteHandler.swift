@@ -9,20 +9,24 @@
 import Foundation
 
 public class RouteHandler: Routable {
+    
     public let path: Path = Path(path: "")
     public let handlers: [Routable] = []
     
     var handler: Handler
     
     public init(handler: Handler) {
+        
         self.handler = handler
     }
     
     public func matchesRequest(request: Request) -> Bool {
+        
         return true
     }
     
     public func handleRequest(request: Request, response: Response) -> Callback {
+        
         return handler(request, response)
     }
 }

@@ -14,10 +14,6 @@ public class Middleware: Routable {
     public var handlers: [Routable] = []
     
     public required init(path p: String, handlers s: [Handler]){
-//        self.handlers = s.map({ (handler) -> RouteHandler in
-//            return RouteHandler(handler: handler)
-//        })
-        
         for handler in s {
             self.handlers.append(RouteHandler(handler: handler))
         }
@@ -29,6 +25,10 @@ public class Middleware: Routable {
         return true
     }
     
+    
+}
+
+extension Middleware {
     public class func bodyParser() -> Handler {
         return { request, response in
             
@@ -106,8 +106,7 @@ public class Middleware: Routable {
     
     public class func requestLogger(printer: ((String) -> ())) -> Handler {
         
-        return {
-            request, response in
+        return { request, response in
             
             let time = String(format: "%.02f", NSDate().timeIntervalSinceDate(request.startTime) * 1000)
             let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"

@@ -13,18 +13,17 @@ public class Route: Routable {
     public var handlers: [Routable] = []
     
     public required init(m: HTTPMethod, path p: String, handlers s: [Handler]){
+        
         self.method = m
         self.path = Path(path: p)
-
-//        self.handlers = s.map({ (handler) -> RouteHandler in
-//            return RouteHandler(handler: handler)
-//        })
+        
         for handler in s {
             self.handlers.append(RouteHandler(handler: handler))
         }
     }
     
     public func matchesRequest(request: Request) -> Bool {
+        
         if self.method == request.method && path.matchesRequest(request) {
             return true
         }
