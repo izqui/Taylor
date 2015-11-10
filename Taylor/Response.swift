@@ -10,9 +10,14 @@ import Foundation
 
 public class Response {
     
-    private var statusLine: String = ""
+    private var statusLine: String {
+        return status.statusLine()
+    }
+    public var statusCode: Int {
+        return status.rawValue
+    }
     
-    public var statusCode: Int = 200
+    public var status: HTTPStatus = .OK
     public var headers = [String:String]()
     
     public var body: NSData?
@@ -35,29 +40,9 @@ public class Response {
     }
     
     private let http_protocol: String = "HTTP/1.1"
-    internal var codes = [
-        200: "OK",
-        201: "Created",
-        202: "Accepted",
-        
-        300: "Multiple Choices",
-        301: "Moved Permanently",
-        302: "Found",
-        303: "See other",
-        
-        400: "Bad TRequest",
-        401: "Unauthorized",
-        403: "Forbidden",
-        404: "Not Found",
-        
-        500: "Internal Server Error",
-        502: "Bad Gateway",
-        503: "Service Unavailable"
-    ]
-    
     public func redirect(url u: String) {
         
-        self.statusCode = 302
+        self.status = .Found
         self.headers["Location"] = u
     }
     
@@ -68,26 +53,17 @@ public class Response {
             self.body = data
             self.headers["Content-Type"] = FileTypes.get(u.pathExtension ?? "")
         } else {
-            self.setError(404)
+            self.setError(.NotFound)
         }
     }
     
-    public func setError(errorCode: Int){
+    public func setError(errorStatus: HTTPStatus){
         
-        self.statusCode = errorCode
-        
-        if let a = self.codes[self.statusCode]{
-            
-            self.bodyString = a
-        }
+        self.status = errorStatus
+        self.bodyString = self.statusLine
     }
     
     func headerData() -> NSData {
-        
-        if let a = self.codes[self.statusCode]{
-            
-            self.statusLine = a
-        }
         
         if headers["Content-Length"] == nil{
             headers["Content-Length"] = String(bodyData.length)
@@ -114,5 +90,48 @@ public class Response {
         guard method != .HEAD else { return headerData }
         return headerData + self.bodyData
         
+    }
+}
+
+public enum HTTPStatus: Int {
+    
+    case OK = 200
+    case Created = 201
+    case Accepted = 202
+    
+    case MultipleChoices = 300
+    case MovedPermanently = 301
+    case Found = 302
+    case SeeOther = 303
+    
+    case BadRequest = 400
+    case Unauthorized = 401
+    case Forbidden = 403
+    case NotFound = 404
+    
+    case InternalServerError = 500
+    case BadGateway = 502
+    case ServiceUnavailable = 503
+    
+    func statusLine() -> String {
+        switch self {
+        case .OK: return "OK"
+        case .Created: return "Created"
+        case .Accepted: return "Accepted"
+        
+        case .MultipleChoices: return "Multiple Choices"
+        case .MovedPermanently: return "Moved Permentantly"
+        case .Found: return "Found"
+        case .SeeOther: return "See Other"
+        
+        case .BadRequest: return "Bad Request"
+        case .Unauthorized: return "Unauthorized"
+        case .Forbidden: return "Forbidden"
+        case .NotFound: return "Not Found"
+        
+        case .InternalServerError: return "Internal Server Error"
+        case .BadGateway: return "Bad Gateway"
+        case .ServiceUnavailable: return "Service Unavailable"
+        }
     }
 }

@@ -16,7 +16,7 @@ public class Router: Routable {
     
     public var notFoundHandler: Handler = {
         req, res in
-        res.setError(404)
+        res.setError(.NotFound)
         return .Send(req, res)
     }
     
