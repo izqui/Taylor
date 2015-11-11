@@ -31,7 +31,7 @@ public enum HTTPMethod: String {
 public class Server {
     
     private var socket: SocketServer = CurrentSocket()
-    var router: Router = Router()
+    public var router: Router = Router()
     
     private var errorPages = [HTTPStatus:Handler]()
     public var defaultErrorPage: Handler = { $1.bodyString = $1.statusLine; return .Send }
