@@ -13,13 +13,7 @@ public class Router: Routable {
     public var beforeHooks: [Routable] = []
     public var handlers: [Routable] = []
     public var afterHooks: [Routable] = []
-    
-    public var notFoundHandler: Handler = {
-        req, res in
-        res.setError(404)
-        return .Send(req, res)
-    }
-    
+        
     public convenience init() {
         self.init(pathString: "/*")
     }

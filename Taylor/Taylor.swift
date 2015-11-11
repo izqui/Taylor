@@ -33,8 +33,10 @@ public class Server {
     private var socket: SocketServer = CurrentSocket()
     var router: Router = Router()
     
+    private var errorPages = [HTTPStatus:Handler]()
+    public var defaultErrorPage: Handler = { $1.bodyString = $1.statusLine; return .Send($0, $1) }
+    
     public init(){
-        
     }
     
     public func serveHTTP(port p: Int, forever: Bool) throws {
@@ -64,13 +66,26 @@ public class Server {
         
         let result = router.handleRequest(request, response: response)
         if case .Continue(_, _) = result {
-            self.router.notFoundHandler(request, response)
+            response.setError(.NotFound)
+        }
+        
+        // there are other "non-error" codes...
+        if response.status != .OK {
+            if let errorPage = errorPages[response.status] {
+                errorPage(request, response)
+            } else {
+                defaultErrorPage(request, response)
+            }
         }
         
         let data = response.generateResponse(request.method)
         socket.sendData(data)
         
         router.callAfterHooks(request, response: response)
+    }
+    
+    public func errorPage(s: HTTPStatus, _ c: Handler) {
+        self.errorPages[s] = c
     }
     
     //Convenience methods
