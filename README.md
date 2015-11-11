@@ -16,21 +16,21 @@ import Taylor
 
 let server = Taylor.Server()
 
-server.get("/") {
-    req, res, cb in
-
+server.get("/") { req, res in
     res.bodyString = "Hello, world!"
-    cb(.Send(req, res))
+    return .Send
 }
 
 let port = 3002
 do {
    print("Staring server on port: \(port)")
    try server.serveHTTP(port: port, forever: true)
-} catch let e {
-   print("Server start failed \(e)")
+} catch {
+   print("Server start failed \(error)")
 }
 ```
+
+More advanced usage instructions coming soon!
 
 ## Playground
 The easiest way to try out Taylor is using a playground.
@@ -86,9 +86,7 @@ Credits to [Ayaka Nonaka](https://twitter.com/ayanonagon)'s [Swift Summit](http:
 Right now Taylor relies on an Swift library called [SwiftSockets](https://github.com/AlwaysRightInstitute/SwiftSockets/).
 
 ## Development
-
-Join our Slack
-[![Slack Status](https://taylor-framework.herokuapp.com/badge.svg)](https://taylor-framework.herokuapp.com)
+Join our Slack [![Slack Status](https://taylor-framework.herokuapp.com/badge.svg)](https://taylor-framework.herokuapp.com)
 
 For the development of the Taylor framework we use Carthage for managing dependencies.
 
@@ -100,7 +98,7 @@ $ carthage bootstrap
 
 Then you can open `Taylor.xcodeproj` and start developing.
 
-The reason there is a Mac app inside the project is for testing purposes given that you cannot have frameworks linked with a Command Line application in xCode using Carthage. See [here](https://github.com/Carthage/Carthage/issues/287).
+The reason there is a Mac app inside the project is for testing purposes given that you cannot have frameworks linked with a Command Line application in Xcode using Carthage. See [here](https://github.com/Carthage/Carthage/issues/287).
 
 ## Inspiration
 - [Go's Martini](https://github.com/go-martini/martini)
