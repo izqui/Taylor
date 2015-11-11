@@ -30,13 +30,13 @@ extension Routable {
         for routable in handlers {
             // Always check result to see if we should return early
             let result = routable.handleRequest(request, response: response)
-            if case .Send(_, _) = result {
+            if result == .Send {
                 return result
             }
         }
         
         // If we didn't already return, we know to return .Continue
-        return .Continue(request, response)
+        return .Continue
     }
 }
 

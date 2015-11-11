@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             r, s in
             s.bodyString = "<html><body><form method=\"POST\">Name: <input type=\"text\" name=\"name\"/><input type=\"submit\"/></form></body></html>"
             s.headers["Content-Type"] = "text/html"
-            return .Send(r, s)
+            return .Send
         }
         
         server.post("/", Middleware.bodyParser(), {
@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             let name = r.body["name"] ?? "<unknown>"
             s.bodyString = "Hi \(name)"
-            return .Send(r, s)
+            return .Send
         })
        
         let port = 3002

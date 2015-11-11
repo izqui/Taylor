@@ -61,7 +61,7 @@ extension Middleware {
                 }
             }
             
-            return .Continue(request, response)
+            return .Continue
         }
     }
     
@@ -76,7 +76,7 @@ extension Middleware {
             let requestComponents = request.path.taylor_pathComponents
             
             if request.method != .GET || !self.matchPaths(requestPath: requestComponents, inPath: dirComponents) {
-                return .Continue(request, response)
+                return .Continue
             }
             
             let fileComponents = requestComponents[dirComponents.count..<requestComponents.count] // matched comps after dirComponents
@@ -92,9 +92,9 @@ extension Middleware {
                 }
                 
                 response.setFile(NSURL(fileURLWithPath: filePath))
-                return .Send(request, response)
+                return .Send
             } else {
-                return .Continue(request, response)
+                return .Continue
             }
         }
     }
@@ -112,7 +112,7 @@ extension Middleware {
             let text = "\(response.statusCode) \(request.method.rawValue) \(request.path) \(time)ms"
             
             printer(text)
-            return .Continue(request, response)
+            return .Continue
         }
     }
 }

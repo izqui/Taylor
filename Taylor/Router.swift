@@ -28,8 +28,8 @@ public class Router: Routable {
         let before = beforeHooks.filter { (routable) -> Bool in
             return routable.matchesRequest(request)
         }
-        if case .Send(let req, let res) = executeHandlers(before, request: request, response: response) {
-            return .Send(req, res)
+        if executeHandlers(before, request: request, response: response) == .Send {
+            return .Send
         }
         
         // Call first matching route handler
@@ -43,13 +43,13 @@ public class Router: Routable {
         if let matching = matching {
             // Always check result to see if we shoud return early
             let result = matching.handleRequest(request, response: response)
-            if case .Send(_, _) = result {
+            if result == .Send {
                 return result
             }
         }
         
         // If we didn't already return, we know to return .Continue
-        return .Continue(request, response)
+        return .Continue
     }
     
     public func callAfterHooks(request: Request, response: Response) -> Callback {

@@ -13,8 +13,8 @@ let CurrentSocket: Void -> SocketServer = {
 }
 
 public enum Callback {
-    case Continue(Request, Response)
-    case Send(Request, Response)
+    case Continue
+    case Send
 }
 
 public typealias Handler = (Request, Response) -> Callback
@@ -34,7 +34,7 @@ public class Server {
     var router: Router = Router()
     
     private var errorPages = [HTTPStatus:Handler]()
-    public var defaultErrorPage: Handler = { $1.bodyString = $1.statusLine; return .Send($0, $1) }
+    public var defaultErrorPage: Handler = { $1.bodyString = $1.statusLine; return .Send }
     
     public init(){
     }
@@ -65,7 +65,7 @@ public class Server {
     internal func handleRequest(socket: Socket, request: Request, response: Response) {
         
         let result = router.handleRequest(request, response: response)
-        if case .Continue(_, _) = result {
+        if result == .Continue {
             response.setError(.NotFound)
         }
         
