@@ -10,7 +10,7 @@ import Foundation
 
 public class Response {
     
-    private var statusLine: String {
+    public var statusLine: String {
         return status.statusLine()
     }
     public var statusCode: Int {
@@ -58,9 +58,7 @@ public class Response {
     }
     
     public func setError(errorStatus: HTTPStatus){
-        
         self.status = errorStatus
-        self.bodyString = self.statusLine
     }
     
     func headerData() -> NSData {
