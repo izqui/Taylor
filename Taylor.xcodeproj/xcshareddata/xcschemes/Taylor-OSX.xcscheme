@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1ED7D031B9CA92600D7E37E"
+               BlueprintIdentifier = "371A6FC91BF2EAEE00CF6BF9"
                BuildableName = "Taylor.framework"
-               BlueprintName = "Taylor"
+               BlueprintName = "Taylor-OSX"
                ReferencedContainer = "container:Taylor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1ED7D031B9CA92600D7E37E"
+            BlueprintIdentifier = "371A6FC91BF2EAEE00CF6BF9"
             BuildableName = "Taylor.framework"
-            BlueprintName = "Taylor"
+            BlueprintName = "Taylor-OSX"
             ReferencedContainer = "container:Taylor.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E1ED7D031B9CA92600D7E37E"
+            BlueprintIdentifier = "371A6FC91BF2EAEE00CF6BF9"
             BuildableName = "Taylor.framework"
-            BlueprintName = "Taylor"
+            BlueprintName = "Taylor-OSX"
             ReferencedContainer = "container:Taylor.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
