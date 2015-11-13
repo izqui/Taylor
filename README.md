@@ -23,7 +23,7 @@ server.get("/") { req, res in
 
 let port = 3002
 do {
-   print("Staring server on port: \(port)")
+   print("Starting server on port: \(port)")
    try server.serveHTTP(port: port, forever: true)
 } catch {
    print("Server start failed \(error)")
