@@ -8,7 +8,6 @@ XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 
 let server = Taylor.Server()
 
-
 server.get("/") {
     req, res, cb in
     let file_path = NSBundle.mainBundle().pathForResource("index", ofType: "html")
