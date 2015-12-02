@@ -4,7 +4,7 @@ import Taylor
 import Cocoa
 import XCPlayground
 
-XCPSetExecutionShouldContinueIndefinitely(true)
+XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 
 let server = Taylor.Server()
 
