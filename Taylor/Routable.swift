@@ -43,7 +43,7 @@ extension Routable {
 public enum PathComponent {
     case Static(String)
     case Parameter(String)
-    // case Wildcard(String)
+    case Wildcard // wildcards don't need an associated value (they're always just "*")
 }
 
 public struct Path {
@@ -54,48 +54,67 @@ public struct Path {
         self.rawPath = path
         self.components = []
         
-        var comps = path.componentsSeparatedByString("/")
+        let comps = path.componentsSeparatedByString("/")
         
-        //We don't care about the first element, which will always be nil since paths are like this: "/something"
-        for i in 1..<comps.count {
+        for (i, component) in comps.enumerate() {
             
-            //Check if comp is ":something" parameter -> if true, comp = ["", "something"] else comp = ["something"]
-            var compArr = comps[i].componentsSeparatedByString(":")
+            // We don't care about the first element,
+            // which will always be empty since paths should be like this: "/something"
+            if i == 0 {
+                continue
+            }
             
-            if compArr.count == 1 {
-                self.components.append(.Static(compArr[0]))
-            } else if compArr.count == 2 {
-                self.components.append(.Parameter(compArr[1]))
-            } else {
-                print("INCORRECT ROUTE SYNTAX for \(path)")
-                return
+            // if we don't do this check, getting the first character throws an error
+            if component == "" {
+                self.components.append(.Static(component))
+                continue
+            }
+            
+            // string indexes in Swift are messy...
+            let firstChar = String(component[component.startIndex])
+            
+            switch firstChar {
+                
+            // if first character is ":", then we have a parameter (ex: ":param")
+            case ":":
+                // all but first
+                let parameter = component.substringFromIndex(component.startIndex.advancedBy(1))
+                self.components.append(.Parameter(parameter))
+                
+            case "*":
+                self.components.append(.Wildcard)
+                
+            default:
+                self.components.append(.Static(component))
             }
         }
     }
     
     func matchesRequest(request: Request) -> Bool {
-        var parameters: [String : String] = [:]
-        let componentCount = self.components.count
+        var parameters = [String : String]()
         
-        if componentCount == request.pathComponents.count {
-            
-            for i in 0..<componentCount {
-                let pathComponent = self.components[i]
-                
-                switch pathComponent {
-                case .Static(let componentString):
-                    if componentString != request.pathComponents[i] {
-                        return false
-                    }
-                case .Parameter(let parameterString):
-                    parameters[parameterString] = request.pathComponents[i]
-                }
-            }
-            
-            request.parameters = parameters
-            return true
+        guard self.components.count == request.pathComponents.count else {
+            return false
         }
         
-        return false
+        for (i, pathComponent) in self.components.enumerate() {
+            
+            switch pathComponent {
+                
+            case .Static(let componentString):
+                guard componentString == request.pathComponents[i] else {
+                    return false
+                }
+                
+            case .Parameter(let parameterString):
+                parameters[parameterString] = request.pathComponents[i]
+                
+            case .Wildcard(_):
+                continue;
+            }
+        }
+        
+        request.parameters = parameters
+        return true
     }
 }
