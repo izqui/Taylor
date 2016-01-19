@@ -1,5 +1,5 @@
 # Taylor [![Version](https://img.shields.io/cocoapods/v/Taylor.svg?style=flat)](http://cocoapods.org/pods/Taylor) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Slack Status](https://taylor-framework.herokuapp.com/badge.svg)](https://taylor-framework.herokuapp.com)
-Swift 2.0 required. Working with xCode 7.1.
+Swift 2.0 required. Working with Xcode 7.1.
 
 Disclaimer: It is a work in progress, it may break. Use it at your own risk.
 
