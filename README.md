@@ -46,7 +46,7 @@ $ sh setup.sh
 And that's it, you should be good to go. Have fun!
 
 ## Usage
-You can use Taylor from the command line using [Cocoapods Rome](https://github.com/neonichu/Rome) or [Carthage](https://github.com/Carthage/Carthage) as dependency managers.
+You can use Taylor from the command line using [CocoaPods Rome](https://github.com/neonichu/Rome) or [Carthage](https://github.com/Carthage/Carthage) as dependency managers.
 
 ### Carthage
 Create a `Cartfile`:
