@@ -101,10 +101,11 @@ public class Request {
         }
         
         //Parse Headers
-        var i = 0
+        var i = 1
     
-        while ++i < http.count {
+        while i < http.count {
             
+            i += 1
             let content = http[i]
             
             if content == "" {
@@ -121,8 +122,9 @@ public class Request {
         if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
             
             var str = ""
-            while ++i < http.count {
-                
+            i += 1
+            while i < http.count {
+                i += 1
                 if !http[i].isEmpty {
                     str += "\(http[i])\n"
                 }

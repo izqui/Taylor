@@ -7,86 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF07D9AF1C15B641002DB895 /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A21C15B641002DB895 /* FileTypes.swift */; };
-		CF07D9B01C15B641002DB895 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF07D9A31C15B641002DB895 /* Info.plist */; };
-		CF07D9B11C15B641002DB895 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A41C15B641002DB895 /* Middleware.swift */; };
-		CF07D9B21C15B641002DB895 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A51C15B641002DB895 /* Request.swift */; };
-		CF07D9B31C15B641002DB895 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A61C15B641002DB895 /* Response.swift */; };
-		CF07D9B41C15B641002DB895 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A71C15B641002DB895 /* Routable.swift */; };
-		CF07D9B51C15B641002DB895 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A81C15B641002DB895 /* Route.swift */; };
-		CF07D9B61C15B641002DB895 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9A91C15B641002DB895 /* RouteHandler.swift */; };
-		CF07D9B71C15B641002DB895 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9AA1C15B641002DB895 /* Router.swift */; };
-		CF07D9B81C15B641002DB895 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9AB1C15B641002DB895 /* Socket.swift */; };
-		CF07D9B91C15B641002DB895 /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9AC1C15B641002DB895 /* stdext.swift */; };
-		CF07D9BB1C15B641002DB895 /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07D9AE1C15B641002DB895 /* Taylor.swift */; };
-		E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */; };
-		E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E177A4541B9CCBA700D1ED6B /* Assets.xcassets */; };
-		E177A4581B9CCBA700D1ED6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E177A4561B9CCBA700D1ED6B /* Main.storyboard */; };
-		E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; };
-		E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1ED7D041B9CA92600D7E37E /* Taylor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CF7B5E711CBE62A900FA0C43 /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E641CBE62A900FA0C43 /* FileTypes.swift */; };
+		CF7B5E721CBE62A900FA0C43 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF7B5E651CBE62A900FA0C43 /* Info.plist */; };
+		CF7B5E731CBE62A900FA0C43 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E661CBE62A900FA0C43 /* Middleware.swift */; };
+		CF7B5E741CBE62A900FA0C43 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E671CBE62A900FA0C43 /* Request.swift */; };
+		CF7B5E751CBE62A900FA0C43 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E681CBE62A900FA0C43 /* Response.swift */; };
+		CF7B5E761CBE62A900FA0C43 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E691CBE62A900FA0C43 /* Routable.swift */; };
+		CF7B5E771CBE62A900FA0C43 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6A1CBE62A900FA0C43 /* Route.swift */; };
+		CF7B5E781CBE62A900FA0C43 /* RouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6B1CBE62A900FA0C43 /* RouteHandler.swift */; };
+		CF7B5E791CBE62A900FA0C43 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6C1CBE62A900FA0C43 /* Router.swift */; };
+		CF7B5E7A1CBE62A900FA0C43 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6D1CBE62A900FA0C43 /* Socket.swift */; };
+		CF7B5E7B1CBE62A900FA0C43 /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6E1CBE62A900FA0C43 /* stdext.swift */; };
+		CF7B5E7C1CBE62A900FA0C43 /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = CF7B5E6F1CBE62A900FA0C43 /* Taylor.h */; };
+		CF7B5E7D1CBE62A900FA0C43 /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E701CBE62A900FA0C43 /* Taylor.swift */; };
 		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
-		E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
-		E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E177A46C1B9CCC3300D1ED6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1ED7CFB1B9CA92600D7E37E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1ED7D031B9CA92600D7E37E;
-			remoteInfo = Taylor;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E177A4721B9CCC6800D1ED6B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E177A4711B9CCC6700D1ED6B /* Taylor.framework in Embed Frameworks */,
-				E18846861BDE372D00720B26 /* SwiftSockets.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		CF07D9A21C15B641002DB895 /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Sources/FileTypes.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9A31C15B641002DB895 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
-		CF07D9A41C15B641002DB895 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Sources/Middleware.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9A51C15B641002DB895 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Sources/Request.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9A61C15B641002DB895 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Response.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9A71C15B641002DB895 /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Routable.swift; path = Sources/Routable.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9A81C15B641002DB895 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Sources/Route.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9A91C15B641002DB895 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteHandler.swift; path = Sources/RouteHandler.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9AA1C15B641002DB895 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Sources/Router.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9AB1C15B641002DB895 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/Socket.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9AC1C15B641002DB895 /* stdext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stdext.swift; path = Sources/stdext.swift; sourceTree = SOURCE_ROOT; };
-		CF07D9AD1C15B641002DB895 /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Sources/Taylor.h; sourceTree = SOURCE_ROOT; };
-		CF07D9AE1C15B641002DB895 /* Taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Taylor.swift; path = Sources/Taylor.swift; sourceTree = SOURCE_ROOT; };
-		E177A44E1B9CCBA700D1ED6B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E177A4541B9CCBA700D1ED6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E177A4571B9CCBA700D1ED6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E177A4591B9CCBA700D1ED6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF7B5E641CBE62A900FA0C43 /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Sources/Taylor/FileTypes.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E651CBE62A900FA0C43 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Taylor/Info.plist; sourceTree = SOURCE_ROOT; };
+		CF7B5E661CBE62A900FA0C43 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Sources/Taylor/Middleware.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E671CBE62A900FA0C43 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Sources/Taylor/Request.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E681CBE62A900FA0C43 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Taylor/Response.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E691CBE62A900FA0C43 /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Routable.swift; path = Sources/Taylor/Routable.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E6A1CBE62A900FA0C43 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Sources/Taylor/Route.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E6B1CBE62A900FA0C43 /* RouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteHandler.swift; path = Sources/Taylor/RouteHandler.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E6C1CBE62A900FA0C43 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Sources/Taylor/Router.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E6D1CBE62A900FA0C43 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E6E1CBE62A900FA0C43 /* stdext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stdext.swift; path = Sources/Taylor/stdext.swift; sourceTree = SOURCE_ROOT; };
+		CF7B5E6F1CBE62A900FA0C43 /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Sources/Taylor/Taylor.h; sourceTree = SOURCE_ROOT; };
+		CF7B5E701CBE62A900FA0C43 /* Taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Taylor.swift; path = Sources/Taylor/Taylor.swift; sourceTree = SOURCE_ROOT; };
 		E18846801BDE362700720B26 /* SwiftSockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSockets.framework; path = Carthage/Build/Mac/SwiftSockets.framework; sourceTree = "<group>"; };
 		E1ED7D041B9CA92600D7E37E /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E177A44B1B9CCBA700D1ED6B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E18846851BDE372D00720B26 /* SwiftSockets.framework in Frameworks */,
-				E177A46B1B9CCC1A00D1ED6B /* Taylor.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E1ED7D001B9CA92600D7E37E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,23 +53,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E177A44F1B9CCBA700D1ED6B /* TestApp */ = {
-			isa = PBXGroup;
-			children = (
-				E177A4501B9CCBA700D1ED6B /* AppDelegate.swift */,
-				E177A4541B9CCBA700D1ED6B /* Assets.xcassets */,
-				E177A4561B9CCBA700D1ED6B /* Main.storyboard */,
-				E177A4591B9CCBA700D1ED6B /* Info.plist */,
-			);
-			path = TestApp;
-			sourceTree = "<group>";
-		};
 		E1ED7CFA1B9CA92600D7E37E = {
 			isa = PBXGroup;
 			children = (
 				E18846801BDE362700720B26 /* SwiftSockets.framework */,
 				E1ED7D061B9CA92600D7E37E /* Taylor */,
-				E177A44F1B9CCBA700D1ED6B /* TestApp */,
 				E1ED7D051B9CA92600D7E37E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				E1ED7D041B9CA92600D7E37E /* Taylor.framework */,
-				E177A44E1B9CCBA700D1ED6B /* TestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,19 +73,19 @@
 		E1ED7D061B9CA92600D7E37E /* Taylor */ = {
 			isa = PBXGroup;
 			children = (
-				CF07D9A21C15B641002DB895 /* FileTypes.swift */,
-				CF07D9A31C15B641002DB895 /* Info.plist */,
-				CF07D9A41C15B641002DB895 /* Middleware.swift */,
-				CF07D9A51C15B641002DB895 /* Request.swift */,
-				CF07D9A61C15B641002DB895 /* Response.swift */,
-				CF07D9A71C15B641002DB895 /* Routable.swift */,
-				CF07D9A81C15B641002DB895 /* Route.swift */,
-				CF07D9A91C15B641002DB895 /* RouteHandler.swift */,
-				CF07D9AA1C15B641002DB895 /* Router.swift */,
-				CF07D9AB1C15B641002DB895 /* Socket.swift */,
-				CF07D9AC1C15B641002DB895 /* stdext.swift */,
-				CF07D9AD1C15B641002DB895 /* Taylor.h */,
-				CF07D9AE1C15B641002DB895 /* Taylor.swift */,
+				CF7B5E641CBE62A900FA0C43 /* FileTypes.swift */,
+				CF7B5E651CBE62A900FA0C43 /* Info.plist */,
+				CF7B5E661CBE62A900FA0C43 /* Middleware.swift */,
+				CF7B5E671CBE62A900FA0C43 /* Request.swift */,
+				CF7B5E681CBE62A900FA0C43 /* Response.swift */,
+				CF7B5E691CBE62A900FA0C43 /* Routable.swift */,
+				CF7B5E6A1CBE62A900FA0C43 /* Route.swift */,
+				CF7B5E6B1CBE62A900FA0C43 /* RouteHandler.swift */,
+				CF7B5E6C1CBE62A900FA0C43 /* Router.swift */,
+				CF7B5E6D1CBE62A900FA0C43 /* Socket.swift */,
+				CF7B5E6E1CBE62A900FA0C43 /* stdext.swift */,
+				CF7B5E6F1CBE62A900FA0C43 /* Taylor.h */,
+				CF7B5E701CBE62A900FA0C43 /* Taylor.swift */,
 			);
 			name = Taylor;
 			path = TaylorP;
@@ -156,31 +98,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7B5E7C1CBE62A900FA0C43 /* Taylor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E177A44D1B9CCBA700D1ED6B /* TestApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E177A4651B9CCBA700D1ED6B /* Build configuration list for PBXNativeTarget "TestApp" */;
-			buildPhases = (
-				E177A44A1B9CCBA700D1ED6B /* Sources */,
-				E177A44B1B9CCBA700D1ED6B /* Frameworks */,
-				E177A44C1B9CCBA700D1ED6B /* Resources */,
-				E177A4721B9CCC6800D1ED6B /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E177A46D1B9CCC3300D1ED6B /* PBXTargetDependency */,
-			);
-			name = TestApp;
-			productName = TestApp;
-			productReference = E177A44E1B9CCBA700D1ED6B /* TestApp.app */;
-			productType = "com.apple.product-type.application";
-		};
 		E1ED7D031B9CA92600D7E37E /* Taylor */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1ED7D0C1B9CA92600D7E37E /* Build configuration list for PBXNativeTarget "Taylor" */;
@@ -205,13 +129,10 @@
 		E1ED7CFB1B9CA92600D7E37E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jorge Izquierdo";
 				TargetAttributes = {
-					E177A44D1B9CCBA700D1ED6B = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					E1ED7D031B9CA92600D7E37E = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -231,116 +152,43 @@
 			projectRoot = "";
 			targets = (
 				E1ED7D031B9CA92600D7E37E /* Taylor */,
-				E177A44D1B9CCBA700D1ED6B /* TestApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E177A44C1B9CCBA700D1ED6B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E177A4551B9CCBA700D1ED6B /* Assets.xcassets in Resources */,
-				E177A4581B9CCBA700D1ED6B /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E1ED7D021B9CA92600D7E37E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF07D9B01C15B641002DB895 /* Info.plist in Resources */,
+				CF7B5E721CBE62A900FA0C43 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E177A44A1B9CCBA700D1ED6B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E177A4511B9CCBA700D1ED6B /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E1ED7CFF1B9CA92600D7E37E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF07D9B71C15B641002DB895 /* Router.swift in Sources */,
-				CF07D9B31C15B641002DB895 /* Response.swift in Sources */,
-				CF07D9AF1C15B641002DB895 /* FileTypes.swift in Sources */,
-				CF07D9B21C15B641002DB895 /* Request.swift in Sources */,
-				CF07D9B51C15B641002DB895 /* Route.swift in Sources */,
-				CF07D9B91C15B641002DB895 /* stdext.swift in Sources */,
-				CF07D9B81C15B641002DB895 /* Socket.swift in Sources */,
-				CF07D9B11C15B641002DB895 /* Middleware.swift in Sources */,
-				CF07D9B41C15B641002DB895 /* Routable.swift in Sources */,
-				CF07D9B61C15B641002DB895 /* RouteHandler.swift in Sources */,
-				CF07D9BB1C15B641002DB895 /* Taylor.swift in Sources */,
+				CF7B5E791CBE62A900FA0C43 /* Router.swift in Sources */,
+				CF7B5E751CBE62A900FA0C43 /* Response.swift in Sources */,
+				CF7B5E711CBE62A900FA0C43 /* FileTypes.swift in Sources */,
+				CF7B5E741CBE62A900FA0C43 /* Request.swift in Sources */,
+				CF7B5E771CBE62A900FA0C43 /* Route.swift in Sources */,
+				CF7B5E7B1CBE62A900FA0C43 /* stdext.swift in Sources */,
+				CF7B5E7A1CBE62A900FA0C43 /* Socket.swift in Sources */,
+				CF7B5E731CBE62A900FA0C43 /* Middleware.swift in Sources */,
+				CF7B5E761CBE62A900FA0C43 /* Routable.swift in Sources */,
+				CF7B5E781CBE62A900FA0C43 /* RouteHandler.swift in Sources */,
+				CF7B5E7D1CBE62A900FA0C43 /* Taylor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E177A46D1B9CCC3300D1ED6B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1ED7D031B9CA92600D7E37E /* Taylor */;
-			targetProxy = E177A46C1B9CCC3300D1ED6B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E177A4561B9CCBA700D1ED6B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E177A4571B9CCBA700D1ED6B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		E177A4661B9CCBA700D1ED6B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				INFOPLIST_FILE = TestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.TestApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E177A4671B9CCBA700D1ED6B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				INFOPLIST_FILE = TestApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.TestApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		E1ED7D0A1B9CA92600D7E37E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,15 +327,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E177A4651B9CCBA700D1ED6B /* Build configuration list for PBXNativeTarget "TestApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E177A4661B9CCBA700D1ED6B /* Debug */,
-				E177A4671B9CCBA700D1ED6B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		E1ED7CFE1B9CA92600D7E37E /* Build configuration list for PBXProject "Taylor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

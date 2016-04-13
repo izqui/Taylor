@@ -7,6 +7,13 @@
 //
 
 import Foundation
+#if os(Linux) // for sockaddr_in
+    import Glibc
+let sysSleep = Glibc.sleep
+#else
+    import Darwin
+let sysSleep = Darwin.sleep
+#endif
 
 let CurrentSocket: Void -> SocketServer = {
     return SwiftSocketServer()
@@ -52,8 +59,7 @@ public class Server {
             
             // So the program doesn't end
             while true {
-                // need to get rid of this somehow...
-                NSRunLoop.mainRunLoop().run()
+               sysSleep(10)
             }
         }
     }
