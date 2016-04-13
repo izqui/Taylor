@@ -26,7 +26,7 @@ DESC
   
   s.requires_arc = true
 
-  s.source_files = 'Taylor/**/*.swift'
+  s.source_files = 'Sources/**/*.swift'
 
   s.dependency 'SwiftSockets', '~> 0.20.2'
 end
