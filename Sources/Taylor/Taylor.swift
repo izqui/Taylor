@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if os(Linux) // for sockaddr_in
+#if os(Linux)
     import Glibc
 let sysSleep = Glibc.sleep
 #else
