@@ -2,7 +2,7 @@ Pods/
 Example/Pods/
 Carthage/Build/
 Carthage/Checkouts/taylor
-
+.build/
 # OS X
 .DS_Store
 
