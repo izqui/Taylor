@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF70C7621CC6772600DACD21 /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = CF70C7601CC676F000DACD21 /* Taylor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF7B5E711CBE62A900FA0C43 /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E641CBE62A900FA0C43 /* FileTypes.swift */; };
-		CF7B5E721CBE62A900FA0C43 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF7B5E651CBE62A900FA0C43 /* Info.plist */; };
 		CF7B5E731CBE62A900FA0C43 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E661CBE62A900FA0C43 /* Middleware.swift */; };
 		CF7B5E741CBE62A900FA0C43 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E671CBE62A900FA0C43 /* Request.swift */; };
 		CF7B5E751CBE62A900FA0C43 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E681CBE62A900FA0C43 /* Response.swift */; };
@@ -18,12 +18,12 @@
 		CF7B5E791CBE62A900FA0C43 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6C1CBE62A900FA0C43 /* Router.swift */; };
 		CF7B5E7A1CBE62A900FA0C43 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6D1CBE62A900FA0C43 /* Socket.swift */; };
 		CF7B5E7B1CBE62A900FA0C43 /* stdext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E6E1CBE62A900FA0C43 /* stdext.swift */; };
-		CF7B5E7C1CBE62A900FA0C43 /* Taylor.h in Headers */ = {isa = PBXBuildFile; fileRef = CF7B5E6F1CBE62A900FA0C43 /* Taylor.h */; };
 		CF7B5E7D1CBE62A900FA0C43 /* Taylor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7B5E701CBE62A900FA0C43 /* Taylor.swift */; };
 		E18846811BDE362700720B26 /* SwiftSockets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18846801BDE362700720B26 /* SwiftSockets.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF70C7601CC676F000DACD21 /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Sources/Taylor.h; sourceTree = SOURCE_ROOT; };
 		CF7B5E641CBE62A900FA0C43 /* FileTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileTypes.swift; path = Sources/Taylor/FileTypes.swift; sourceTree = SOURCE_ROOT; };
 		CF7B5E651CBE62A900FA0C43 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Taylor/Info.plist; sourceTree = SOURCE_ROOT; };
 		CF7B5E661CBE62A900FA0C43 /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Sources/Taylor/Middleware.swift; sourceTree = SOURCE_ROOT; };
@@ -35,7 +35,6 @@
 		CF7B5E6C1CBE62A900FA0C43 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Sources/Taylor/Router.swift; sourceTree = SOURCE_ROOT; };
 		CF7B5E6D1CBE62A900FA0C43 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Sources/Taylor/Socket.swift; sourceTree = SOURCE_ROOT; };
 		CF7B5E6E1CBE62A900FA0C43 /* stdext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = stdext.swift; path = Sources/Taylor/stdext.swift; sourceTree = SOURCE_ROOT; };
-		CF7B5E6F1CBE62A900FA0C43 /* Taylor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Taylor.h; path = Sources/Taylor/Taylor.h; sourceTree = SOURCE_ROOT; };
 		CF7B5E701CBE62A900FA0C43 /* Taylor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Taylor.swift; path = Sources/Taylor/Taylor.swift; sourceTree = SOURCE_ROOT; };
 		E18846801BDE362700720B26 /* SwiftSockets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSockets.framework; path = Carthage/Build/Mac/SwiftSockets.framework; sourceTree = "<group>"; };
 		E1ED7D041B9CA92600D7E37E /* Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +83,8 @@
 				CF7B5E6C1CBE62A900FA0C43 /* Router.swift */,
 				CF7B5E6D1CBE62A900FA0C43 /* Socket.swift */,
 				CF7B5E6E1CBE62A900FA0C43 /* stdext.swift */,
-				CF7B5E6F1CBE62A900FA0C43 /* Taylor.h */,
 				CF7B5E701CBE62A900FA0C43 /* Taylor.swift */,
+				CF70C7601CC676F000DACD21 /* Taylor.h */,
 			);
 			name = Taylor;
 			path = TaylorP;
@@ -98,7 +97,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF7B5E7C1CBE62A900FA0C43 /* Taylor.h in Headers */,
+				CF70C7621CC6772600DACD21 /* Taylor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +160,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF7B5E721CBE62A900FA0C43 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +287,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Taylor/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.Taylor;
@@ -315,7 +313,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Taylor/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.izqui.Taylor;

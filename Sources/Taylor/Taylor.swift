@@ -29,12 +29,13 @@ public typealias Handler = (Request, Response) -> Callback
 public enum HTTPMethod: String {
     
     case GET = "GET"
-    case POST = "POST"
     case PUT = "PUT"
     case HEAD = "HEAD"
+    case POST = "POST"
+    case PATCH = "PATCH"
+    case DELETE = "DELETE"
     case UNDEFINED = "UNDEFINED" // it will never match
 }
-
 public class Server {
     
     private var socket: SocketServer = CurrentSocket()
