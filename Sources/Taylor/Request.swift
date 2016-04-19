@@ -119,7 +119,7 @@ public class Request {
             }
         }
         
-        if i < http.count && (self.method == Taylor.HTTPMethod.POST || false) { // Add other methods that support body data
+        if i < http.count && supportsBodyData() { // Add other methods that support body data
             
             var str = ""
             i += 1
@@ -131,6 +131,22 @@ public class Request {
             }
             
             self.bodyString = str.isEmpty ? nil : str
+        }
+    }
+    
+    private func supportsBodyData() -> Bool {
+        switch self.method {
+        case Taylor.HTTPMethod.POST:
+            return true
+            
+        case Taylor.HTTPMethod.PUT:
+            return true
+            
+        case Taylor.HTTPMethod.PATCH:
+            return true
+            
+        default:
+            return false;
         }
     }
     
