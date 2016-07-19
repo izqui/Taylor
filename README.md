@@ -1,6 +1,6 @@
 # Taylor [![Version](https://img.shields.io/cocoapods/v/Taylor.svg?style=flat)](http://cocoapods.org/pods/Taylor) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Slack Status](https://taylor-framework.herokuapp.com/badge.svg)](https://taylor-framework.herokuapp.com)
 
-### Disclaimer: Not actively working on it anymore. You can checkout [some](https://github.com/qutheory/vapor) [alternatives](https://github.com/IBM-Swift/Kitura)
+### Disclaimer: Not actively working on it anymore. You can check out [some](https://github.com/qutheory/vapor) [alternatives](https://github.com/IBM-Swift/Kitura)
 
 Swift 2.0 required. Working with Xcode 7.1.
 
